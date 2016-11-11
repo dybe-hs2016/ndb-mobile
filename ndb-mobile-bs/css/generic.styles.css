@@ -2,19 +2,45 @@
 /*AUTHOR: Tobias Buchinger*/
 /*DATE CREATED: 2016.11.11*/
 
-/*Font settings*/
+/*CSS selectors*/
+	/*SOURCE: http://www.w3schools.com/cssref/css_selectors.asp*/
+	/*.class*/
+	/*#id*/
+	/* * -> all elements*/
+	/*a:state -> lind in state (link, active, hover, visited)*/
 
-	/*Bootstrap global default font Settings*/
-		/*font-size: 14px*/
-		/* line-height: 1.428*/
+/*Bootstrap global default settings*/
+	/*font-size: 14px*/
+	/*line-height: 1.428*/
+	/*<p> bottom margin 10px*/
+	/**/
 
-	h1 {
-		font-family: 'Source Sans Pro', sans-serif;
-	}
+h1 {
+	font-family: 'Source Sans Pro', sans-serif;
+}
 
-	p {
-		font-family: 'Noto Sans', sans-serif;
-	}
+h2 {
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 700;
+	font-size: 1.5em;
+}
+
+/*FIND BETTER SOLUTION!*/
+.heading {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-synthesis: 2em;
+}
+
+.value { /* use for table headings*/
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 700;
+	font-size: 1.0em;
+}
+
+.key { /* use for table content*/
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 400;
+}
 
     
 
