@@ -1,0 +1,3 @@
+SOME PRINCIPLES ON NAMING FILES
+
+    * Only give generic file names, so that you dont have to alter the coede everytime you migrate to another version just to fix the filenames. The codes version will be written in the File intsselve.
