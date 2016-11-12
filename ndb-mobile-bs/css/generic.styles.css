@@ -17,6 +17,8 @@
 
 h1 {
 	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	font-size: 2.5em;
 }
 
 h2 {
@@ -26,24 +28,19 @@ h2 {
 }
 
 /*FIND BETTER SOLUTION!*/
-.heading {
+.htbl {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-synthesis: 2em;
+	font-weight: 300;
+	font-size: 1.5em;
 }
 
-.value { /* use for table headings*/
+.key { /* use for table headings*/
 	font-family: 'Noto Sans', sans-serif;
 	font-weight: 700;
-	font-size: 1.0em;
+	/*font-size: 1.0em;*/
 }
 
-.key { /* use for table content*/
+.val { /* use for table content*/
 	font-family: 'Noto Sans', sans-serif;
 	font-weight: 400;
 }
-
-    
-
-    
-
- 

@@ -1,6 +1,9 @@
 # notendatenbank-mobile
 In diesem Repo verwalten und koordinieren wir unser soundtracker Projekt. Hier ist auch zube integriert.
 
+# Homepage
+[proto.html] (http://313563-4.web.fh-htwchur.ch/dybe/ndb-mobile-bs/proto.html)
+
 # SOME PRINCIPLES ON NAMING FILES
 
  1 Only give generic file names (no version numbers), so that you dont have to alter the coede everytime you migrate to another version just to fix the filenames. The codes version will be written in the File intsselve.
