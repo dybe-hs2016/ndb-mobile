@@ -27,20 +27,43 @@ h2 {
 	font-size: 1.5em;
 }
 
+/* TABLES */
 /*FIND BETTER SOLUTION!*/
-.htbl {
+.htbl { /* use for tabel headings*/
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 300;
 	font-size: 1.5em;
 }
 
-.key { /* use for table headings*/
+.key { /* use for field name */
 	font-family: 'Noto Sans', sans-serif;
 	font-weight: 700;
 	/*font-size: 1.0em;*/
 }
 
-.val { /* use for table content*/
+.val { /* use for field content*/
 	font-family: 'Noto Sans', sans-serif;
 	font-weight: 400;
+}
+
+/* LOG IN BUTTON */
+.btn-li {
+	
+}
+
+/* NAV BAR*/
+
+.navbar-default {
+	margin-top: 3%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	background-color: white;
+
+}
+
+.navbar-left>img {
+	/*max-height: 100%;
+	height: 100%;*/
+	max-width: 100%;
+	width: 80%;
 }
