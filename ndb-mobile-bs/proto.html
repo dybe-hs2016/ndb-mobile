@@ -2,6 +2,10 @@
 	<html lang="en">
 
 		<head>
+
+			<!-- INCLUDE generic elements : Set php variables for page sensitive content!!! -->
+			<!-- <?php include("head.html") ?> -->
+
 			<!-- set page properties -->
 				<!-- MUST COME FIRST IN HEAD -->
 
@@ -46,44 +50,51 @@
 		
 		</head>
 
-		<!-- TODO -->
-
-		<!-- NAV -->
-		<!-- BREADCRUMB -->
-		<!-- PAGINATION / PAGER-->
-		<!-- FORMS -->
-		<!-- SEARCH GLYPHICON: Search / Disclaimer / GitHub / etc -->
-
 		<body>
+
+			<!-- INCLUDE generic elements : Set php variables for page sensitive content!!! -->
+			<!-- <?php include("nav.html") ?> -->
+			<!-- <?php include("login.html") ?> -->
+			<!-- <?php include("footer.html") ?> -->
 
 			<!-- NAV BAR that will collapse on small screens to the top right corner -->
 				<nav class="navbar navbar-default">
+
 					<div class="container-fluid">
+
 						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+							<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#collapseNavbar">
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-						<a class="navbar-left" href="proto.html">
-							<img src="images/ndb-logo-xs.png">
-						</a>
+
+							<a class="navbar-left" href="proto.html">
+								<img src="images/ndb-logo-xs.png">
+							</a>
+
 						</div>
-						<div class="collapse navbar-collapse" id="myNavbar">
+
+						<!-- Everything you want hidden at 940px or less, place within here -->
+						<div class="collapse navbar-collapse" id="collapseNavbar">
+
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">Home</a></li>
+
+								<li class="active"><a href="proto.html">Home</a></li>
 								<li><a href="#">Erweitere Suche</a></li>
 								<li><a href="#">Meine Sammlung</a></li>
 								<li><a href="#">Zufallstreffer</a></li>
 								<li><a href="#">Noten Erfassen</a></li>
 								<li><a href="#">Benutzereinstellungen</a></li>
-								<li><a href="#">Projekt auf GitHub</a></li>
+								<li><a href="https://github.com/dybe-hs2016/ndb-mobile">Projekt auf GitHub</a></li>
 								<li><a href="#">Impressum</a></li>
 								<li><a href="#">Disclaimer</a></li>
+
 							</ul>
-							<ul class="nav navbar-nav navbar-right">
+							<!-- <ul class="nav navbar-nav navbar-right">
 								<li><a href="#"><span class="glyphicon glyphicon-user"></span> Log Out</a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</nav>
@@ -101,8 +112,29 @@
 							<!-- col crate gutters (padding)  -->
 							<!-- MAIN VIEW METADATA -->
 							<div class="col-sm-9">
+
+							<!-- SEARCH FORM vs INPUT -->
+
+							<!-- FIX NOT CORNER-RADIUS!!! -->
+
+								<div class="input-group">									
+									<!-- <form action="get"> -->
+										<input type="search" class="form-control" id="src" placeholder="Suche..." formaction="results.html" autofocus>
+										<span class="input-group-btn">
+											<button class="btn btn-default btn-src" type="button">
+												<span class="glyphicon glyphicon-search"></span>
+											</button>
+										</span>	
+									<!-- </form> -->
+								</div>
+
+								<!-- START PAGE -->	
+									<h1> Über die ndb </h1>
+										<p class="text"> Die ndb richtet sich an Musikerinnen und Musiker, die ihre Notensammlung digital verwalten möchten. Als registrierte Benutzerin oder registrierter Benutzer können Sie hier Noten erfassen und in ihrer persönlichen Sammlung verwalten. Haben Sie keinen Account, können Sie die in der dnb erfassten Noten durchsuchen. </p>
+										<p class="text"> Die ndb entstand im Rahmen des Kurses Dynamische Benutzeroberflächen des Studienganges Informationswissenschaft der HTW Chur im Herbstsemester 2016. </p>
+
 								
-								<!-- table metadata -->
+								<!-- ENTRY METADATA TABLE -->
 								<h1>Die Seeräuber Jenny</h1>
 								<div class="table">
 									<table class="table">
@@ -156,28 +188,56 @@
 										</tr>
 										<tr> <!-- 12 Link zu Aufnahme -->
 											<th class="key">[LINK ZU AUFNAHME]]</th>
-											<th class="val"><a href="https://www.youtube.com/watch?v=Ec0clERjQ5A" target="_blank">YOUTUBE: Lotte Lenya Singing "Seeräuber Jenny" (Pirate Jenny)</th>
+											<th class="val"><a href="https://www.youtube.com/watch?v=Ec0clERjQ5A" target="_blank">YOUTUBE: Lotte Lenya Singing "Seeräuber Jenny" (Pirate Jenny)</a></th>
 										</tr>
 										<tr> <!-- 13 Link zu Noten -->
 											<th class="key">[LINK ZU NOTEN]</th>
 											<th class="val">Kurt Weill, Bert Brecht</th>
 										</tr>
 									</table>
-								</div> 
+								</div>
+
+								
+								<!-- DATA ENTRY FORMS -->
+
 							</div>
 
+
+	
 							<!-- SIDE VIEW LOG IN -->
 							<div class="col-sm-3">
-								<button class="btn bnt-default btn-md" type="submit" value="send login info"> Log In </button>
+								<h1> Benutzer Zone </h1>
+
+								<!-- Log In Form and Button -->
+								<!-- lable class .sr-only if you want screenreaders still be able to read the lable but don't wihs to show it on the page -->
+								 <form>
+
+								 <!-- EMAIL -->
+								  <div class="form-group">
+								    <label class="sr-only" for="email">email address</label>
+								    <input type="email" class="form-control" id="email" placeholder="Benutzername...">
+								  </div>
+
+								  <!-- PASSWORD -->
+								  <div class="form-group">
+								    <label class="sr-only" for="pwd">password</label>
+								    <input type="password" class="form-control" id="pwd" placeholder="Passwort...">
+								  </div>
+
+								  <!-- LOG IN -->
+								  <button type="submit" class="btn btn-default btn-li">Log In</button>
+								</form>
+
+								<!-- Sign Up / Forgot Password Links -->
+
+								<p> <a href="signup.html"> Neuen Benutzer registrieren </a> </p>
+								<p>	<a href="forgotwp.html"> Passwort vergessen </a> </p>
+								
 							</div>
 						</div>
 
-					<h1> should be displayed in source sans pro, 300,  </h1>
-
-					<h2> should be displayed in noto sans 700 </h2>
-
-					<p> should be displayed in noto sans 400 </p>
 					
+
 				</div>
 
 			<!-- load Bootstrap and JQuey [choose local or MaxCND] -->

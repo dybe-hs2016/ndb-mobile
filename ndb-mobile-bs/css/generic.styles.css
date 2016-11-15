@@ -27,43 +27,185 @@ h2 {
 	font-size: 1.5em;
 }
 
+body {
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 400;	
+}
+
+.text {
+	margin-left: 5px;
+}
+
+
 /* TABLES */
-/*FIND BETTER SOLUTION!*/
-.htbl { /* use for tabel headings*/
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 300;
-	font-size: 1.5em;
-}
+	.htbl { /* use for tabel headings*/
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 300;
+		font-size: 1.5em;
+	}
 
-.key { /* use for field name */
-	font-family: 'Noto Sans', sans-serif;
-	font-weight: 700;
-	/*font-size: 1.0em;*/
-}
+	.key { /* use for field name */
+		font-family: 'Noto Sans', sans-serif;
+		font-weight: 700;
+		/*font-size: 1.0em;*/
+	}
 
-.val { /* use for field content*/
-	font-family: 'Noto Sans', sans-serif;
-	font-weight: 400;
-}
+	.val { /* use for field content*/
+		font-family: 'Noto Sans', sans-serif;
+		font-weight: 400;
+	}
 
-/* LOG IN BUTTON */
-.btn-li {
-	
-}
+/* NAV BAR */
 
-/* NAV BAR*/
+	/* NAV logo */
+	.navbar-left>img {
+		/*max-height: 100%;
+		height: 100%;*/
+		/* scale the logo*/
+		max-width: 100%;
+		width: 80%;		
+	}
 
-.navbar-default {
-	margin-top: 3%;
-	padding-top: 1%;
-	padding-bottom: 1%;
-	background-color: white;
+	/* float logo vertically centered : works only when line height = img heigth!!!*/
+	.navbar-nav li a {
+		line-height: 25px;
+	}
 
-}
+	/*NAVBAR COLOR SCHEME*/
+	/*SOURCE: http://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0*/
 
-.navbar-left>img {
-	/*max-height: 100%;
-	height: 100%;*/
-	max-width: 100%;
-	width: 80%;
-}
+	.navbar-default {
+		background-color: #ffffff;
+		border-color: #ffffff;
+		margin-top: 5%;
+		}
+
+	/* NAV entries text and background color*/
+		.navbar-default .navbar-text {
+			color: #4d4d4d;
+		}
+		.navbar-default .navbar-nav > li > a {
+			color: #4d4d4d;
+		}
+		.navbar-default .navbar-nav > li > a:hover,
+		.navbar-default .navbar-nav > li > a:focus {
+			color: #e6e6e6;
+			background-color: #4d4d4d;
+		}
+
+	/* NAV DROPDOWN-MENU may be deleted if we dont use a dropdown-menu!!! */
+		.navbar-default .navbar-nav > li > .dropdown-menu {
+			background-color: #ffffff;
+		}
+		.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+			color: #4d4d4d;
+		}
+		.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+		.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+			color: #e6e6e6;
+			background-color: #4d4d4d;
+		}
+		.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+			background-color: #4d4d4d;
+		}
+		.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+		.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+		.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+			color: #e6e6e6;
+			background-color: #4d4d4d;
+		}
+
+	/*NAV entries */
+
+		/* marks the current page */
+		.navbar-default .navbar-nav > .active > a,
+		.navbar-default .navbar-nav > .active > a:hover,
+		.navbar-default .navbar-nav > .active > a:focus {
+			color: #4d4d4d; /*maybe darker?*/
+			background-color: #FF2A2A;
+		}
+
+		/* dont know what this does....*/
+		.navbar-default .navbar-nav > .open > a,
+		.navbar-default .navbar-nav > .open > a:hover,
+		.navbar-default .navbar-nav > .open > a:focus {
+			color: #e6e6e6;
+			background-color: #4d4d4d;
+		}
+
+	/* NAV collapsed menue icon */
+		.navbar-default .navbar-toggle {
+			border-color: #4d4d4d;
+		}
+		.navbar-default .navbar-toggle:hover,
+		.navbar-default .navbar-toggle:focus {
+			background-color: #4d4d4d;
+		}
+
+		/* NAV icon-bar */
+		.navbar-default .navbar-toggle .icon-bar{
+			background-color: #4d4d4d;
+		}
+
+		.navbar-default .navbar-toggle:hover .icon-bar,
+		.navbar-default .navbar-toggle:focus .icon-bar {
+			background-color: #e6e6e6;
+		}
+
+		.navbar-default .navbar-collapse,
+		.navbar-default .navbar-form {
+			border-color: #ffffff;
+		}
+
+	/*NAV link*/
+		.navbar-default .navbar-link {
+			color: #4d4d4d;
+		}
+		.navbar-default .navbar-link:hover {
+			color: #e6e6e6;
+		}
+
+	/*NAV media query*/
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+			color: #4d4d4d;
+			}
+
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+			color: #e6e6e6;
+			}
+
+		.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+		.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+		.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+			color: #e6e6e6;
+			background-color: #4d4d4d;
+			}
+	}
+
+/* User Zone*/
+
+	/* LogIn */
+
+		/* Log In Forms*/
+		
+
+		/* LOG IN BUTTON */
+		.btn-li {
+			color: #4D4D4D;
+			background-color: #FF2A2A;
+			margin-bottom: 8px;
+		}
+
+		.btn-li:hover, .btn-li:focus {
+			color: #e6e6e6;
+			background-color: #4d4d4d;
+		}
+
+/* SEARCH FORM */
+	/* search BUTTON */
+	.btn-src {
+		color: #e6e6e6;
+		background-color: #4D4D4D;
+	}
