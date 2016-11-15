@@ -69,6 +69,7 @@ body {
 	/* float logo vertically centered : works only when line height = img heigth!!!*/
 	.navbar-nav li a {
 		line-height: 25px;
+		background-color: #e6e6e6;
 	}
 
 	/*NAVBAR COLOR SCHEME*/
@@ -121,8 +122,8 @@ body {
 		.navbar-default .navbar-nav > .active > a,
 		.navbar-default .navbar-nav > .active > a:hover,
 		.navbar-default .navbar-nav > .active > a:focus {
-			color: #4d4d4d; /*maybe darker?*/
-			background-color: #FF2A2A;
+			color: #e6e6e6;
+			background-color: #4D4D4D;
 		}
 
 		/* dont know what this does....*/
@@ -195,6 +196,7 @@ body {
 		.btn-li {
 			color: #4D4D4D;
 			background-color: #FF2A2A;
+			border-color: #4D4D4D;
 			margin-bottom: 8px;
 		}
 
@@ -208,4 +210,19 @@ body {
 	.btn-src {
 		color: #e6e6e6;
 		background-color: #4D4D4D;
+		border-color: #4D4D4D;
+	}
+
+	/* search FORM */
+	.form-control {
+		border-color: #4D4D4D;		
+	}
+
+	.form-control>placehoder {
+		color: blue;
+	}
+
+/* FORMS */
+	.form-group{
+		border-color: #4D4D4D;
 	}
