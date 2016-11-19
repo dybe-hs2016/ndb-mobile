@@ -58,19 +58,31 @@ body {
 /* NAV BAR */
 
 	/* NAV logo */
-	.navbar-left>img {
-		/*max-height: 100%;
-		height: 100%;*/
-		/* scale the logo*/
-		max-width: 100%;
-		width: 80%;		
+
+	/*scale logo*/
+	.navbar-left>a>img {
+		max-width: 100%; 
 	}
 
-	/* float logo vertically centered : works only when line height = img heigth!!!*/
-	.navbar-nav li a {
-		line-height: 25px;
-		background-color: #e6e6e6;
+	.navbar-left{
+		width: 80%;
+		display: inline-block;
+		vertical-align: middle;
+		padding-right: 5%;
 	}
+
+	.nav-button {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	
+
+	/* verticalli center logo and hamburger*/
+	/*.ndb-logo-xs {
+	}
+
+	.nav-button {
+	}*/
 
 	/*NAVBAR COLOR SCHEME*/
 	/*SOURCE: http://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0*/
