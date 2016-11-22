@@ -3,7 +3,7 @@
 	<!-- <form action="get"> -->
 	<!-- <label class="sr-only" for="src"> search </label> -->
 
-		<input 	type="search" class="form-control" id="src" placeholder="Suche..." formaction="results.html" autofocus>		
+		<input 	type="search" class="form-control" id="src" placeholder="Suche..." formaction="results.html">		
 
 		<span class="input-group-btn">
 			<button class="btn btn-default btn-src" type="button">

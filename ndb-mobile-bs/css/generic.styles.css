@@ -230,8 +230,9 @@ body {
 		border-color: #4D4D4D;		
 	}
 
-	.form-control>placehoder {
-		color: blue;
+	/* PADDING to link */
+	.input-group {
+		margin-bottom: 8px;
 	}
 
 /* FORMS */
