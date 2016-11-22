@@ -1,6 +1,6 @@
 <?php
 
-/*	$link = (
+/*	$link = array(
 	"id" => "",
 	"name" => "",
 	"url" => "",
@@ -8,7 +8,7 @@
 
 /*	"<?php echo $link["id"]; ?>"
 	"<?php echo $link["name"]; ?>"
-	"<?php echo trim($link["id"]); ?>"	*/
+	"<?php echo trim($link["url"]); ?>"	*/
 
 $home = array(
 	"id" => "home",
@@ -56,6 +56,24 @@ $impr = array(
 	"id" => "impr",
 	"name" => "Impressum",
 	"url" => "/dybe/ndb-mobile-bs/page.07.impr.php",
+);
+
+$nBen = array(
+	"id" => "nBen",
+	"name" => "Neuen Benutzer registrieren",
+	"url" => "#",
+);
+
+$pwVerg = array(
+	"id" => "pwVerg",
+	"name" => "Passwort vergessen",
+	"url" => "#",
+);
+
+$logIn = array(
+	"id" => "logIn",
+	"name" => "Log In",
+	"url" => "#",
 );
 
 ?>

@@ -34,6 +34,8 @@
 
 				<?php include("bdy.03-02.entry.db.php"); ?>
 
+				<p> END </p>
+
 			</div>
 
 			<!-- SIDE VIEW LOG IN -->

@@ -5,7 +5,7 @@
 		<div class="navbar-header">
 
 			<div class="navbar-left">
-				<a id="home" href="/dybe/ndb-mobile-bs/page.00.index.php">
+				<a href="<?php echo trim($home["url"]); ?>">
 				<img src="images/ndb-logo-xs.png"></a>
 			</div>
 
@@ -23,14 +23,14 @@
 
 			<ul class="nav navbar-nav">
 
-			<li class="active"><a id="home" href="/dybe/ndb-mobile-bs/page.00.index.php">Home</a></li>
-			<li><a id="erwSuche" href="dybe/ndb-mobile-bs/page.01.erweiterteSuche.php">Erweitere Suche</a></li>
-			<li><a id="meineSammlung" href="dybe/ndb-mobile-bs/page.02.sammlung.php">Meine Sammlung</a></li>
-			<li><a id="zufallstreffer" href="dybe/ndb-mobile-bs/page.03.zufallstreffer.php">Zufallstreffer</a></li>
-			<li><a id="notenErfassen" href="dybe/ndb-mobile-bs/page.04.notenErfassen.php">Noten Erfassen</a></li>
-			<li><a id="benutzereinstellungen" href="dybe/ndb-mobile-bs/">Benutzereinstellungen</a></li>
-			<li><a id="projektGitHub" href="https://github.com/dybe-hs2016/ndb-mobile">Projekt auf GitHub</a></li>
-			<li><a id="impressum" href="page.05.impressum.php">Impressum</a></li>
+			<li class="active"><a href="<?php echo trim($home["url"]); ?>"><?php echo $home["name"]; ?></a></li>
+			<li><a href="<?php echo trim($expSuche["url"]); ?>"><?php echo $expSuche["name"]; ?></a></li>
+			<li><a href="<?php echo trim($sammlung["url"]); ?>"><?php echo $sammlung["name"]; ?></a></li>
+			<li><a href="<?php echo trim($zfTreffer["url"]); ?>"><?php echo $zfTreffer["name"]; ?></a></li>
+			<li><a href="<?php echo trim($nErfassen["url"]); ?>"><?php echo $nErfassen["name"]; ?></a></li>
+			<li><a href="<?php echo trim($benEinst["url"]); ?>"><?php echo $benEinst["name"]; ?></a></li>
+			<li><a href="<?php echo trim($gitHub["url"]); ?>"><?php echo $gitHub["name"]; ?></a></li>
+			<li><a href="<?php echo trim($impr["url"]); ?>"><?php echo $impr["name"]; ?></a></li>
 			
 			</ul>
 			<!-- <ul class="nav navbar-nav navbar-right">

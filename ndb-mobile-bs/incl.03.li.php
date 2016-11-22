@@ -15,9 +15,9 @@
 	</div>
 
 	<!-- LOG IN -->
-	<button type="submit" class="btn btn-default btn-li"> Log In </button>
+	<button type="submit" class="btn btn-default btn-li"> <?php echo $logIn["name"]; ?> </button>
 </form>
 
 <!-- Sign Up / Forgot Password Links -->
-<p> <a href="signup.html"> Neuen Benutzer registrieren </a> </p>
-<p>	<a href="forgotwp.html"> Passwort vergessen </a> </p> 
+<p> <a href="<?php echo trim($nBen["url"]); ?>"> <?php echo $nBen["name"]; ?> </a> </p>
+<p>	<a href="<?php echo trim($logIn["url"]); ?>"> <?php echo $logIn["name"]; ?> </a> </p> 
