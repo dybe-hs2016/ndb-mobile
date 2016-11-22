@@ -15,6 +15,6 @@
 <!-- Local: Current local Bootstrap JS library -->
 	<script src="js/bootstrap.min.js"></script>
 
-<!-- Local: Our own JS scripts [must be extended] -->
+<!-- Local: Our own JS scripts -->
 	<script src="js/generic.script.js"></script>
  

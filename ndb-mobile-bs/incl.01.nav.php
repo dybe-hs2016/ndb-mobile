@@ -5,7 +5,7 @@
 		<div class="navbar-header">
 
 			<div class="navbar-left">
-				<a href="proto.html">
+				<a id="home" href="/dybe/ndb-mobile-bs/page.00.index.php">
 				<img src="images/ndb-logo-xs.png"></a>
 			</div>
 
@@ -23,16 +23,15 @@
 
 			<ul class="nav navbar-nav">
 
-			<li class="active"><a href="proto.html">Home</a></li>
-			<li><a href="#">Erweitere Suche</a></li>
-			<li><a href="#">Meine Sammlung</a></li>
-			<li><a href="#">Zufallstreffer</a></li>
-			<li><a href="#">Noten Erfassen</a></li>
-			<li><a href="#">Benutzereinstellungen</a></li>
-			<li><a href="https://github.com/dybe-hs2016/ndb-mobile">Projekt auf GitHub</a></li>
-			<li><a href="#">Impressum</a></li>
-			<li><a href="#">Disclaimer</a></li>
-
+			<li class="active"><a href="/dybe/ndb-mobile-bs/page.00.index.php">Home</a></li>
+			<li><a id="erweiterteSuche" href="page.01.erweiterteSuche.php">Erweitere Suche</a></li>
+			<li><a id="meineSammlung" href="page.02.sammlung.php">Meine Sammlung</a></li>
+			<li><a id="zufallstreffer" href="dybe/ndb-mobile-bs/page.03.zufallstreffer.php">Zufallstreffer</a></li>
+			<li><a id="notenErfassen" href="#">Noten Erfassen</a></li>
+			<li><a id="benutzereinstellungen" href="page.04.notenErfassen.php">Benutzereinstellungen</a></li>
+			<li><a id="projektGitHub" href="https://github.com/dybe-hs2016/ndb-mobile">Projekt auf GitHub</a></li>
+			<li><a id="impressum" href="page.05.impressum.php">Impressum</a></li>
+			
 			</ul>
 			<!-- <ul class="nav navbar-nav navbar-right">
 			<li><a href="#"><span class="glyphicon glyphicon-user"></span> Log Out</a></li>

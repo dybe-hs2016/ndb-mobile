@@ -25,12 +25,12 @@
 			<!-- col crate gutters (padding)  -->
 			<!-- MAIN VIEW METADATA -->
 			
-			<div class="col-sm-9">
+			<div class="col-sm-9" id="pageContent">
 				<!-- SEARCH FORM -->
-				<?php include("incl.02.src.php") ?>
+				<?php include("incl.02.src.php"); ?>
 
 				<!-- BODY -->
-				<?php include("bdy.01.intro.php") ?>
+				<?php include("bdy.01.intro.php"); ?>
 
 			</div>
 
@@ -41,9 +41,7 @@
 		</div>
 	</div>
 
-
-
 	<?php include("incl.00.scripts.php"); ?>
 
 </body>
-</html> 
+</html>

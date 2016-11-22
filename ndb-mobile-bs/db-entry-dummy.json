@@ -1,0 +1,16 @@
+[
+	{"id":"01"},
+	{"titel":"Die Seeräuber Jenny"},
+	{"komponist":["name":"Bert Brecht", "name":"Kurt Weill", "name":"Franz Bunier"]},
+	{"jahr":"1926-1928"},
+	{"Opus":"Die Dreigroschenoper"},
+	{"Epoche":"Moderne"},
+	{"Stil":"Oper"},
+	{"Tonart":"KA"},
+	{"Instrumente":["name":"Gesang", "name":"Bläser", "name":"Pauke", "name":"Streicher"]},
+	{"Schwierigkeitsgrad":"Fortgeschritten"},
+	{"Anlass":"KA"},
+	{"Link zu Aufnahme":["name":"YOUTUBE Lotte Lenya Singing Seeräuber Jenny (Pirate Jenny)", "link":"https://www.youtube.com/watch?v=Ec0clERjQ5A"]},
+	{"Link zu Noten": ["name":"Brecht, Weill (1927): Seeräuber Jenny, Die", "link":"brecht.weill-1926-seerauber.jenny-die.file"]}
+
+]
