@@ -15,4 +15,4 @@
 </div>
 
 <!-- extended search form -->
-<p> <a href="expertensuche.html"> Expertensuche </a> </p>
+<p> <a href="dybe/ndb-mobile-bs/page.01.erweiterteSuche.php"> Expertensuche </a> </p>

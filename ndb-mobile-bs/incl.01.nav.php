@@ -23,12 +23,12 @@
 
 			<ul class="nav navbar-nav">
 
-			<li class="active"><a href="/dybe/ndb-mobile-bs/page.00.index.php">Home</a></li>
-			<li><a id="erweiterteSuche" href="page.01.erweiterteSuche.php">Erweitere Suche</a></li>
-			<li><a id="meineSammlung" href="page.02.sammlung.php">Meine Sammlung</a></li>
+			<li class="active"><a id="home" href="/dybe/ndb-mobile-bs/page.00.index.php">Home</a></li>
+			<li><a id="erwSuche" href="dybe/ndb-mobile-bs/page.01.erweiterteSuche.php">Erweitere Suche</a></li>
+			<li><a id="meineSammlung" href="dybe/ndb-mobile-bs/page.02.sammlung.php">Meine Sammlung</a></li>
 			<li><a id="zufallstreffer" href="dybe/ndb-mobile-bs/page.03.zufallstreffer.php">Zufallstreffer</a></li>
-			<li><a id="notenErfassen" href="#">Noten Erfassen</a></li>
-			<li><a id="benutzereinstellungen" href="page.04.notenErfassen.php">Benutzereinstellungen</a></li>
+			<li><a id="notenErfassen" href="dybe/ndb-mobile-bs/page.04.notenErfassen.php">Noten Erfassen</a></li>
+			<li><a id="benutzereinstellungen" href="dybe/ndb-mobile-bs/">Benutzereinstellungen</a></li>
 			<li><a id="projektGitHub" href="https://github.com/dybe-hs2016/ndb-mobile">Projekt auf GitHub</a></li>
 			<li><a id="impressum" href="page.05.impressum.php">Impressum</a></li>
 			

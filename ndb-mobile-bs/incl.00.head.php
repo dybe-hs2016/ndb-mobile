@@ -30,3 +30,7 @@
 
 	<!-- Local: Our own stylesheets [must be extended] -->
 	<link rel="stylesheet" href="css/generic.styles.css">
+
+<!-- include PHP Variables -->
+	<!-- Link Variables -->
+	<?php include("strct.link.var.list.php"); ?>
