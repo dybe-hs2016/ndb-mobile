@@ -14,12 +14,14 @@ $home = array(
 	"id" => "home",
 	"name" => "Home",
 	"url" => "page.00.index.php",
+	"varname" => "?varname=bdy.01.intro.php",
 );
 
 $expSuche = array(
 	"id" => "expSuche",
 	"name" => "Expertensuche",
 	"url" => "page.01.expSuche.php",
+	"varname" => "?varname=bdy.02.expsrc.php",
 );
 
 $sammlung = array(

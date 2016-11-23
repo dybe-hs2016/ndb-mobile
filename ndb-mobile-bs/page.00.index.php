@@ -30,7 +30,7 @@
 				<?php include("incl.02.src.php"); ?>
 
 				<!-- BODY -->
-				<?php include("bdy.01.intro.php"); ?>
+				<?php include($_GET['varname']); ?>
 
 			</div>
 

@@ -23,7 +23,7 @@
 
 			<ul class="nav navbar-nav">
 
-			<li class="active"><a href="<?php echo trim($home["url"]); ?>"><?php echo $home["name"]; ?></a></li>
+			<li class="active"><a href="<?php echo trim($home["url"]).$home['varname']; ?>"><?php echo $home["name"]; ?></a></li>
 			<li><a href="<?php echo trim($expSuche["url"]); ?>"><?php echo $expSuche["name"]; ?></a></li>
 			<li><a href="<?php echo trim($sammlung["url"]); ?>"><?php echo $sammlung["name"]; ?></a></li>
 			<li><a href="<?php echo trim($zfTreffer["url"]); ?>"><?php echo $zfTreffer["name"]; ?></a></li>
