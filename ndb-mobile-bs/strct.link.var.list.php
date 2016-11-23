@@ -13,37 +13,37 @@
 $home = array(
 	"id" => "home",
 	"name" => "Home",
-	"url" => "/dybe/ndb-mobile-bs/page.00.index.php",
+	"url" => "page.00.index.php",
 );
 
 $expSuche = array(
 	"id" => "expSuche",
 	"name" => "Expertensuche",
-	"url" => "/dybe/ndb-mobile-bs/page.01.expSuchee.php",
+	"url" => "page.01.expSuche.php",
 );
 
 $sammlung = array(
 	"id" => "sammlung",
 	"name" => "Meine Sammlung",
-	"url" => "/dybe/ndb-mobile-bs/page.02.sammlung.php",
+	"url" => "page.02.sammlung.php",
 );
 
 $zfTreffer = array(
 	"id" => "zfTreffer",
 	"name" => "Zufallstreffer",
-	"url" => "/dybe/ndb-mobile-bs/page.03.zfTreffer.php",
+	"url" => "page.03.zfTreffer.php",
 );
 
 $nErfassen = array(
 	"id" => "nErfassen",
 	"name" => "Noten Erfassen",
-	"url" => "/dybe/ndb-mobile-bs/page.04.nErfassen.php",
+	"url" => "page.04.nErfassen.php",
 );
 
 $benEinst = array(
 	"id" => "benEinst",
 	"name" => "Benutzereinstellungen",
-	"url" => "/dybe/ndb-mobile-bs/page.05.benEinst.php",
+	"url" => "page.05.benEinst.php",
 );
 
 $gitHub = array(
@@ -55,7 +55,7 @@ $gitHub = array(
 $impr = array(
 	"id" => "impr",
 	"name" => "Impressum",
-	"url" => "/dybe/ndb-mobile-bs/page.07.impr.php",
+	"url" => "page.07.impr.php",
 );
 
 $nBen = array(
