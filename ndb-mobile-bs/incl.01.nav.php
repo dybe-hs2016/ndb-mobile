@@ -1,6 +1,6 @@
 <!-- NAV BAR that will collapse on small screens to the top right corner -->
 <nav class="navbar navbar-default">
-	<div class="container-fluid">
+	<div class="container">
 
 		<div class="navbar-header">
 
@@ -10,7 +10,7 @@
 				<img src="images/ndb-logo-xs.png"></a>
 			</div>
 
-			<div class="nav-button">
+			<div class="nav-button"> <!-- just the button -->
 				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#collapseNavbar">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
