@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<?php include("incl.00.head.php"); ?>
-	<title>Welcome to ndb-mobile</title>
+	<title><?php echo $_GET['varname']; ?></title>
 
 	<!-- embed some descriptive META tags -->
 		<meta name="description" content="Database for musicians or ohter interested parties to store their sheet music or reserch for new sheet music.">
