@@ -5,6 +5,7 @@
 		<div class="navbar-header">
 
 			<div class="navbar-left">
+				<!-- this link is simple on purpose as a fallback -->
 				<a href="<?php echo trim($home["url"]); ?>">
 				<img src="images/ndb-logo-xs.png"></a>
 			</div>
@@ -23,14 +24,16 @@
 
 			<ul class="nav navbar-nav">
 
+			<!--  -->
+
 			<li class="active"><a href="<?php echo trim($home["url"]).$home['varname']; ?>"><?php echo $home["name"]; ?></a></li>
-			<li><a href="<?php echo trim($expSuche["url"]); ?>"><?php echo $expSuche["name"]; ?></a></li>
-			<li><a href="<?php echo trim($sammlung["url"]); ?>"><?php echo $sammlung["name"]; ?></a></li>
-			<li><a href="<?php echo trim($zfTreffer["url"]); ?>"><?php echo $zfTreffer["name"]; ?></a></li>
-			<li><a href="<?php echo trim($nErfassen["url"]); ?>"><?php echo $nErfassen["name"]; ?></a></li>
-			<li><a href="<?php echo trim($benEinst["url"]); ?>"><?php echo $benEinst["name"]; ?></a></li>
+			<li><a href="<?php echo trim($home["url"]).$expSuche['varname']; ?>"><?php echo $expSuche["name"]; ?></a></li>
+			<li><a href="<?php echo trim($home["url"]).$sammlung['varname']; ?>"><?php echo $sammlung["name"]; ?></a></li>
+			<li><a href="<?php echo trim($home["url"]).$zfTreffer['varname']; ?>"><?php echo $zfTreffer["name"]; ?></a></li>
+			<li><a href="<?php echo trim($home["url"]).$nErfassen['varname']; ?>"><?php echo $nErfassen["name"]; ?></a></li>
+			<li><a href="<?php echo trim($home["url"]).$benEinst['varname']; ?>"><?php echo $benEinst["name"]; ?></a></li>
 			<li><a href="<?php echo trim($gitHub["url"]); ?>"><?php echo $gitHub["name"]; ?></a></li>
-			<li><a href="<?php echo trim($impr["url"]); ?>"><?php echo $impr["name"]; ?></a></li>
+			<li><a href="<?php echo trim($home["url"]).$impr['varname']; ?>"><?php echo $impr["name"]; ?></a></li>
 			
 			</ul>
 			<!-- <ul class="nav navbar-nav navbar-right">
