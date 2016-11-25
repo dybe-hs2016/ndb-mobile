@@ -12,6 +12,10 @@
 
 </head>
 <body>
+	<?php
+		ini_set('display_errors', 'On');
+		error_reporting(E_ALL);
+	?>
 	<?php include("incl.01.nav.php"); ?>
 
 	<!-- responsive FULL width CONTAINER -->
@@ -30,7 +34,13 @@
 				<?php include("incl.02.src.php"); ?>
 
 				<!-- BODY -->
-				<?php include("bdy.01.intro.php"); ?>
+				<?php 
+					if (empty($_GET)) {
+						include ("bdy.01.intro.php");
+					} else {
+						include($_GET['varname']);
+					}
+				?>
 
 			</div>
 
