@@ -1,3 +1,4 @@
+
 <?php
 	require_once('verbindung.php');
 	
@@ -6,9 +7,15 @@
 		$_GET['freitext'] = "";
 	}
 	
+		
 	// SQL-Abfrage für Freitextsuche, packt die Ergebnisse in $suche_freitext
 	$sql_freitext = "SELECT * FROM ".$tbl_noten." "; 
-	$sql_freitext .= "WHERE titel LIKE '%".$_GET['freitext']." ORDER BY titel ASC LIMIT; ";
+	$sql_freitext .= "LEFT JOIN ".$tbl_komponist." ON ".$tbl_noten.".id_komponist=".$tbl_komponist.".id_komponist " ;	
+	$sql_freitext .= "LEFT JOIN ".$tbl_verlag." ON ".$tbl_noten.".id_verlag=".$tbl_verlag.".id_verlag " ;
+	$sql_freitext .= "LEFT JOIN ".$tbl_instrument." ON ".$tbl_noten.".id_instrument=".$tbl_instrument.".id_instrument " ;
+	$sql_freitext .= "WHERE titel LIKE '%".$_GET['freitext']."%' OR kommentarfeld LIKE '%".$_GET['freitext']."%' OR vorname LIKE '%".$_GET['freitext']."%'
+				   OR name LIKE '%".$_GET['freitext']."%' OR instrument LIKE '%".$_GET['freitext']."%' OR verlagsname LIKE '%".$_GET['freitext']."%' 
+				   ORDER BY titel ASC LIMIT ".$start.",".$zeilen."; ";
 	$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
 	$suche_freitext = mysqli_fetch_assoc($query_freitext);
 	
@@ -17,20 +24,19 @@
 ?>
 
 
-<h1>Expertensuche</h1>
+<h1>Noten erfassen</h1>
 
 <div class="container"> <!-- content container no 3 -->
   <div class="row">
       <section class="col-xs-12">     
-		
-        <form class="form-horizontal" action="bdy.02.srcrslt.php" method="get" name="form" id="form">
+          
+        <form class="form-horizontal">
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputTitle">Titel der Noten</label>
-            <div class="col-sm-10"><input class="form-control" type="text" id="inputTitle" name="freitext" value="<?php echo isset($_GET['freitext']) ? htmlentities($_GET['freitext']) : "" ; ?>">
+            <div class="col-sm-10"><input class="form-control" type="text" id="inputTitle" placeholder="Titel der Noten">
             </div>
         </div>
-		
-		<!--
+
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputSignature">Signatur</label>
             <div class="col-sm-10"><input class="form-control" type="email" id="inputSignature" placeholder="Signatur">
@@ -61,7 +67,7 @@
             </div>
         </div>
 		
-		
+		<!--
 		<div class="form-group">
             <label class="col-sm-2 control-label" for="inputEmail">Epoche</label>
             <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="XXX Dropdown">
@@ -114,7 +120,7 @@
 		<!-- pull-right - Knopf ist auf der echten Seite -->	
         <div class="form-group">
         <div class="col-sm-10 col-sm-offset_2">
-             <input class="btn btn-alert pull-right" type="submit" value="Los">           
+             <input class="btn btn-alert pull-right" type="submit" value="submit">           
         </div>
         </div>
             
