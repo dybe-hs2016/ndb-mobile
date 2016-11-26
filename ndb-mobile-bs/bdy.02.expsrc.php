@@ -1,22 +1,3 @@
-<?php
-	require_once('verbindung.php');
-	
-	// Wenn kein "freitext" eingegeben wurde, dann wird die Variable auf "" gesetzt
-	if(!isset($_GET['freitext'])) {
-		$_GET['freitext'] = "";
-	}
-	
-	// SQL-Abfrage für Freitextsuche, packt die Ergebnisse in $suche_freitext
-	$sql_freitext = "SELECT * FROM ".$tbl_noten." "; 
-	$sql_freitext .= "WHERE titel LIKE '%".$_GET['freitext']." ORDER BY titel ASC LIMIT; ";
-	$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
-	$suche_freitext = mysqli_fetch_assoc($query_freitext);
-	
-	// Verbindungsprobleme anzeigen
-	echo mysqli_error($verb);
-?>
-
-
 <h1>Expertensuche</h1>
 
 <div class="container"> <!-- content container no 3 -->
@@ -26,8 +7,9 @@
         <form class="form-horizontal" action="bdy.02.srcrslt.php" method="get" name="form" id="form">
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputTitle">Titel der Noten</label>
-            <div class="col-sm-10"><input class="form-control" type="text" id="inputTitle" name="freitext" value="<?php echo isset($_GET['freitext']) ? htmlentities($_GET['freitext']) : "" ; ?>">
+            <div class="col-sm-6"><input class="form-control" type="text" id="id" name="freitext" value="<?php echo isset($_GET['freitext']) ? htmlentities($_GET['freitext']) : "" ; ?>">
             </div>
+            <div class="col-sm-4"></div>
         </div>
 		
 		<!--
@@ -113,8 +95,8 @@
 		
 		<!-- pull-right - Knopf ist auf der echten Seite -->	
         <div class="form-group">
-        <div class="col-sm-10 col-sm-offset_2">
-             <input class="btn btn-alert pull-right" type="submit" value="Los">           
+        <div class="col-sm-8 col-sm-offset_2">
+             <input class="btn btn-alert pull-left" type="submit" value="Los">           
         </div>
         </div>
             
