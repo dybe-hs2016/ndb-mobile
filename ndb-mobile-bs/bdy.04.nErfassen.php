@@ -2,69 +2,105 @@
 <?php
 	require_once('verbindung.php');
 	
-	// Wenn kein "freitext" eingegeben wurde, dann wird die Variable auf "" gesetzt
-	if(!isset($_GET['freitext'])) {
-		$_GET['freitext'] = "";
+        // Definition der Fehlervariablen
+        $fehler_title = "";
+
+        // Variablen leer einfügen
+        $title = "";
+        //$name = "";
+        //$signature = "";
+        
+        if (isset($_REQUEST['submit'])) {
+	// Formular zur Überprüfung wird aufgerufen
+	// URL Parameter in Variablen schreiben
+	$title = $_REQUEST['title'];
+        
+        $freigabe = true;
+        
+        // Formularüberprüfung
+        // Titel überprüfen
+	if (strlen($title) == 0) {
+		$freigabe = false; // Freigabe stoppen
+		$fehler_title = " Bitte Titel ausf&uuml;llen";
 	}
-	
-		
-	// SQL-Abfrage für Freitextsuche, packt die Ergebnisse in $suche_freitext
-	$sql_freitext = "SELECT * FROM ".$tbl_noten." "; 
-	$sql_freitext .= "LEFT JOIN ".$tbl_komponist." ON ".$tbl_noten.".id_komponist=".$tbl_komponist.".id_komponist " ;	
-	$sql_freitext .= "LEFT JOIN ".$tbl_verlag." ON ".$tbl_noten.".id_verlag=".$tbl_verlag.".id_verlag " ;
-	$sql_freitext .= "LEFT JOIN ".$tbl_instrument." ON ".$tbl_noten.".id_instrument=".$tbl_instrument.".id_instrument " ;
-	$sql_freitext .= "WHERE titel LIKE '%".$_GET['freitext']."%' OR kommentarfeld LIKE '%".$_GET['freitext']."%' OR vorname LIKE '%".$_GET['freitext']."%'
-				   OR name LIKE '%".$_GET['freitext']."%' OR instrument LIKE '%".$_GET['freitext']."%' OR verlagsname LIKE '%".$_GET['freitext']."%' 
-				   ORDER BY titel ASC LIMIT ".$start.",".$zeilen."; ";
-	$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
-	$suche_freitext = mysqli_fetch_assoc($query_freitext);
-	
-	// Verbindungsprobleme anzeigen
-	echo mysqli_error($verb);
+        
+        // Hackersicherheit gewährleisten
+        if ($freigabe == true) {
+            $title = trim($title);
+            $title = strip_tags($title);
+            $title = mysqli_real_escape_string($verb, $title);
+            
+        // Werte für die Tabelle Komponist werden in der letztenID_k gespeichert
+	 //	$sql = "INSERT INTO ".$tbl_komponist;
+	 //	$sql .= " (name, vorname, geburtsdatum, todesdatum) ";
+	 //	$sql .= " VALUES (";
+	 //	$sql .= "'".$name."', ";
+	 //	$sql .= "'".$vorname."', ";
+	 //	$sql .= "'".$geburtsdatum."', ";
+	 //	$sql .= "'".$todesdatum."');";
+		// SQL Abfrage an DB schicken
+	 //	$query = mysqli_query($verb,$sql);
+		// letzte ID wieder angeben für Datenbank
+	 //	$letzteID_k= mysqli_insert_id($verb);
+        
+	// Tabelle Noten in der DB eingetragen.
+		$sql = "INSERT INTO `tbl_noten` (`title`) VALUES (".$title.")";
+		// SQL Abfrage an DB schicken
+		$query = mysqli_query($verb,$sql);  
+		// Nach dem Ausführen der SQL-Befehle "bdy.03-01.entry.tbl.php" mit dem zuletzt eingetragenen Eintrag (mysli_insert_id) öffnen
+		var_dump($query);
+                // header("location: bdy.03-01.entry.tbl.php?id=".mysqli_insert_id($verb));
+	}  
+    }
 ?>
 
 
 <h1>Noten erfassen</h1>
-
 <div class="container"> <!-- content container no 3 -->
   <div class="row">
       <section class="col-xs-12">     
           
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'].$nErfassen["varname"] ; ?>" method="post" enctype="multipart/form-data" name="form" id="form">
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputTitle">Titel der Noten</label>
-            <div class="col-sm-10"><input class="form-control" type="text" id="inputTitle" placeholder="Titel der Noten">
+            <div class="col-sm-6"><input class="form-control" type="text" id="inputTitle" placeholder="Titel der Noten" value="<?php echo $title; ?>">
+            <?php echo $fehler_title; ?>     
             </div>
+            <div class="col-sm-4"></div>
         </div>
-
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputSignature">Signatur</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputSignature" placeholder="Signatur">
+            <div class="col-sm-6"><input class="form-control" type="email" id="inputSignature" placeholder="Signatur">
             </div>
+            <div class="col-sm-4"></div>
         </div>
 		
 		<div class="form-group">
             <label class="col-sm-2 control-label" for="inputFirstName">Vorname des Komponisten</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputFirstName" placeholder="Vorname des Komponisten">
+            <div class="col-sm-6"><input class="form-control" type="email" id="inputFirstName" placeholder="Vorname des Komponisten">
             </div>
+            <div class="col-sm-4"></div>
         </div>
 		
 		<div class="form-group">
             <label class="col-sm-2 control-label" for="inputName">Nachname des Komponisten</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputName" placeholder="Nachname des Komponisten">
+            <div class="col-sm-6"><input class="form-control" type="email" id="inputName" placeholder="Nachname des Komponisten">
             </div>
+            <div class="col-sm-4"></div>
         </div>
 		
 		<div class="form-group">
             <label class="col-sm-2 control-label" for="inputPublisher">Verlag</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputPublisher" placeholder="Verlag">
+            <div class="col-sm-6"><input class="form-control" type="email" id="inputPublisher" placeholder="Verlag">
             </div>
+            <div class="col-sm-4"></div>
         </div>
 		
 		<div class="form-group">
             <label class="col-sm-2 control-label" for="inputInstrument">Instrument</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputInstrument" placeholder="XXX Dropdown">
+            <div class="col-sm-6"><input class="form-control" type="email" id="inputInstrument" placeholder="XXX Dropdown">
             </div>
+            <div class="col-sm-4"></div>
         </div>
 		
 		<!--
@@ -72,6 +108,7 @@
             <label class="col-sm-2 control-label" for="inputEmail">Epoche</label>
             <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="XXX Dropdown">
             </div>
+            <div class="col-sm-4"></div>
         </div>
 		
 		<div class="form-group">
@@ -119,9 +156,10 @@
 		
 		<!-- pull-right - Knopf ist auf der echten Seite -->	
         <div class="form-group">
-        <div class="col-sm-10 col-sm-offset_2">
+        <div class="col-sm-3">
              <input class="btn btn-alert pull-right" type="submit" value="submit">           
         </div>
+            <div class="col-sm-9"></div>
         </div>
             
         
