@@ -1,4 +1,3 @@
-
 <?php
 	require_once('verbindung.php');
         
@@ -27,7 +26,8 @@
 	echo mysqli_error($verb);
 ?>
 
-
+<h1>Suchergebnisse aufgelistet</h1>
+<h2>Klick auf Link, dann Detailansicht in entry</h2>
 
 <div class="table">
     <table class="table">
