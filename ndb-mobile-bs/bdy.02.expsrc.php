@@ -1,5 +1,7 @@
 <h1>Expertensuche</h1>
 
+<h2>Suche in</h2>
+
 <div class="container"> <!-- content container no 3 -->
   <div class="row">
       <section class="col-xs-12">     
@@ -7,8 +9,19 @@
         <form class="form-horizontal" action="bdy.02.srcrslt.php" method="get" name="form" id="form">
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputTitle">Titel der Noten</label>
-            <div class="col-sm-6"><input class="form-control" type="text" id="id" name="freitext" value="<?php echo isset($_GET['freitext']) ? htmlentities($_GET['freitext']) : "" ; ?>">
+            <div class="col-sm-4">
+                <input class="form-control" type="text" id="id" name="freitext" value="<?php echo isset($_GET['freitext']) ? htmlentities($_GET['freitext']) : "" ; ?>">
             </div>
+            <div class="col-sm-2">und/oder/nicht</div>
+            <div class="col-sm-4"></div>
+        </div>
+            
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="inputTitle">Komponist</label>
+            <div class="col-sm-4">
+                <input class="form-control" type="text" id="id" name="freitext" value="<?php echo isset($_GET['freitext']) ? htmlentities($_GET['freitext']) : "" ; ?>">
+            </div>
+            <div class="col-sm-2">und/oder/nicht</div>
             <div class="col-sm-4"></div>
         </div>
 		
