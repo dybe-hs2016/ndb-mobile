@@ -34,7 +34,10 @@
 				<?php include("incl.02.src.php"); ?>
 
 				<!-- BODY -->
-				<?php 
+
+				<!-- filter: only proceed if $_GET is part of strct.link.list.php to prevent mlicious inclusion -->
+
+				<?php
 					if (empty($_GET)) {
 						include ("bdy.01.intro.php");
 					} else {
