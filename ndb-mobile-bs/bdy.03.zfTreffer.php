@@ -158,3 +158,4 @@
 			<th class="val">Kurt Weill, Bert Brecht</th>
 		</tr>
 	</table>
+</div>
