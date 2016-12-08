@@ -44,11 +44,13 @@
 	 //	$letzteID_k= mysqli_insert_id($verb);
         
 	// Tabelle Noten in der DB eingetragen.
-		$sql = "INSERT INTO `tbl_noten` (`title`) VALUES (".$title.")";
+		$sql = "INSERT INTO ".$tbl_noten;
+                $sql .= " (title) ";
+                $sql .= " VALUES (";
+                $sql .= "'".$title."');";
 		// SQL Abfrage an DB schicken
 		$query = mysqli_query($verb,$sql);  
 		// Nach dem Ausführen der SQL-Befehle "bdy.03-01.entry.tbl.php" mit dem zuletzt eingetragenen Eintrag (mysli_insert_id) öffnen
-		var_dump($query);
                 // header("location: bdy.03-01.entry.tbl.php?id=".mysqli_insert_id($verb));
 	}  
     }
@@ -60,11 +62,11 @@
   <div class="row">
       <section class="col-xs-12">     
           
-        <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'].$nErfassen["varname"] ; ?>" method="post" enctype="multipart/form-data" name="form" id="form">
+          <form class="form-horizontal" action="verarbeitung.php" method="post" enctype="multipart/form-data" name="form" id="form">
         <div class="form-group">
-            <label class="col-sm-2 control-label" for="inputTitle">Titel der Noten</label>
-            <div class="col-sm-6"><input class="form-control" type="text" id="inputTitle" placeholder="Titel der Noten" value="<?php echo $title; ?>">
-            <?php echo $fehler_title; ?>     
+            <label class="col-sm-2 control-label" for="title">Titel der Noten</label>
+            <div class="col-sm-6"><input class="form-control" type="text" name="title" id="title" placeholder="Titel der Noten" value="<?php echo $title; ?>" />
+            <?php echo $fehler_title; ?>
             </div>
             <div class="col-sm-4"></div>
         </div>
@@ -157,7 +159,7 @@
 		<!-- pull-right - Knopf ist auf der echten Seite -->	
         <div class="form-group">
         <div class="col-sm-3">
-             <input class="btn btn-alert pull-right" type="submit" value="submit">           
+             <input class="btn btn-alert pull-right" type="submit" name="submit" id="submit" value="submit">           
         </div>
             <div class="col-sm-9"></div>
         </div>
