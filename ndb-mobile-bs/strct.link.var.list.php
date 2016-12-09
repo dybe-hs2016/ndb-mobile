@@ -1,5 +1,7 @@
 <?php
 
+/*LINKS*/
+
 /*	$link = array(
 	"id" => "",
 	"name" => "",
@@ -86,5 +88,19 @@ $logIn = array(
 	"url" => "#",
 	"varname" => "?varname=bdy.0x.#.php",
 );
+
+
+/*TABLES*/
+
+ $noten_instrument = "noten_instrument"; /*IST DAS EINEN TABELLE?*/
+ $tbl_epoch = "tbl_epoch";
+ $tbl_instrument = "tbl_instrument";
+ $tbl_composer = "tbl_composer";
+ $tbl_levels = "tbl_levels";
+ $tbl_musicstyle = "tbl_musicstyle";
+ $tbl_noten = "tbl_noten";
+ $tbl_occasion = "tbl_occasion";
+ $tbl_publisher = "tbl_publisher";
+ $tbl_tonality = "tbl_tonality";
 
 ?>
