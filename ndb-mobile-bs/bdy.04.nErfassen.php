@@ -1,6 +1,5 @@
-
 <?php
-	require_once('verbindung.php');
+	require_once('../../../private/verbindung.php');
 	
         // Definition der Fehlervariablen
         $fehler_title = "";
@@ -60,7 +59,7 @@
 <h1>Noten erfassen</h1>
 <div class="container"> <!-- content container no 3 -->
   <div class="row">
-      <section class="col-xs-12">     
+      <section class="col-xs-12"> <!-- why section not col? -->
           
           <form class="form-horizontal" action="verarbeitung.php" method="post" enctype="multipart/form-data" name="form" id="form">
         <div class="form-group">
@@ -163,9 +162,10 @@
         </div>
             <div class="col-sm-9"></div>
         </div>
-            
+           
         
         </form>
+
      </section>
   </div><!-- row -->   
 </div><!-- content container -->    
