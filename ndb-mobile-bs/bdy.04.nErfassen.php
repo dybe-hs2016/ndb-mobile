@@ -1,5 +1,5 @@
 <?php
-	require_once('../../../private/verbindung.php');
+	require_once(('../../../private/verbindung.php'));
 	
         // Definition der Fehlervariablen
         $fehler_title = "";
@@ -7,12 +7,13 @@
         // Variablen leer einfügen
         $title = "";
         //$name = "";
-        //$signature = "";
+        $signature = "";
         
         if (isset($_REQUEST['submit'])) {
 	// Formular zur Überprüfung wird aufgerufen
 	// URL Parameter in Variablen schreiben
 	$title = $_REQUEST['title'];
+        $signature = $_REQUEST['signature'];
         
         $freigabe = true;
         
@@ -44,38 +45,41 @@
         
 	// Tabelle Noten in der DB eingetragen.
 		$sql = "INSERT INTO ".$tbl_noten;
-                $sql .= " (title) ";
+                $sql .= " (title, signature) ";
                 $sql .= " VALUES (";
-                $sql .= "'".$title."');";
+                $sql .= "'".$title."', ";
+                $sql .= "'".$signature."');";
 		// SQL Abfrage an DB schicken
 		$query = mysqli_query($verb,$sql);  
+                header("location: verarbeitung.php");
 		// Nach dem Ausführen der SQL-Befehle "bdy.03-01.entry.tbl.php" mit dem zuletzt eingetragenen Eintrag (mysli_insert_id) öffnen
                 // header("location: bdy.03-01.entry.tbl.php?id=".mysqli_insert_id($verb));
 	}  
     }
 ?>
 
-
 <h1>Noten erfassen</h1>
 <div class="container"> <!-- content container no 3 -->
   <div class="row">
       <section class="col-xs-12"> <!-- why section not col? -->
           
-          <form class="form-horizontal" action="verarbeitung.php" method="post" enctype="multipart/form-data" name="form" id="form">
+        <form class="form-horizontal" action="verarbeitung.php" method="post" enctype="multipart/form-data" name="form" id="form">    
+
         <div class="form-group">
-            <label class="col-sm-2 control-label" for="title">Titel der Noten</label>
-            <div class="col-sm-6"><input class="form-control" type="text" name="title" id="title" placeholder="Titel der Noten" value="<?php echo $title; ?>" />
-            <?php echo $fehler_title; ?>
-            </div>
+            <label class="col-sm-2 control-label" for="inputTitle">Titel der Noten</label>
+            <div class="col-sm-6"><input class="form-control" type="text" id="title" value="<?php echo $title; ?>" placeholder="Titel der Noten">
+            <?php echo $fehler_title; ?></div>
             <div class="col-sm-4"></div>
         </div>
+            
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputSignature">Signatur</label>
-            <div class="col-sm-6"><input class="form-control" type="email" id="inputSignature" placeholder="Signatur">
+            <div class="col-sm-6"><input class="form-control" type="text" id="signature" value="<?php echo $signature; ?>" placeholder="Signatur">
             </div>
             <div class="col-sm-4"></div>
         </div>
-		
+	
+         <!--
 		<div class="form-group">
             <label class="col-sm-2 control-label" for="inputFirstName">Vorname des Komponisten</label>
             <div class="col-sm-6"><input class="form-control" type="email" id="inputFirstName" placeholder="Vorname des Komponisten">
@@ -104,7 +108,7 @@
             <div class="col-sm-4"></div>
         </div>
 		
-		<!--
+		
 		<div class="form-group">
             <label class="col-sm-2 control-label" for="inputEmail">Epoche</label>
             <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="XXX Dropdown">
@@ -156,10 +160,11 @@
 		-->
 		
 		<!-- pull-right - Knopf ist auf der echten Seite -->	
-        <div class="form-group">
-        <div class="col-sm-3">
-             <input class="btn btn-alert pull-right" type="submit" name="submit" id="submit" value="submit">           
-        </div>
+        
+       <div class="form-group">
+            <div class="col-sm-3">
+            <input class="btn btn-alert pull-right" type="submit" name="submit" id="submit" value="Senden">           
+            </div>
             <div class="col-sm-9"></div>
         </div>
            

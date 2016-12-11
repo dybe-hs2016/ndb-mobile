@@ -1,7 +1,7 @@
 <?php
-	require_once('verbindung.php');
+	require_once('../../../private/verbindung.php');
         
-	// Wenn kein "freitext" eingegeben wurde, dann wird die Variable auf "" gesetzt
+	// Wenn kein 'freitext" eingegeben wurde, dann wird die Variable auf "" gesetzt
 	if(!isset($_GET['freitext'])) {
 		$_GET['freitext'] = "";
 	}

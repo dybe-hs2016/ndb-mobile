@@ -33,6 +33,13 @@ $sammlung = array(
 	"varname" => "?varname=bdy.02.sammlung.php",
 );
 
+$srcrslt = array(
+	"id" => "srcrslt",
+	"name" => "Suchresultate",
+	"url" => "page.02.srcrslt.php",
+	"varname" => "?varname=bdy.02.srcrslt.php",
+);
+
 $zfTreffer = array(
 	"id" => "zfTreffer",
 	"name" => "Zufallstreffer",
