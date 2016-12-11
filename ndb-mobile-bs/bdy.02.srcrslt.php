@@ -29,6 +29,8 @@
 <h1>Suchergebnisse aufgelistet</h1>
 <h2>Klick auf Link, dann Detailansicht in entry</h2>
 
+
+
 <div class="table">
     <table class="table">
 	<tr>
@@ -40,5 +42,10 @@
 	<td><?php if(isset($suche_freitext)) {echo $suche_freitext ['name'];} else { echo "-"; } ?></td>
         <td><?php if(isset($suche_freitext)) {echo $suche_freitext ['firstname'];} else { echo "-"; } ?></td>
 	</tr>
+        
+        <td>Instrument</td>
+	<td><?php if(isset($suche_freitext)) {echo $suche_freitext ['instrument'];} else { echo "-"; } ?></td>
+	</tr>
+        
     </table>
 </div>
