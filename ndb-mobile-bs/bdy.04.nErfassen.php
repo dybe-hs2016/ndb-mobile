@@ -1,6 +1,4 @@
 <?php
-	require_once('../../../private/verbindung.php');
-	
         // Definition der Fehlervariablen
         $fehler_title = "";
 
@@ -55,7 +53,7 @@
     }
 ?>
 
-
+<!-- Prototyp Fromular als php funktion erfassen? form-input ($key)... -->
 <h1>Noten erfassen</h1>
 <div class="container"> <!-- content container no 3 -->
   <div class="row">
