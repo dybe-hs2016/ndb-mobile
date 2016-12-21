@@ -110,4 +110,6 @@ $logIn = array(
  $tbl_publisher = "tbl_publisher";
  $tbl_tonality = "tbl_tonality";
 
+/*Fields of all tables as array*/
+
 ?>
