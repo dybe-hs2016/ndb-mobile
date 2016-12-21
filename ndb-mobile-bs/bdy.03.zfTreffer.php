@@ -14,6 +14,8 @@
 	echo '<h1>'.$parsData['Titel'].'</h1>';
 ?>
 
+<!-- For Array USE THIS SOLUTION -->
+
 <!-- db endtry as simple foreach loop -->
 
 <div class="table">
