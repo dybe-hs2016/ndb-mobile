@@ -33,4 +33,7 @@
 
 <!-- include PHP Variables -->
 	<!-- Link Variables -->
-	<?php include("strct.link.var.list.php"); ?>
+	<?php require_once("strct.link.var.list.php"); ?>
+
+<!-- include connection info to database -->
+	<?php require_once("../../../private/verbindung.php"); ?>
