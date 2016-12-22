@@ -27,11 +27,13 @@
 					</div>
 				</div>
 				<div class="col-sm-4"></div>
-		
-			<!-- Komponist -->	
+			</div>
+			
+			<!-- Komponist -->
+			<div class="form-group">
 				<label class="col-sm-2 control-label" for="inputTitle">Komponist</label>
 				<div class="col-sm-4">
-					<input class="form-control" type="text" id="id" name="freitext" value="<?php echo isset($_POST['freitext']) ? htmlentities($_POST['freitext']) : "" ; ?>">
+					<input class="form-control" type="text" id="id" name="suche_composer" value="<?php echo isset($_POST['suche_composer']) ? htmlentities($_POST['suche_composer']) : "" ; ?>">
 				</div>
 				<div class="col-sm-2">und/oder/nicht</div>
 				<div class="col-sm-4"></div>
