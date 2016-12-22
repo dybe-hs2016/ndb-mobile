@@ -6,105 +6,44 @@
   <div class="row">
       <section class="col-xs-12">     
 		
-        <form class="form-horizontal" action="bdy.02.srcrslt.php" method="get" name="form" id="form">
+		<!-- Titel der Noten -->
+        <form class="form-horizontal" action="page.00.index.php?varname=bdy.02.srcrslt.php" method="post" name="form" id="form">
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputTitle">Titel der Noten</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" id="id" name="freitext" value="<?php echo isset($_GET['freitext']) ? htmlentities($_GET['freitext']) : "" ; ?>">
+                <input class="form-control" type="text" id="id" name="freitext" value="<?php echo isset($_POST['freitext']) ? htmlentities($_POST['freitext']) : "" ; ?>">
             </div>
-            <div class="col-sm-2">und/oder/nicht</div>
+            <div class="col-sm-2">
+			<!-- Dropdown zur Auswahl ob Boolean Operator "und" oder "oder" oder "nicht" ist ; ev. auslagern ? mit incl... -->
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						Name?? <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li><a href="#">und</a></li>
+						<li><a href="#">oder</a></li>
+						<li><a href="#">nicht</a></li>
+					</ul>
+				</div>
+			</div>
             <div class="col-sm-4"></div>
         </div>
-            
+        
+		
+		<!-- Komponist -->	
+		<!--
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputTitle">Komponist</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" id="id" name="freitext" value="<?php echo isset($_GET['freitext']) ? htmlentities($_GET['freitext']) : "" ; ?>">
+                <input class="form-control" type="text" id="id" name="freitext" value="<?php echo isset($_POST['freitext']) ? htmlentities($_POST['freitext']) : "" ; ?>">
             </div>
             <div class="col-sm-2">und/oder/nicht</div>
             <div class="col-sm-4"></div>
         </div>
-		
-		<!--
-        <div class="form-group">
-            <label class="col-sm-2 control-label" for="inputSignature">Signatur</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputSignature" placeholder="Signatur">
-            </div>
-        </div>
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputFirstName">Vorname des Komponisten</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputFirstName" placeholder="Vorname des Komponisten">
-            </div>
-        </div>
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputName">Nachname des Komponisten</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputName" placeholder="Nachname des Komponisten">
-            </div>
-        </div>
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputPublisher">Verlag</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputPublisher" placeholder="Verlag">
-            </div>
-        </div>
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputInstrument">Instrument</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputInstrument" placeholder="XXX Dropdown">
-            </div>
-        </div>
-		
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputEmail">Epoche</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="XXX Dropdown">
-            </div>
-        </div>
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputEmail">Stil</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="XXX Dropdown">
-            </div>
-        </div>
-        
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputEmail">Tonart</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="XXX Dropdown">
-            </div>
-        </div>
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputEmail">Schwierigkeitsgrad</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="XXX Dropdown">
-            </div>
-        </div>
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputEmail">Anlass</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="XXX Dropdown">
-            </div>
-        </div>
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputEmail">Kommentar</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="Kommentarfeld">
-            </div>
-        </div>
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputEmail">Link zur Aufnahme</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="Link zur Aufnahme, z.B. youtube">
-            </div>
-        </div>
-		
-		<div class="form-group">
-            <label class="col-sm-2 control-label" for="inputEmail">Link zum Notenblatt</label>
-            <div class="col-sm-10"><input class="form-control" type="email" id="inputEmail" placeholder="Link zum Notenblatt, z.B. sheetmusic">
-            </div>
-        </div>
 		-->
+		
+		
+		
 		
 		<!-- pull-right - Knopf ist auf der echten Seite -->	
         <div class="form-group">
