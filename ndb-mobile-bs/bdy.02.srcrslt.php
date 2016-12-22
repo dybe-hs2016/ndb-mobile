@@ -8,33 +8,38 @@
 <?php if ($suche_freitext == NULL) {
 	//Wenn die Suche keine Treffer erzielt, nachfolgendes ausgeben
 	include("incl.05.noresult.php"); 
-	} else { ?>
-	<!-- Wenn die Suche Treffer erzielt, Treffer ausgeben -->
-	<div class="table">
-		<table class="table">
-		<tr>
-		<td>Titel</td>
-		<td><?php if(isset($suche_freitext)) {echo $suche_freitext ['title'];} else { echo "-"; } ?></td>
-		</tr>
-		
-		<tr>
-		<td>Komponist</td>
-		<td><?php if(isset($suche_freitext)) {echo $suche_freitext ['name'];} else { echo "-"; } ?></td>
-		<td><?php if(isset($suche_freitext)) {echo $suche_freitext ['firstname'];} else { echo "-"; } ?></td>
-		</tr>
+	} else { 
+		// Wenn die Suche Treffer erzielt, Treffer ausgeben
+		do { ?>
+			<div class="table">
+				<table class="table">
+				<!-- Titel -->
+				<h2><?php if(isset($suche_freitext)) {echo $suche_freitext ['title'];} else { echo "-"; } ?></h2>
 			
-		<tr> 
-		<td>Instrument</td>
-		<td><?php if(isset($suche_freitext)) {echo $suche_freitext ['instrument'];} else { echo "-"; } ?></td>
-		</tr>
-			
-		</table>
-	</div>
-	<? }
-	?>
+				<!-- Komponist und Instrumente -->
+				<tr>
+				<td>Komponist</td>
+				<td><?php if(isset($suche_freitext)) {echo $suche_freitext ['firstname']." ".$suche_freitext['name'];} else { echo "-"; } ?></td>
+				</tr>
 
+				<tr> 
+				<td>Instrument(e)</td>
+				<td><?php if(isset($suche_freitext)) {echo $suche_freitext ['instrument'];} else { echo "-"; } ?></td>
+				</tr>
+			<? }
+		while($suche_freitext = mysqli_fetch_assoc($query_freitext)); ?>
+				</table>
+			</div>
+		<? }
+?>
 
-<?php if ($suche_freitext == NULL) {
+<button onclick='history.back()'>Zur&uuml;ck zur Suche</button>
+
+	
+	
+<!-- Lösung mit foreach, macht aber bei der Ausgabe von drei Feldern nicht so viel Sinn... -->	
+<?php /*
+	if ($suche_freitext == NULL) {
 	//Wenn die Suche keine Treffer erzielt, nachfolgendes ausgeben
 	include("incl.05.noresult.php"); 
 	} else { 
@@ -65,6 +70,7 @@
 	</div>	
 	<? } 
 ?>
-	
+*/	
 
-<button onclick='history.back()'>Zur&uuml;ck zur Suche</button>
+
+
