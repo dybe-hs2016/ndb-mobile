@@ -33,4 +33,38 @@
 	<? }
 	?>
 
+
+<?php if ($suche_freitext == NULL) {
+	//Wenn die Suche keine Treffer erzielt, nachfolgendes ausgeben
+	include("incl.05.noresult.php"); 
+	} else { 
+	echo '<h1>'.$suche_freitext['Titel'].'</h1>';
+?>
+
+<!-- For Array USE THIS SOLUTION -->
+<!-- db endtry as simple foreach loop -->
+
+	<div class="table">
+		<table class="table">
+			<!-- <tr> ID BEZEICHNUNG METADATENFELD
+				<th class="key">BEZEICHUNG</th>
+				<th class="val">INHALT</th>
+			</tr> -->
+
+			<?php 
+				foreach ($suche_freitext as $key => $val) {
+					
+					
+					echo '<tr> 
+						<th class="key">'.$key.'</th>
+						<th class="val">'.$val.'</th> 
+					</tr>';
+				}
+			?>
+		</table>
+	</div>	
+	<? } 
+?>
+	
+
 <button onclick='history.back()'>Zur&uuml;ck zur Suche</button>
