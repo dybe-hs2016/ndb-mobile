@@ -4,6 +4,7 @@
 <!-- Einfache Suche -->
 <!-- Durchsucht nur die Tabellen Noten, Komponist und Instrument. Der Rest kann in der Expertensuche angewählt werden-->
 <!-- Instrument nocht nicht gemacht... da dies mit einer Zwischentabelle funktioniert. -->
+<!-- Diesen Teil verwende ich im Moment auch für die Expertensuche... Wird dann noch anders. -->
 <?php
 	// Suche ausführen, falls kein Freitext, nichts tun
 	if(isset($_POST['freitext'])) {
@@ -12,6 +13,12 @@
 	$sql_freitext .= "WHERE `title` LIKE '%".$_POST['freitext']."%' OR `name` LIKE '%".$_POST['freitext']."%' OR `firstname` LIKE '%".$_POST['freitext']."%' ";
 	$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
 	$suche_freitext = mysqli_fetch_assoc($query_freitext);
+		
+	/* array(15) { ["id"]=> string(1) "1" ["title"]=> string(8) "Sinfonie" ["signature"]=> string(4) "HA 1" 
+	/["linktomusic"]=> NULL ["linktosheet"]=> NULL ["comment"]=> string(10) "Super Sach" ["id_composer"]=> string(1) "1" 
+	["id_publisher"]=> string(1) "2" ["id_epoch"]=> string(1) "3" ["id_musicstyle"]=> string(1) "4" ["id_tonality"]=> string(2) "35" 
+	["id_levels"]=> string(1) "1" ["id_occasion"]=> string(1) "4" ["name"]=> string(5) "Pärt" ["firstname"]=> string(4) "Arvo" }
+	*/
 	
 	// Verbindungsprobleme anzeigen
 	echo mysqli_error($verb);
@@ -40,3 +47,11 @@
 <!-- Update-Befehle -->
 
 <!-- Delete-Befehl -->
+
+<!-- Random-Befehl für Zufallstreffer -->
+<?php
+	$sql_random = "SELECT * FROM `tbl_noten` ORDER BY RAND() LIMIT 1";
+	$query_random = mysqli_query($verb, $sql_random) or die("Fehler:".mysqli_error($verb));
+	$random = mysqli_fetch_assoc($query_random);
+	echo mysqli_error($verb);
+?>
