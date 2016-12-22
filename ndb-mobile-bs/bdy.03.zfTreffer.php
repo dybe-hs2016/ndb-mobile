@@ -27,7 +27,7 @@
 
 	
 
-<button onclick='history.back()'>Zur&uuml;ck zur Suche</button>
+
 <br><br>
 
 <?php
