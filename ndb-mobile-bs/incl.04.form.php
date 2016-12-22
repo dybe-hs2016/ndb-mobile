@@ -27,23 +27,25 @@
 ?>
 
 
-
-
 <!-- Expertensuche -->
 <?php
 	// Feld Titel
 	if(isset($_POST['suche_title'])) {
 		$sql_freitext = "SELECT `title` FROM ".$tbl_noten." WHERE `title` LIKE '%".$_POST['suche_title']."%' ";
-		} elseif(isset($_POST['suche_composer'])) {
+		$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
+		$suche_freitext = mysqli_fetch_assoc($query_freitext);
+		} 
+		elseif(isset($_POST['suche_composer'])) {
 		$sql_freitext = "SELECT `name` FROM ".$tbl_composer." WHERE `name` LIKE '%".$_POST["suche_composer"]."%' OR `firstname` LIKE '%".$_POST['suche_composer']."%' ";	
-	}
-	$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
-	$suche_freitext = mysqli_fetch_assoc($query_freitext);
+		$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
+		$suche_freitext = mysqli_fetch_assoc($query_freitext);
+		}
+
 	echo mysqli_error($verb);
 ?>	
 
 <!--	
-	    $sql_titel = "SELECT 'title' FROM ".$tbl_noten." "; 
+	   $sql_titel = "SELECT 'title' FROM ".$tbl_noten." "; 
 	// $sql_freitext .= "LEFT JOIN ".$tbl_komponist." ON ".$tbl_noten.".id_komponist=".$tbl_komponist.".id_komponist " ;	
 	// $sql_freitext .= "LEFT JOIN ".$tbl_verlag." ON ".$tbl_noten.".id_verlag=".$tbl_verlag.".id_verlag " ;
 	// $sql_freitext .= "LEFT JOIN ".$tbl_instrument." ON ".$tbl_noten.".id_instrument=".$tbl_instrument.".id_instrument " ;
