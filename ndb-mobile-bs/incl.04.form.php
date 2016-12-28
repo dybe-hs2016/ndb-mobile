@@ -68,6 +68,17 @@
 	$result_levels = mysqli_query($verb, $sql_levels) or die("Fehler:".mysqli_error($verb));
 ?>
 
+<?php
+	// Musicstyle-Dropdown
+	$sql_musicstyle = "SELECT id, name FROM ".$tbl_musicstyle." ORDER BY id DESC";	
+	$result_musicstyle = mysqli_query($verb, $sql_musicstyle) or die("Fehler:".mysqli_error($verb));
+?>
+
+<?php
+	// Occaion-Dropdown
+	$sql_occasion = "SELECT id, occasion FROM ".$tbl_occasion." ORDER BY id DESC";	
+	$result_occasion = mysqli_query($verb, $sql_occasion) or die("Fehler:".mysqli_error($verb));
+?>
 
 <!--	
 	   $sql_titel = "SELECT 'title' FROM ".$tbl_noten." "; 
