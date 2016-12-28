@@ -40,9 +40,34 @@
 		$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
 		$suche_freitext = mysqli_fetch_assoc($query_freitext);
 		}
+		elseif(isset($_POST['suche_publisher'])) {
+		$sql_freitext = "SELECT `name` FROM ".$tbl_composer." WHERE `name` LIKE '%".$_POST["suche_composer"]."%' OR `firstname` LIKE '%".$_POST['suche_composer']."%' ";	
+		$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
+		$suche_freitext = mysqli_fetch_assoc($query_freitext);
+		}
+		
 
 	echo mysqli_error($verb);
 ?>	
+
+<?php
+	// Instrumenten-Auswahl mit Checkboxen
+	$sql_instrument = "SELECT id, name FROM ".$tbl_instrument." ORDER BY id";	
+	$result_instrument = mysqli_query($verb, $sql_instrument) or die("Fehler:".mysqli_error($verb));
+?>
+
+<?php
+	// Epoche-Dropdown
+	$sql_epoch = "SELECT id, name FROM ".$tbl_epoch." ORDER BY id";	
+	$result_epoch = mysqli_query($verb, $sql_epoch) or die("Fehler:".mysqli_error($verb));
+?>
+
+<?php
+	// Level-Dropdown
+	$sql_levels = "SELECT id, level FROM ".$tbl_levels." ORDER BY id";	
+	$result_levels = mysqli_query($verb, $sql_levels) or die("Fehler:".mysqli_error($verb));
+?>
+
 
 <!--	
 	   $sql_titel = "SELECT 'title' FROM ".$tbl_noten." "; 
