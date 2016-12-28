@@ -58,13 +58,13 @@
 
 <?php
 	// Epoche-Dropdown
-	$sql_epoch = "SELECT id, name FROM ".$tbl_epoch." ORDER BY id";	
+	$sql_epoch = "SELECT id, name FROM ".$tbl_epoch." ORDER BY id DESC";	
 	$result_epoch = mysqli_query($verb, $sql_epoch) or die("Fehler:".mysqli_error($verb));
 ?>
 
 <?php
 	// Level-Dropdown
-	$sql_levels = "SELECT id, level FROM ".$tbl_levels." ORDER BY id";	
+	$sql_levels = "SELECT id, level FROM ".$tbl_levels." ORDER BY id DESC";	
 	$result_levels = mysqli_query($verb, $sql_levels) or die("Fehler:".mysqli_error($verb));
 ?>
 
