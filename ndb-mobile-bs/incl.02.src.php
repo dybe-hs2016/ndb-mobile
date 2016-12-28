@@ -10,7 +10,7 @@
 		
 			<input type="search" class="form-control" id="src" placeholder="Suche..." action="page.00.index.php?varname=bdy.02.srcrslt.php" name="freitext" value="<?php echo isset($_POST['freitext']) ? htmlentities($_POST['freitext']) : "" ; ?>">
 			<span class="input-group-btn">
-				<button class="btn btn-default btn-src" type="button">
+				<button class="btn btn-default btn-src" type="submit">
 					<span class="glyphicon glyphicon-search"></span>
 				</button>
 			</span>
