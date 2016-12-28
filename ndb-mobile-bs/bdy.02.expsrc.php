@@ -51,7 +51,7 @@
 			<!-- Instrument , nicht fertig wäre gut mit Häkli-Dinger -->
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="inputTitle">Instrument</label>
-				<div class="col-sm-4">
+				<div class="col-sm-6">
 					<label class="checkbox-inline">
 						<?php 
 							while ($row_instrument = mysqli_fetch_assoc($result_instrument)) {
@@ -59,7 +59,6 @@
 							'.$row_instrument['name'].' '; } ?>
 					</label>
 				</div>
-				<div class="col-sm-2"></div>
 				<div class="col-sm-4"></div>
 			</div>
 			
@@ -82,7 +81,7 @@
 			<!-- Level aus Dropdown auswählen -->
 			<div class="form-group" name="levels">
 				<label class="col-sm-2 control-label" for="inputTitle">Schwierigkeitsgrad</label>
-				<div class="col-sm-4">
+				<div class="col-sm-6">
 					<!-- Dropdown zur Auswahl der Epoche -->
 					<select class="form-control">
 						<?php 
