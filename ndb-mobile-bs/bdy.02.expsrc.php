@@ -48,7 +48,7 @@
 			</div>
 		
 			<!-- Weitere Möglichkeiten zum Ausklappen: Instrument und Anderes-->
-			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			<div class="panel-group" id="accordionOne" role="tablist" aria-multiselectable="true">
 				<!-- Möglichkeit 1: Instrument -->
 				<div class="col-sm-6 col-sm-offset-2">
 					<div class="panel panel-default">
@@ -58,119 +58,117 @@
 								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Instrumentenwahl</a>
 							</h4>
 						</div>
-						<!-- Body -->
 						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
-					<div class="panel-body">
-						<!-- Checkboxen zum Anwählen -->
-						<div class="form-group">
-							<label class="col-sm-3 control-label" for="instrument">Instrument</label>
-								<div class="col-sm-8">
-									<?php 
-										while ($row_instrument = mysqli_fetch_assoc($result_instrument)) 
-										{
-											echo '<label class="checkbox-inline col-sm-5">';
-											echo '<input type="checkbox" id="inlineCheckbox'.$row_instrument['name'].'" value="'.$row_instrument['name'].'">
-											'.$row_instrument['name'].' '; 
-											echo '</label>'; 
-										} 
-									?>
-								</div>
-						</div>
-					</div>
-			    </div>
-					</div> <!-- panel-default -->
+							<!-- Body -->
+							<div class="panel-body">
+								<!-- Checkboxen zum Anwählen -->
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="instrument_instrument" id="suche_instrument" name="suche_instrument">Instrument</label>
+										<div class="col-sm-8">
+											<?php 
+												while ($row_instrument = mysqli_fetch_assoc($result_instrument)) 
+												{
+													echo '<label class="checkbox-inline col-sm-5">';
+													echo '<input type="checkbox" id="inlineCheckbox'.$row_instrument['name'].'" value="'.$row_instrument['name'].'">
+													'.$row_instrument['name'].' '; 
+													echo '</label>'; 
+												} 
+											?>
+										</div>
+								</div> <!-- form-group -->
+							</div> <!-- panel-body -->
+						</div> <!-- collapseOne -->
+					</div> <!-- panel panel-default -->						
 				</div> <!-- col -->
+			</div> <!-- panel-group 1 -->	
 				
 				<!-- Möglichkeit 2: Weitere Einschränkungsmöglichkeiten -->
+			<div class="panel-group" id="accordionTwo" role="tablist" aria-multiselectable="true">
 					<div class="col-sm-6 col-sm-offset-2">
 						<div class="panel panel-default">
 							<!-- Head -->
-							<div class="panel-heading" role="tab" id="headingOne">
+							<div class="panel-heading" role="tab" id="headingTwo">
 							  <h4 class="panel-title">
-								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 								  Weitere Einschränkungsmöglichkeiten
 								</a>
 							  </h4>
 							</div>
-				
-						<!-- Body -->
-						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
-							<div class="panel-body">
-								<!-- Epoche aus Dropdown auswählen -->
-								<div class="form-group" name="epoch">
-									<label class="col-sm-4 control-label" for="suche_epoch">Epoche</label>
-									<div class="col-sm-7">
-										<!-- Dropdown zur Auswahl der Epoche -->
-										<select class="form-control" id="suche_epoch" name="suche_epoch">
-											<?php 
-												while ($row_epoch = mysqli_fetch_assoc($result_epoch))
-												{
-													echo '<option value="'.$row_epoch['name'].'">'.$row_epoch['name'].'</option>';
-												} 
-											?>
-										</select>
-									</div>
-								</div>
-						
-								<!-- Level aus Dropdown auswählen -->
-								<div class="form-group" name="levels">
-									<label class="col-sm-4 control-label" for="levels">Schwierigkeitsgrad</label>
-									<div class="col-sm-7">
-										<!-- Dropdown zur Auswahl der Epoche -->
-										<select class="form-control">
-											<?php 
-												while ($row_levels = mysqli_fetch_assoc($result_levels))
-												{
-													echo '<option value="'.$row_levels['level'].'">'.$row_levels['level'].'</option>';
-												}
+							<!-- Body -->
+							<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
+								<div class="panel-body">
+									<!-- Epoche aus Dropdown auswählen -->
+									<div class="form-group" name="epoch">
+										<label class="col-sm-4 control-label" for="suche_epoch">Epoche</label>
+										<div class="col-sm-7">
+											<!-- Dropdown zur Auswahl der Epoche -->
+											<select class="form-control" id="suche_epoch" name="suche_epoch">
+												<?php 
+													while ($row_epoch = mysqli_fetch_assoc($result_epoch))
+													{
+														echo '<option value="'.$row_epoch['name'].'">'.$row_epoch['name'].'</option>';
+													} 
 												?>
-										</select>
+											</select>
+										</div>
 									</div>
-								</div>
-						
-								<!-- Musicstyle aus Dropdown auswählen -->
-								<div class="form-group" name="musicstyle">
-									<label class="col-sm-4 control-label" for="musicstyle">Stil</label>
-									<div class="col-sm-7">
-										<!-- Dropdown zur Auswahl der Epoche -->
-										<select class="form-control">
-											<?php 
-												while ($row_musicstyle = mysqli_fetch_assoc($result_musicstyle)) {
-												echo '<option value="'.$row_musicstyle['name'].'">
-												'.$row_musicstyle['name'].'</option>'; } ?>
-										</select>
+							
+									<!-- Level aus Dropdown auswählen -->
+									<div class="form-group" name="levels">
+										<label class="col-sm-4 control-label" for="suche_levels">Schwierigkeitsgrad</label>
+										<div class="col-sm-7">
+											<!-- Dropdown zur Auswahl der Epoche -->
+											<select class="form-control" id="suche_levels" name="suche_levels">
+												<?php 
+													while ($row_levels = mysqli_fetch_assoc($result_levels))
+													{
+														echo '<option value="'.$row_levels['level'].'">'.$row_levels['level'].'</option>';
+													}
+													?>
+											</select>
+										</div>
 									</div>
-								</div>	
+							
+									<!-- Musicstyle aus Dropdown auswählen -->
+									<div class="form-group" name="musicstyle">
+										<label class="col-sm-4 control-label" for="suche_musicstyle">Stil</label>
+										<div class="col-sm-7">
+											<!-- Dropdown zur Auswahl der Epoche -->
+											<select class="form-control" id="suche_musicstyle" name="suche_musicstyle">
+												<?php 
+													while ($row_musicstyle = mysqli_fetch_assoc($result_musicstyle)) {
+													echo '<option value="'.$row_musicstyle['name'].'">
+													'.$row_musicstyle['name'].'</option>'; } ?>
+											</select>
+										</div>
+									</div>	
 
-								<!-- Occasion aus Dropdown auswählen -->
-								<div class="form-group" name="occasion">
-									<label class="col-sm-4 control-label" for="occasion">Anlass</label>
-									<div class="col-sm-7">
-										<!-- Dropdown zur Auswahl der Epoche -->
-										<select class="form-control">
-											<?php 
-												while ($row_occasion = mysqli_fetch_assoc($result_occasion)) {
-												echo '<option value="'.$row_occasion['occasion'].'">
-												'.$row_occasion['occasion'].'</option>'; } ?>
-										</select>
+									<!-- Occasion aus Dropdown auswählen -->
+									<div class="form-group" name="occasion">
+										<label class="col-sm-4 control-label" for="suche_occasion">Anlass</label>
+										<div class="col-sm-7">
+											<!-- Dropdown zur Auswahl der Epoche -->
+											<select class="form-control" id="suche_occasion" name="suche_occasion">
+												<?php 
+													while ($row_occasion = mysqli_fetch_assoc($result_occasion)) {
+													echo '<option value="'.$row_occasion['occasion'].'">
+													'.$row_occasion['occasion'].'</option>'; } ?>
+											</select>
+										</div>
 									</div>
-								</div>
-							</div> <!-- panel-body -->
-						</div>
+								</div> <!-- panel-body -->
+							</div> <!-- collapseTwo -->
 						</div> <!-- panel-default -->
 					</div> <!-- col -->
-				
-				<div class="col-sm-2"></div>	
-							
-		
+					<div class="col-sm-2"></div>					
+			</div> <!-- panel-group 2 -->
+			
 			<!-- pull-right - Knopf ist auf der echten Seite -->	
 			<div class="form-group">
 				<div class="col-sm-8 col-sm-offset-2">
 					<input class="btn btn-alert pull-left" type="submit" value="Los">           
 				</div>
-			</div>
-			
-			</div> <!-- panel-group -->
+			</div>	
  
         </form>
      </section>
