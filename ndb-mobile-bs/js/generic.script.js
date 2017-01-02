@@ -1,5 +1,4 @@
-<script type="text/javascript">
-
+	
 	var loadContent = function(name) {
 		$("#home").on("click", function(){
 			$("#pageContent").load("/dybe/ndb-mobile-bs/bdy.01.intro.php");
@@ -12,4 +11,3 @@
 		});
 	};
 
-</script>
