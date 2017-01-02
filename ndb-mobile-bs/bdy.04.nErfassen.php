@@ -1,25 +1,35 @@
 <?php
-        // Definition der Fehlervariablen
-        $fehler_title = "";
+    
+    // define variables
 
-        // Variablen leer einfügen
-        $title = "";
-        //$name = "";
-        $signature = "";
+        // Error
+         $errorFormFields = array();
+
+        // Datenbankfelder
+         //$name = "";
+         $title = "";
+
+    // form validation
+
+        // check if from is submitted:
+         // isset(): checks if variable is set and not NULL
+         // $_REQUEST[]: associative array that contains $_GET, $_POST, $_COOKIE by default
+         // submit: value set, when form is submitted via button: <input ... type='submit' ..>
+         if (isset($_REQUEST['submit'])) {
+
+            // Formular zur Überprüfung wird aufgerufen
+            // URL Parameter in Variablen schreiben
+
+	       $title = $_REQUEST['title'];
+            $signature = $_REQUEST['signature'];
         
-        if (isset($_REQUEST['submit'])) {
-	// Formular zur Überprüfung wird aufgerufen
-	// URL Parameter in Variablen schreiben
-	$title = $_REQUEST['title'];
-        $signature = $_REQUEST['signature'];
-        
-        $freigabe = true;
+            $freigabe = true;
         
         // Formularüberprüfung
         // Titel überprüfen
 	if (strlen($title) == 0) {
 		$freigabe = false; // Freigabe stoppen
-		$fehler_title = " Bitte Titel ausf&uuml;llen";
+        $errorFormFields["title"] = "Bitte Titel ausf&uuml;llen";
 	}
         
         // Hackersicherheit gewährleisten
@@ -41,16 +51,20 @@
 		// letzte ID wieder angeben für Datenbank
 	 //	$letzteID_k= mysqli_insert_id($verb);
         
-	// Tabelle Noten in der DB eingetragen.
-		$sql = "INSERT INTO ".$tbl_noten;
-                $sql .= " (title, signature) ";
-                $sql .= " VALUES (";
-                $sql .= "'".$title."', ";
-                $sql .= "'".$signature."');";
+	// Insert form data into table noten:
+
+        // Define SQL-Statement: 
+		$sql = "INSERT INTO $tbl_noeten (title, ...) VALUES ('$title', ...)";
+
 		// SQL Abfrage an DB schicken
-		$query = mysqli_query($verb,$sql);  
-                header("location: verarbeitung.php");
-		// Nach dem Ausführen der SQL-Befehle "bdy.03-01.entry.tbl.php" mit dem zuletzt eingetragenen Eintrag (mysli_insert_id) öffnen
+		$query = mysqli_query($verb,$sql);
+
+
+/*        if ($sqlError = mysqli_error(); == "")
+*/
+        //  
+/*                header("location: verarbeitung.php");
+*/		// Nach dem Ausführen der SQL-Befehle "bdy.03-01.entry.tbl.php" mit dem zuletzt eingetragenen Eintrag (mysli_insert_id) öffnen
                 // header("location: bdy.03-01.entry.tbl.php?id=".mysqli_insert_id($verb));
 	}  
     }
@@ -62,18 +76,22 @@
   <div class="row">
       <section class="col-xs-12"> <!-- why section not col? -->
           
-        <form class="form-horizontal" action="verarbeitung.php" method="post" enctype="multipart/form-data" name="form" id="form">    
+        <!-- action in current file -->
+        <form class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data" name="form" id="form">    
 
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputTitle">Titel der Noten</label>
-            <div class="col-sm-6"><input class="form-control" type="text" id="title" value="<?php echo $title; ?>" placeholder="Titel der Noten">
-            <?php echo $fehler_title; ?></div>
+            <div class="col-sm-6">
+                <input class="form-control" type="text" id="title" value="<?php echo $title; ?>" placeholder="Titel der Noten" required>
+                <?php echo $fehler_title; ?>
+            </div>
             <div class="col-sm-4"></div>
         </div>
             
         <div class="form-group">
             <label class="col-sm-2 control-label" for="inputSignature">Signatur</label>
-            <div class="col-sm-6"><input class="form-control" type="text" id="signature" value="<?php echo $signature; ?>" placeholder="Signatur">
+            <div class="col-sm-6">
+                <input class="form-control" type="text" id="signature" value="<?php echo $signature; ?>" placeholder="Signatur">
             </div>
             <div class="col-sm-4"></div>
         </div>
