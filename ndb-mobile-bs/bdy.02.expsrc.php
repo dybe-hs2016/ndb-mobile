@@ -12,7 +12,7 @@
 		
         <form class="form-horizontal" action="page.00.index.php?varname=bdy.02.srcrslt.php" method="post" name="form" id="form">
 			<!-- Titel der Noten -->
-			<div class="form-group">¨
+			<div class="form-group">
 				<label class="col-sm-2 control-label" for="suche_title">Titel der Noten</label>
 				<div class="col-sm-4">
 					<input class="form-control" type="text" id="suche_title" name="suche_title">
