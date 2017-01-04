@@ -18,4 +18,4 @@
 </form>
 
 <!-- extended search form -->
-<p> <a href="<?php echo trim($home["url"]).$expSuche['varname']; ?>"><?php echo $expSuche["name"]; ?></a> </p>
+<p><a href="<?php echo trim($home["url"]).$expSuche['varname']; ?>"><?php echo $expSuche["name"]; ?></a></p>
