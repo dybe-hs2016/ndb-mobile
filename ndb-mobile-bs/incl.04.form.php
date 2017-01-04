@@ -2,23 +2,20 @@
 
 
 <!-- Einfache Suche -->
-<!-- Durchsucht nur die Tabellen Noten, Komponist und Instrument. Der Rest kann in der Expertensuche angewählt werden-->
-<!-- Instrument nocht nicht gemacht... da dies mit einer Zwischentabelle funktioniert. -->
-<!-- Diesen Teil verwende ich im Moment auch für die Expertensuche... Wird dann noch anders. -->
+<!-- Durchsucht nur die Tabellen Noten, Komponist. Der Rest kann in der Expertensuche angewählt werden-->
 <?php
 	// Suche ausführen, falls kein Freitext, nichts tun
 	if(isset($_POST['freitext'])) {
     $sql_freitext = "SELECT * FROM `tbl_noten` ";
     $sql_freitext .= "LEFT JOIN `tbl_composer` ON `tbl_noten`.`id_composer`=`tbl_composer`.`id` ";
-	$sql_freitext .= "WHERE `title` LIKE '%".$_POST['freitext']."%' OR `name` LIKE '%".$_POST['freitext']."%' OR `firstname` LIKE '%".$_POST['freitext']."%' ";
+	$sql_freitext .= "LEFT JOIN `noten_instrument` ON `tbl_noten`.`id`=`noten_instrument`.`id_noten` ";
+	$sql_freitext .= "LEFT JOIN `tbl_instrument` ON `noten_instrument`.`id_instrument`=`tbl_instrument`.`id` ";
+	$sql_freitext .= "WHERE `title` LIKE '%".$_POST['freitext']."%' OR `name` LIKE '%".$_POST['freitext']."%' OR `firstname` LIKE '%".$_POST['freitext']."%' OR `instrument` LIKE '%".$_POST['freitext']."%' ";
 	$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
 	$suche_freitext = mysqli_fetch_assoc($query_freitext);
-		
-	/* var_dump($sql_freitext); ergibt folgendes
-	array(15) { ["id"]=> string(1) "1" ["title"]=> string(8) "Sinfonie" ["signature"]=> string(4) "HA 1" 
-	/["linktomusic"]=> NULL ["linktosheet"]=> NULL ["comment"]=> string(10) "Super Sach" ["id_composer"]=> string(1) "1" 
-	["id_publisher"]=> string(1) "2" ["id_epoch"]=> string(1) "3" ["id_musicstyle"]=> string(1) "4" ["id_tonality"]=> string(2) "35" 
-	["id_levels"]=> string(1) "1" ["id_occasion"]=> string(1) "4" ["name"]=> string(5) "Pärt" ["firstname"]=> string(4) "Arvo" }
+			
+	/* var_dump($suche_freitext) mit "sinfonie" ergibt als ersten Treffer folgendes
+	array(18) { ["id"]=> string(1) "4" ["title"]=> string(8) "Sinfonie" ["signature"]=> string(4) "HA 1" ["linktomusic"]=> NULL ["linktosheet"]=> NULL ["comment"]=> string(10) "Super Sach" ["id_composer"]=> string(1) "1" ["id_publisher"]=> string(1) "2" ["id_epoch"]=> string(1) "3" ["id_musicstyle"]=> string(1) "4" ["id_tonality"]=> string(2) "35" ["id_levels"]=> string(1) "1" ["id_occasion"]=> string(1) "4" ["name"]=> string(5) "Pärt" ["firstname"]=> string(4) "Arvo" ["id_instrument"]=> string(1) "4" ["id_noten"]=> string(1) "1" ["instrument"]=> string(11) "Blockflöte" }
 	*/
 	
 	// Verbindungsprobleme anzeigen
@@ -31,20 +28,21 @@
 <?php
 	// Feld Titel
 	if(isset($_POST['suche_title'])) {
-		$sql_freitext = "SELECT `title` FROM ".$tbl_noten." WHERE `title` LIKE '%".$_POST['suche_title']."%' ";
-		$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
-		$suche_freitext = mysqli_fetch_assoc($query_freitext);
+		$sql_expert = "SELECT `title` FROM ".$tbl_noten." WHERE `title` LIKE '%".$_POST['suche_title']."%' ";
+		$query_expert = mysqli_query($verb, $sql_expert) or die("Fehler:".mysqli_error($verb));
+		$suche_expert = mysqli_fetch_assoc($query_expert);
 		} 
 		elseif(isset($_POST['suche_composer'])) {
-		$sql_freitext = "SELECT `name` FROM ".$tbl_composer." WHERE `name` LIKE '%".$_POST["suche_composer"]."%' OR `firstname` LIKE '%".$_POST['suche_composer']."%' ";	
-		$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
-		$suche_freitext = mysqli_fetch_assoc($query_freitext);
+		$sql_expert = "SELECT `name` FROM ".$tbl_composer." WHERE `name` LIKE '%".$_POST["suche_composer"]."%' OR `firstname` LIKE '%".$_POST['suche_composer']."%' ";	
+		$query_expert = mysqli_query($verb, $sql_expert) or die("Fehler:".mysqli_error($verb));
+		$suche_expert = mysqli_fetch_assoc($query_expert);
 		}
 		elseif(isset($_POST['suche_publisher'])) {
-		$sql_freitext = "SELECT `name` FROM ".$tbl_composer." WHERE `name` LIKE '%".$_POST["suche_composer"]."%' OR `firstname` LIKE '%".$_POST['suche_composer']."%' ";	
-		$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
-		$suche_freitext = mysqli_fetch_assoc($query_freitext);
+		$sql_expert = "SELECT `name` FROM ".$tbl_composer." WHERE `name` LIKE '%".$_POST["suche_composer"]."%' ";	
+		$query_expert = mysqli_query($verb, $sql_expert) or die("Fehler:".mysqli_error($verb));
+		$suche_expert = mysqli_fetch_assoc($query_expert);
 		}
+		
 		
 
 	echo mysqli_error($verb);
@@ -52,7 +50,7 @@
 
 <?php
 	// Instrumenten-Auswahl mit Checkboxen
-	$sql_instrument = "SELECT id, name FROM ".$tbl_instrument." ORDER BY id";	
+	$sql_instrument = "SELECT id, instrument FROM ".$tbl_instrument." ORDER BY id";	
 	$result_instrument = mysqli_query($verb, $sql_instrument) or die("Fehler:".mysqli_error($verb));
 ?>
 
