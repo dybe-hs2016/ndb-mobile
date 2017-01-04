@@ -21,7 +21,7 @@ $home = array(
 
 $expSuche = array(
 	"id" => "expSuche",
-	"name" => "Expertensuche",
+	"name" => "Erweiterte Suche",
 	"url" => "page.01.expSuche.php",
 	"varname" => "?varname=bdy.02.expsrc.php",
 );
