@@ -9,58 +9,68 @@
 
 <?php include("incl.04.form.php"); ?>
 
-<?php if ($suche_freitext !== NULL) {
-			// Wenn die einfache Suche Treffer erzielt, Treffer ausgeben
+<div class="container"> <!-- content container no 3 -->
+  <div class="row">
+      <section class="col-xs-12">
+		<div class="col-sm-6">
+			<?php if ($suche_freitext !== NULL) {
+				// Wenn die einfache Suche Treffer erzielt, Treffer ausgeben
 				do { ?>
-					<div class="table">
-						<table class="table">
-						<!-- Titel -->
-						<h2><?php if(isset($suche_freitext)) {echo $suche_freitext['title'];} else { echo "-"; } ?></h2>
-					
-						<!-- Komponist und Instrumente -->
-						<tr>
-						<td>Komponist</td>
-						<td><?php if(isset($suche_freitext)) {echo $suche_freitext['firstname']." ".$suche_freitext['name'];} else { echo "-"; } ?></td>
-						</tr>
-						
-						<!-- Instrumente -->
-						<tr> 
-						<td>Instrument(e)</td>
-						<td><?php if(isset($suche_freitext)) {echo $suche_freitext['instrument'];} else { echo "-"; } ?></td>
-						</tr>
-					<? }
-				while($suche_freitext = mysqli_fetch_assoc($query_freitext)); ?>
-						</table>
-		</div> <?
-		} elseif ($suche_expert !== NULL) {
-			// Wenn die Experten-Suche Treffer erzielt, Treffer ausgeben
-			do { ?>
 				<div class="table">
 					<table class="table">
 					<!-- Titel -->
-					<h2><?php if(isset($suche_expert)) {echo $suche_expert['title'];} else { echo "-"; } ?></h2>
+					<h2><?php if(isset($suche_freitext)) {echo $suche_freitext['title'];} else { echo "-"; } ?></h2>
 				
 					<!-- Komponist und Instrumente -->
 					<tr>
 					<td>Komponist</td>
-					<td><?php if(isset($suche_expert)) {echo $suche_expert['firstname']." ".$suche_expert['name'];} else { echo "-"; } ?></td>
+					<td><?php if(isset($suche_freitext)) {echo $suche_freitext['firstname']." ".$suche_freitext['name'];} else { echo "-"; } ?></td>
 					</tr>
 					
 					<!-- Instrumente -->
 					<tr> 
 					<td>Instrument(e)</td>
-					<td><?php if(isset($suche_expert)) {echo $suche_expert['instrument'];} else { echo "-"; } ?></td>
+					<td><?php if(isset($suche_freitext)) {echo $suche_freitext['instrument'];} else { echo "-"; } ?></td>
 					</tr>
 				<? }
-			while($suche_expert = mysqli_fetch_assoc($query_expert)); ?>
+				while($suche_freitext = mysqli_fetch_assoc($query_freitext)); ?>
 					</table>
 				</div> <?
-		} else { 
-			//Wenn die Suche keine Treffer erzielt, nachfolgendes ausgeben
-			include("incl.05.noresult.php");
-		}
-?>
-
+				
+				} elseif ($suche_expert !== NULL) {
+				// Wenn die Experten-Suche Treffer erzielt, Treffer ausgeben
+				do { ?>
+					<div class="table">
+						<table class="table">
+						<!-- Titel -->
+						<h2><?php if(isset($suche_expert)) {echo $suche_expert['title'];} else { echo "-"; } ?></h2>
+					
+						<!-- Komponist und Instrumente -->
+						<tr>
+						<td>Komponist</td>
+						<td><?php if(isset($suche_expert)) {echo $suche_expert['firstname']." ".$suche_expert['name'];} else { echo "-"; } ?></td>
+						</tr>
+						
+						<!-- Instrumente -->
+						<tr> 
+						<td>Instrument(e)</td>
+						<td><?php if(isset($suche_expert)) {echo $suche_expert['instrument'];} else { echo "-"; } ?></td>
+						</tr>
+					<? }
+					while($suche_expert = mysqli_fetch_assoc($query_expert)); ?>
+						</table>
+					</div> <?
+				
+				} else { 
+					//Wenn die Suche keine Treffer erzielt, nachfolgendes ausgeben
+					include("incl.05.noresult.php");
+				}
+			?>
+		</div>
+		<div class="col-sm-6"></div>	
+		</section>
+	</div> <!-- row -->
+</div> <!-- container -->
 
 <button onclick='history.back()'>Zur&uuml;ck zur Suche</button>
 
@@ -100,6 +110,3 @@
 	<? } 
 ?>
 */	
-
-
-
