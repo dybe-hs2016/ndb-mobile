@@ -1,6 +1,6 @@
-<!-- Expertensuche -->
+<!-- Erweiterte Suche -->
 
-<h1>Expertensuche</h1>
+<h1>Erweiterte Suche</h1>
 
 <?php include("incl.04.form.php"); ?>
 
