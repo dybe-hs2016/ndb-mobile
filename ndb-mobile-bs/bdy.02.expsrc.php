@@ -70,8 +70,8 @@
 													while ($row_instrument = mysqli_fetch_assoc($result_instrument)) 
 													{
 														echo '<label class="checkbox-inline col-sm-5">';
-														echo '<input type="checkbox" id="inlineCheckbox'.$row_instrument['name'].'" value="'.$row_instrument['name'].'">
-														'.$row_instrument['name'].' '; 
+														echo '<input type="checkbox" id="inlineCheckbox'.$row_instrument['instrument'].'" value="'.$row_instrument['instrument'].'">
+														'.$row_instrument['instrument'].' '; 
 														echo '</label>'; 
 													} 
 												?>
@@ -171,7 +171,7 @@
 			<!-- Button "Los" -->	
 			<div class="form-group">
 				<div class="col-sm-3 col-sm-offset-2">
-					<button class="btn btn-warning pull-left btn-lg btn-block" type="submit">Los</button>					
+					<button class="btn btn-primary pull-left btn-lg btn-block" type="submit">Los</button>					
 				</div>
 			</div>	
  
