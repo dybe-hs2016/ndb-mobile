@@ -16,6 +16,7 @@
 				<?php if ($suche_freitext !== NULL) {
 					// Wenn die einfache Suche Treffer erzielt, Treffer ausgeben
 					do { ?>
+					<!-- Instrumente separat ausgeben/suchen, ['id'] welche sind in n/m drin -->
 					<div class="table-responsive">
 						<table class="table">
 						<!-- Titel -->
