@@ -59,7 +59,7 @@
 
 <?php
 	// Instrumenten-Auswahl mit Checkboxen
-	$sql_instrument = "SELECT id, instrument FROM ".$tbl_instrument." ORDER BY id";	
+	$sql_instrument = "SELECT id, name FROM ".$tbl_instrument." ORDER BY id";	
 	$result_instrument = mysqli_query($verb, $sql_instrument) or die("Fehler:".mysqli_error($verb));
 ?>
 
