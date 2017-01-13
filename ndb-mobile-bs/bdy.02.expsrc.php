@@ -14,15 +14,8 @@
 			<!-- Titel der Noten -->
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="suche_title">Titel der Noten</label>
-				<div class="col-sm-4">
+				<div class="col-sm-6">
 					<input class="form-control" type="text" id="suche_title" name="suche_title">
-				</div>
-				<div class="col-sm-2">
-				<!-- Dropdown zur Auswahl ob Boolean Operator "und" oder "oder" oder "nicht" ist ; ev. auslagern ? mit incl... -->
-					<select class="form-control">
-							<option>und</option>
-							<option>oder</option>
-					</select>
 				</div>
 				<div class="col-sm-4"></div>
 			</div>
@@ -30,20 +23,18 @@
 			<!-- Komponist -->
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="suche_composer">Komponist</label>
-				<div class="col-sm-4">
+				<div class="col-sm-6">
 					<input class="form-control" type="text" id="suche_composer" name="suche_composer">
 				</div>
-				<div class="col-sm-2">und/oder</div>
 				<div class="col-sm-4"></div>
 			</div>
 			
 			<!-- Verlag -->
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="suche_publisher">Verlag</label>
-				<div class="col-sm-4">
+				<div class="col-sm-6">
 					<input class="form-control" type="text" id="suche_publisher" name="suche_publisher">
 				</div>
-				<div class="col-sm-2">und/oder</div>
 				<div class="col-sm-4"></div>
 			</div>
 		
