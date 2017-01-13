@@ -70,8 +70,8 @@
 													while ($row_instrument = mysqli_fetch_assoc($result_instrument)) 
 													{
 														echo '<label class="checkbox-inline col-sm-5">';
-														echo '<input type="checkbox" id="inlineCheckbox'.$row_instrument['instrument'].'" value="'.$row_instrument['instrument'].'">
-														'.$row_instrument['instrument'].' '; 
+														echo '<input type="checkbox" id="inlineCheckbox'.$row_instrument['name'].'" value="'.$row_instrument['name'].'">
+														'.$row_instrument['name'].' '; 
 														echo '</label>'; 
 													} 
 												?>
