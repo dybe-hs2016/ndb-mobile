@@ -20,14 +20,14 @@
 					<div class="table-responsive">
 						<table class="table">
 						<!-- Titel -->
-						<h2><a href ="page.00.index.php?varname=bdy.03.zfTreffer.php">
+						<h2><a href ="page.00.index.php?varname=bdy.05.detail.php">
 							<?php if(isset($suche_freitext)) {echo $suche_freitext['title'];} else { echo "-"; } ?>
 							</a></h2>
 							
 						<!-- Komponist und Instrumente -->
 						<tr>
 						<td>Komponist</td>
-						<td><?php if(isset($suche_freitext)) {echo $suche_freitext['firstname']." ".$suche_freitext['name'];} else { echo "-"; } ?></td>
+						<td><?php if(isset($suche_freitext)) {echo $suche_freitext['firstname']." ".$suche_freitext['composerName'];} else { echo "-"; } ?></td>
 						</tr>
 						
 						<!-- Instrumente -->
@@ -53,7 +53,7 @@
 						<div class="table-responsive">
 							<table class="table">
 							<!-- Titel -->
-							<h2><a href ="page.00.index.php?varname=bdy.03.zfTreffer.php">
+							<h2><a href ="page.00.index.php?varname=bdy.05.detail.php">
 								<?php if(isset($suche_expert)) {echo $suche_expert['title'];} else { echo "-"; } ?>
 								</a></h2>
 
