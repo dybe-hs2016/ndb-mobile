@@ -3,13 +3,6 @@
 <head>
 	<?php include("incl.00.head.php"); ?>
 	<title><?php echo $_GET['varname']; ?></title>
-
-	<!-- embed some descriptive META tags -->
-		<meta name="description" content="Database for musicians or ohter interested parties to store their sheet music or reserch for new sheet music.">
-		<meta name="keywords" content="Noten, scheet music, Dantenbank, database, Musikbibliothek, music library, " >
-		<meta name="author" content="Buchinger, Lehmann, Wanko">
-		<meta name="date created" content="2016.11.10">
-
 </head>
 <body>
 	<?php
