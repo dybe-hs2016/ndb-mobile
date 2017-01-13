@@ -33,7 +33,7 @@
 						<!-- Instrumente -->
 						<tr> 
 						<td>Instrument(e)</td>
-						<td><?php if(isset($suche_freitext)) {echo $suche_freitext['instrument'];} else { echo "-"; } ?></td>
+						<td><?php if(isset($suche_freitext)) {echo $suche_freitext['name'];} else { echo "-"; } ?></td>
 						</tr>
 						
 						<!-- Button um den Titel meiner Sammlung hinzuzufügen -->
@@ -66,7 +66,7 @@
 							<!-- Instrumente -->
 							<tr> 
 							<td>Instrument(e)</td>
-							<td><?php if(isset($suche_expert)) {echo $suche_expert['instrument'];} else { echo "-"; } ?></td>
+							<td><?php if(isset($suche_expert)) {echo $suche_expert['name'];} else { echo "-"; } ?></td>
 							</tr>
 							
 							<!-- Button um den Titel meiner Sammlung hinzuzufügen -->
@@ -118,7 +118,7 @@
 						<?php 
 							while ($row_instrument = mysqli_fetch_assoc($result_instrument)) 
 							{
-								echo '<a href="#"><option value="'.$row_instrument['instrument'].'">'.$row_instrument['instrument'].'</option></a>';
+								echo '<a href="#"><option value="'.$row_instrument['name'].'">'.$row_instrument['name'].'</option></a>';
 							} 
 						?>
 					</div>
