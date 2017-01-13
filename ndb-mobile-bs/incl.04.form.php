@@ -11,6 +11,27 @@
 		$sql_freitext .= "WHERE `title` LIKE '%".$_POST['freitext']."%' OR `name` LIKE '%".$_POST['freitext']."%' OR `firstname` LIKE '%".$_POST['freitext']."%' ";
 		$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
 		$suche_freitext = mysqli_fetch_assoc($query_freitext);
+		
+		/*
+		CREATE VIEW view_all AS
+		SELECT `tbl_noten`.`id` AS `id`,`title`,`signature`,`linktomusic`,`linktosheet`,`comment`,
+		`tbl_composer`.`name` AS `composer_name`, `tbl_composer`.`firstname` AS `composer_fistname`,
+		GROUP_CONCAT(`tbl_instrument`.`name` SEPARATOR ', ') AS `instruments`
+
+		FROM `tbl_noten`
+		LEFT JOIN `tbl_composer` ON `tbl_noten`.`id_composer` = `tbl_composer`.`id`
+		-- TODO: Restliche Left JOINS
+
+		INNER JOIN `noten_instrument` ON `tbl_noten`.`id` = `noten_instrument`.`id_noten`
+		LEFT JOIN `tbl_instrument` ON `noten_instrument`.`id_instrument` = `tbl_instrument`.`id`
+
+		GROUP BY `tbl_noten`.`id`;
+
+		
+		SELECT * FROM view_all
+		WHERE `title` LIKE '%sinfonie%' OR `instruments` LIKE '%klavier%';
+		*/
+	}	
 			
 	/* var_dump($suche_freitext) mit "sinfonie" ergibt als ersten Treffer folgendes
 	array(18) { ["id"]=> string(1) "4" ["title"]=> string(8) "Sinfonie" ["signature"]=> string(4) "HA 1" ["linktomusic"]=> NULL ["linktosheet"]=> NULL ["comment"]=> string(10) "Super Sach" ["id_composer"]=> string(1) "1" ["id_publisher"]=> string(1) "2" ["id_epoch"]=> string(1) "3" ["id_musicstyle"]=> string(1) "4" ["id_tonality"]=> string(2) "35" ["id_levels"]=> string(1) "1" ["id_occasion"]=> string(1) "4" ["name"]=> string(5) "Pärt" ["firstname"]=> string(4) "Arvo" ["id_instrument"]=> string(1) "4" ["id_noten"]=> string(1) "1" ["instrument"]=> string(11) "Blockflöte" }
@@ -18,7 +39,7 @@
 	
 	// Verbindungsprobleme anzeigen
 	echo mysqli_error($verb);
-	}
+	
 ?>
 
 
