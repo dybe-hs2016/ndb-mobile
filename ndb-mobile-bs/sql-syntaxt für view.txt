@@ -1,0 +1,23 @@
+CREATE OR REPLACE VIEW view_all AS
+
+SELECT `tbl_noten`.`id` AS `id`,`title`,`signature`,`linktomusic`,`linktosheet`,`comment`,`level`, `occasion`,
+
+                `tbl_epoch`.`name` AS `epochName`,
+                `tbl_musicstyle`.`name` AS `musicstyleName`,
+                `tbl_publisher`.`name` AS `publisherName`,
+				GROUP_CONCAT(`tbl_instrument`.`name` SEPARATOR ', ') AS `instruments`,
+                CONCAT(`tbl_composer`.`firstname`, ' ', `tbl_composer`.`name`) AS `composerFullname`
+
+				FROM `tbl_noten`
+				LEFT JOIN `tbl_composer` ON `tbl_noten`.`id_composer` = `tbl_composer`.`id`
+                LEFT JOIN `tbl_epoch` ON `tbl_noten`.`id_epoch` = `tbl_epoch`.`id`
+                LEFT JOIN `tbl_levels` ON `tbl_noten`.`id_levels` = `tbl_levels`.`id`
+                LEFT JOIN `tbl_musicstyle` ON `tbl_noten`.`id_musicstyle` = `tbl_musicstyle`.`id`
+                LEFT JOIN `tbl_occasion` ON `tbl_noten`.`id_occasion` = `tbl_occasion`.`id`
+                LEFT JOIN `tbl_publisher` ON `tbl_noten`.`id_publisher` = `tbl_publisher`.`id`
+
+
+				INNER JOIN `noten_instrument` ON `tbl_noten`.`id` = `noten_instrument`.`id_noten`
+				LEFT JOIN `tbl_instrument` ON `noten_instrument`.`id_instrument` = `tbl_instrument`.`id`
+
+				GROUP BY `tbl_noten`.`id`
