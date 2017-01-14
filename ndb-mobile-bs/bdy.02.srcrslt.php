@@ -1,10 +1,6 @@
 <!-- Suchergebnisse werden aufgelistet-->
 
-<h1>Suchergebnisse                  
-	<div class="btn-group">
-		<button class="btn btn-default pull-right btn-xs" onclick='history.back()'>Suche ändern</button>
-	</div>
-</h1>
+
 
 
 <?php
@@ -17,6 +13,11 @@
 <div class="container"> <!-- content container no 3 -->
 	<div class="row">
 		<div class="col-xs-12 col-sm-6">
+		<h1>Suchergebnisse                  
+			<div class="btn-group pull-right">
+				<button class="btn btn-default btn-xs" onclick='history.back()'>Suche ändern</button>
+			</div>
+		</h1>
 			<?php if ($suche_freitext !== NULL) {
 				// Wenn die einfache Suche Treffer erzielt, Treffer ausgeben
 				do { ?>			
