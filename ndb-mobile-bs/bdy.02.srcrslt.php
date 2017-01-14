@@ -1,7 +1,12 @@
 <!-- Suchergebnisse werden aufgelistet-->
 
-<h1> Suchergebnisse </h1>
-<!-- Klick auf Link, dann Detailansicht in entry -->
+<h1>Suchergebnisse                  
+	<div class="btn-group">
+		<button class="btn btn-default pull-right btn-xs" onclick='history.back()'>Suche ändern</button>
+	</div>
+</h1>
+
+
 <?php
 	$suche_expert = NULL;
 	$suche_freitext = NULL;
@@ -14,7 +19,7 @@
 		<div class="col-xs-12 col-sm-6">
 			<?php if ($suche_freitext !== NULL) {
 				// Wenn die einfache Suche Treffer erzielt, Treffer ausgeben
-				do { ?>
+				do { ?>			
 				<div class="table-responsive">
 					<table class="table">
 					<!-- Titel, id wird für Detailansicht mitgegeben -->
@@ -50,7 +55,7 @@
 					<div class="table-responsive">
 						<table class="table">
 						<!-- Titel -->
-						<h2><a href ="page.00.index.php?varname=bdy.05.detail.php">
+						<h2><a href ="page.00.index.php?varname=bdy.05.detail.php&id=<?php echo $suche_expert['id']; ?>">
 							<?php if(isset($suche_expert)) {echo $suche_expert['title'];} else { echo "-"; } ?>
 							</a></h2>
 
@@ -101,19 +106,32 @@
 			  </ul>
 			</nav>
 			
-			<!-- Zurück-Button -->
-			<button onclick='history.back()'>Zur&uuml;ck</button>
+			
 			
 		</div> <!-- Ergebnisse anzeigen auf der linken Seite -->
 		
-		<!-- Einschränkungen auf der rechten Seite-->
-		<!-- Einschränkung Instrument -->
+		
+		<!-- Rechte Spalte -->
 		<div class="col-sm-3">
+			<!-- Sortiermöglichkeit -->
+			<div class="btn-group btn-block">
+			  <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Sortieren nach <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu">
+				<li><a href="#">Titel</a></li>
+				<li><a href="#">Komponist</a></li>
+				<li><a href="#">Instrument</a></li>
+			  </ul>
+			</div>
+			
+			<!-- Einschränkungen/Filtermöglichkeiten -->
+			<!-- Einschränkung Instrument -->
 			<div class="panel panel-default">
 				<div class="panel-heading">Instrument</div>
 				<div class="panel-body">
 					<?php 
-						while ($row_instrument = mysqli_fetch_assoc($query_instrument)) 
+						while ($row_instrument = mysqli_fetch_assoc($result_instrument)) 
 						{
 							echo '<a href="#"><option value="'.$row_instrument['name'].'">'.$row_instrument['name'].'</option></a>';
 						} 
@@ -125,7 +143,7 @@
 				<div class="panel-heading">Epoche</div>
 				<div class="panel-body">
 					<?php 
-						while ($row_epoch = mysqli_fetch_assoc($query_epoch))
+						while ($row_epoch = mysqli_fetch_assoc($result_epoch))
 						{
 							echo '<a href="#"><option value="'.$row_epoch['name'].'">'.$row_epoch['name'].'</option></a>';
 						} 
@@ -137,7 +155,7 @@
 				<div class="panel-heading">Schwierigkeitsgrad</div>
 				<div class="panel-body">
 					<?php 
-						while ($row_levels = mysqli_fetch_assoc($query_levels))
+						while ($row_levels = mysqli_fetch_assoc($result_levels))
 						{
 							echo '<a href="#"><option value="'.$row_levels['level'].'">'.$row_levels['level'].'</option></a>';
 						}
@@ -149,7 +167,7 @@
 				<div class="panel-heading">Stil</div>
 				<div class="panel-body">
 					<?php 
-						while ($row_musicstyle = mysqli_fetch_assoc($query_musicstyle)) 
+						while ($row_musicstyle = mysqli_fetch_assoc($result_musicstyle)) 
 						{
 							echo '<a href="#"><option value="'.$row_musicstyle['name'].'">'.$row_musicstyle['name'].'</option></a>'; 
 						} 
@@ -161,14 +179,14 @@
 				<div class="panel-heading">Anlass</div>
 				<div class="panel-body">
 					<?php 
-						while ($row_occasion = mysqli_fetch_assoc($query_occasion)) 
-						{
+						while ($row_occasion = mysqli_fetch_assoc($result_occasion))
+						{	
 							echo '<a href="#"><option value="'.$row_occasion['occasion'].'">'.$row_occasion['occasion'].'</option></a>'; 
 						} 
 					?>
 				</div>
 			</div>	
-		</div>	<!-- Einschränkungen -->	
+		</div>	<!-- Rechte Spalte -->	
 	</div> <!-- row -->
 </div> <!-- container -->	
 
