@@ -23,9 +23,15 @@
 			<!-- MAIN VIEW METADATA -->
 			
 			<div class="col-sm-9" id="pageContent">
+				
 				<!-- SEARCH FORM -->
-				<?php include("incl.02.src.php"); ?>
-
+				<!-- just include if you're not on page expsrc -->
+				<?php 
+					if ($_GET['varname'] !=="?varname=bdy.02.expsrc.php") {
+						include("incl.02.src.php"); 
+					}
+				?>
+				
 				<!-- BODY -->
 
 				<!-- filter: only proceed if $_GET is part of strct.link.list.php to prevent mlicious inclusion -->
