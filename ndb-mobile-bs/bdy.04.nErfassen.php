@@ -1,3 +1,5 @@
+<!-- Noten Erfassen -->
+
 <h1>Noten erfassen</h1>
 
 <?php require_once("incl.04.form.php"); ?>
@@ -18,6 +20,7 @@
 
 	<!-- publisher -->
 
+	<!-- epoch -->
 
 	<!-- epoch -->
 

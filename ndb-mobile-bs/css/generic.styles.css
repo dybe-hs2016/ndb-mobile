@@ -206,15 +206,15 @@ body {
 
 		/* LOG IN BUTTON */
 		.btn-li {
-			color: #4D4D4D;
-			background-color: #FF2A2A;
+			color: #e6e6e6;
+			background-color: #4D4D4D;
 			border-color: #4D4D4D;
 			margin-bottom: 8px;
 		}
 
 		.btn-li:hover, .btn-li:focus {
-			color: #e6e6e6;
-			background-color: #4d4d4d;
+			color: #4D4D4D;
+			background-color: #FF2A2A;
 		}
 
 /* SEARCH FORM */
