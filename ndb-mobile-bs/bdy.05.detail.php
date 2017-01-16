@@ -1,16 +1,41 @@
-<!-- Detailseite -->
+Detailseite -->
 
 
 <?php 
+	$sql_view_all = "SELECT * FROM view_all WHERE id='".$_GET['id']."'";
+			echo "<br> sql_view_all :";
+			var_dump($sql_view_all);
 
- 
-	$sql_detail = "SELECT * FROM `view_all` WHERE `id`='".$_GET['id']."' ";	
-	$query_detail = mysqli_query($verb, $sql_detail) or die("Fehler:".mysqli_error($verb));
-	$result_detail = mysqli_fetch_assoc($query_detail);
-	echo mysqli_error($verb);
+		$query_view_all = mysqli_query($verb, $sql_view_all) or die("<br> Fehler query_view_all: ".mysqli_error($verb));
+			echo "<br> querey_view_all :";
+			var_dump($query_view_all);
 
-	echo '<h1>'.$result_detail['title'].'</h1>';
+		$result_view_all = mysqli_fetch_assoc($query_view_all);
+			echo "<br> result_view_all :";
 ?>
+<!-- composer -->
+<table class="table">
+<tr>
+		<td class="tbl-key">
+			
+		</td>
+		<td class="tbl-val">
+			
+		</td>
+</tr>
+
+	<?php
+				echo '<br> result_view_all: <br>';
+				foreach ($result_view_all as $key => $value) {
+					echo '<tr> <td id="key">'.$key.'</td>';
+					echo '<td id="val">'.$value.'</td> </tr>';
+				}
+
+		echo '<h1>'.$result_view_all['title'].'</h1>';
+	?>
+</table>
+
+
 
 <div class="container"> <!-- content container no 3 -->
 	<div class="row">
@@ -106,4 +131,4 @@
 			
 		</div> <!-- div col -->
 	</div> <!-- div row -->
-</div> <!-- div container -->
+</div> <!-- div container
