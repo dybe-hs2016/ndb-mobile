@@ -2,6 +2,8 @@
 
 <h1>Noten erfassen</h1>
 
+
+
 <?php require_once("incl.04.form.php"); ?>
 
 <h2>Neuen Datenbankeintrag erfassen</h2>
@@ -12,7 +14,7 @@
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="title">Titel</label>
 		<div class="col-sm-8">
-			<input class="form-control" type="text" name="title" id="title">
+			<input class="form-control" type="text" name="title" id="title" required="">
 		</div>
 	</div>
 
@@ -32,13 +34,6 @@
 	</div>
 
 	<!-- publisher -->
-<!-- 	<div class="form-group">
-		<label class="col-sm-3 control-label" for="publisher">Verlag</label>
-		<div class="col-sm-8">
-			<input class="form-control" type="text" name="id_publisher" id="publisher">
-		</div>
-	</div> -->
-
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="publisher">Verlag</label>
 		<div class="col-sm-8">

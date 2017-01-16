@@ -36,7 +36,7 @@
 	<?php require_once("strct.link.var.list.php"); ?>
 
 <!-- include connection info to database -->
-	<?php require_once("../../private/verbindung.php"); ?>
+	<?php require_once("../../../private/verbindung.php"); ?>
 
 
 <!-- embed some descriptive META tags -->

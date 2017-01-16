@@ -23,6 +23,26 @@
 * 
 */
 
+// security
+
+/*var_dump($_POST);*/
+/*echo "plain: ".$_POST['title']."<br>";
+
+$_POST['title'] = strip_tags($_POST['title']);
+echo "strip_tags: ".$_POST['title']."<br>";
+
+$_POST['title'] = trim($_POST['title']);
+echo "trim: ".$_POST['title']."<br>";
+
+$_POST['title'] = htmlspecialchars($_POST['title']);
+echo "htmlspecialchars:".$_POST['title']."<br>";*/
+
+// some MINOR SECURITY through escaping the user input form data
+foreach ($_POST as $key => $value) {
+	$_POST[$key] = strip_tags(trim(htmlspecialchars($_POST[$key])));
+}
+
+// get neenet form stuff
 require_once("incl.04.form.php");
 
 // Filter instruments & noten from POST
