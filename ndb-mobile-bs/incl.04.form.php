@@ -13,8 +13,7 @@
 		$suche_freitext = mysqli_fetch_assoc($query_freitext);
 	}	
 	// Verbindungsprobleme anzeigen
-	echo mysqli_error($verb);
-	
+	echo mysqli_error($verb);	
 ?>
 
 

@@ -23,19 +23,10 @@
 * 
 */
 
-// security
+// if we want to insert
+if (strpos($_SERVER['HTTP_REFERER'],'nErfassen') !== false )  {
+echo "insert";
 
-/*var_dump($_POST);*/
-/*echo "plain: ".$_POST['title']."<br>";
-
-$_POST['title'] = strip_tags($_POST['title']);
-echo "strip_tags: ".$_POST['title']."<br>";
-
-$_POST['title'] = trim($_POST['title']);
-echo "trim: ".$_POST['title']."<br>";
-
-$_POST['title'] = htmlspecialchars($_POST['title']);
-echo "htmlspecialchars:".$_POST['title']."<br>";*/
 
 // some MINOR SECURITY through escaping the user input form data
 foreach ($_POST as $key => $value) {
@@ -67,6 +58,8 @@ $post_instrument = array_intersect_key($_POST, array_flip($whitelist_instrument)
 		if ($verb->query($sql_noten) === TRUE) {
 				// get last inserted id and save in post
 				$last_id = $verb->insert_id;
+				$_GET['id'] = $last_id;
+				echo "id: ".$_GET['id']."<br>";
 		    echo "<h2>NOTEN wurde erfasst!</h2>";
 		    }
 		  else {
@@ -77,7 +70,7 @@ $post_instrument = array_intersect_key($_POST, array_flip($whitelist_instrument)
 // Write INSTRUMENT int db
 	// PREPART prepare sql statement
 		// separate POST key-val-pairs
-		//set val to last inserted key
+		// set val to last inserted key
 		foreach ($post_instrument as $key => $value) {
 			$post_instrument_val[] = $value."', '".$last_id;}
 
@@ -97,8 +90,19 @@ $post_instrument = array_intersect_key($_POST, array_flip($whitelist_instrument)
 		  	echo "it seems something went wrong and we coudl not insert your data into our databes.";
 		    echo "Error: ".$sql_noten."<br>".$verb->error;
 		}
+		}
 
-}
+
+// if we want to update
+
+} elseif (strpos($_SERVER['HTTP_REFERER'],'detail') !== false )  {
+			echo "update";
+
+			// update statement here!
+
+		} else {
+			echo "there must be a mistake in our cod %-o so sorry for that. please let us know about it with a short message to emailadress@supprt.web";
+		}
 
 // get detailed view
 require_once("bdy.05.detail.php");
@@ -106,11 +110,4 @@ require_once("bdy.05.detail.php");
 /*GENERAL error report*/
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
-
-
-
-
-
-
-
  ?>

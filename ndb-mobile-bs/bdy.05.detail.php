@@ -1,24 +1,14 @@
 <!-- Detailseite -->
 
 
-<?php
+<?php 
 
-if ($_GET['varname'] == "bdy.04.nErfasst.php") {
-	echo $last_id;
-	$sql_detail = "SELECT * FROM `view_all` WHERE `id`='".$last_id."' ";	
-	$query_detail = mysqli_query($verb, $sql_detail) or die("Fehler:".mysqli_error($verb));
-	$result_detail = mysqli_fetch_assoc($query_detail);
-	echo mysqli_error($verb)."<br>";
-
-} else{
+ 
 	$sql_detail = "SELECT * FROM `view_all` WHERE `id`='".$_GET['id']."' ";	
 	$query_detail = mysqli_query($verb, $sql_detail) or die("Fehler:".mysqli_error($verb));
 	$result_detail = mysqli_fetch_assoc($query_detail);
-	echo mysqli_error($verb);}
-	?>
+	echo mysqli_error($verb);
 
-
-<?php
 	echo '<h1>'.$result_detail['title'].'</h1>';
 ?>
 
@@ -100,16 +90,17 @@ if ($_GET['varname'] == "bdy.04.nErfasst.php") {
 
 						<?php	
 						}
-						while($result_detail = mysqli_fetch_assoc($query_detail));	
-					?>
+						while($result_detail = mysqli_fetch_assoc($query_detail));
+						?>
+
 				</table>
-			</div>
-			
+			</div>			
 			<!-- Button um zu Bearbeiten -->
-			<form class="form-horizontal" action="page.00.index.php?varname=bdy.04.nErfassen.php" method="post" name="form" id="form">
-				<div class="input-group">									
+			<?php var_dump($_GET) ?>
+			<form class="form-horizontal" action="page.00.index.php<?php echo $nErfassen['varname']; ?>&id=<?php echo $_GET['id'] ?>" method="post" name="form" id="form">
+				<div class="input-group">								
 					<button class="btn btn-primary pull-left btn-sm btn-block">Bearbeiten</button>
-					<input name="id" type="hidden" value="<?php echo $_GET["id"]; ?>">					
+					<input name="id" type="hidden">
 				</div>
 			</form>
 			

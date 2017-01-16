@@ -1,10 +1,10 @@
 <!-- Noten Erfassen -->
 
+<?php
+	require_once("incl.04.form.php");
+?>
+
 <h1>Noten erfassen</h1>
-
-
-
-<?php require_once("incl.04.form.php"); ?>
 
 <h2>Neuen Datenbankeintrag erfassen</h2>
 
