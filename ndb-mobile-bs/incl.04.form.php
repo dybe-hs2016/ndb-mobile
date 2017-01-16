@@ -34,7 +34,7 @@
 		$query_expert = mysqli_query($verb, $sql_expert) or die("Fehler:".mysqli_error($verb));
 		$suche_expert = mysqli_fetch_assoc($query_expert);
 		}
-		elseif(isset($_POST['suche_publisher'])) {
+		elseif(isset($instrument_POST['suche_publisher'])) {
 		$sql_expert = "SELECT * FROM `view_all` ";
 		$sql_expert.= "WHERE `publisherName` LIKE '%".$_POST['suche_publisher']."%' ORDER BY `title` ASC ";
 		$query_expert = mysqli_query($verb, $sql_expert) or die("Fehler:".mysqli_error($verb));
@@ -50,6 +50,18 @@
 	// Instrumenten-Auswahl mit Checkboxen
 	$sql_instrument = "SELECT id, name FROM ".$tbl_instrument." ORDER BY name ASC";	
 	$result_instrument = mysqli_query($verb, $sql_instrument) or die("Fehler:".mysqli_error($verb));
+?>
+
+<?php
+	// Komponist-Dropdown
+	$sql_composer = "SELECT id, name FROM ".$tbl_composer." ORDER BY name ASC";	
+	$result_composer = mysqli_query($verb, $sql_composer) or die("Fehler:".mysqli_error($verb));
+?>
+
+<?php
+	// Verlag-Dropdown
+	$sql_publisher = "SELECT id, name FROM ".$tbl_publisher." ORDER BY name ASC";	
+	$result_publisher = mysqli_query($verb, $sql_publisher) or die("Fehler:".mysqli_error($verb));
 ?>
 
 <?php
@@ -91,4 +103,31 @@
 <!-- Update-Befehle -->
 
 <!-- Delete-Befehl -->
+
+<!-- Whitelsit Instrument -->
+	<?php
+	$sql_instrument_wl = "SELECT id, name FROM ".$tbl_instrument." ORDER BY name ASC";	
+	$result_instrument_wl = mysqli_query($verb, $sql_instrument_wl) or die("Fehler:".mysqli_error($verb));
+
+
+	while ($row_instrument_wl = mysqli_fetch_assoc($result_instrument_wl)) {
+		$whitelist_instrument[] = $row_instrument_wl['name'];
+	}
+	 ?>
+
+<!-- Whitelsit Noten -->
+	<?php
+		// DB Abfrage Noten
+		$sql_noten = "SELECT * FROM ".$tbl_noten;	
+		$result_noten = mysqli_query($verb, $sql_noten) or die("Fehler:".mysqli_error($verb));
+	?>
+
+	<?php
+	$fn_noten = mysqli_fetch_fields($result_noten);
+	foreach ($fn_noten as $val) {
+		$whitelist_noten[] = $val->name;
+	}
+	?>
+
+
 

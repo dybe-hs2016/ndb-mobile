@@ -1,14 +1,24 @@
 <!-- Detailseite -->
 
-<?php 
+
+<?php
+
+if ($_GET['varname'] == "bdy.04.nErfasst.php") {
+	echo $last_id;
+	$sql_detail = "SELECT * FROM `view_all` WHERE `id`='".$last_id."' ";	
+	$query_detail = mysqli_query($verb, $sql_detail) or die("Fehler:".mysqli_error($verb));
+	$result_detail = mysqli_fetch_assoc($query_detail);
+	echo mysqli_error($verb)."<br>";
+
+} else{
 	$sql_detail = "SELECT * FROM `view_all` WHERE `id`='".$_GET['id']."' ";	
 	$query_detail = mysqli_query($verb, $sql_detail) or die("Fehler:".mysqli_error($verb));
 	$result_detail = mysqli_fetch_assoc($query_detail);
-	echo mysqli_error($verb);
+	echo mysqli_error($verb);}
 	?>
 
 
-<?php 
+<?php
 	echo '<h1>'.$result_detail['title'].'</h1>';
 ?>
 
@@ -62,7 +72,7 @@
 						</tr>
 						<!-- Youtube-Video -->
 						<tr> 
-						<td>Youtube-Video</td>
+						<td>Link zu Musikstück</td>
 						<td><?php
 							if ($random['linktomusic'] == NULL) {
 								echo "-";
@@ -73,7 +83,7 @@
 						</tr>
 						<!-- Link zu Sheetmusic -->
 						<tr> 
-						<td>Link zu Sheetmusic</td>
+						<td>Link zu Noten</td>
 						<td><?php
 							if ($random['linktosheet'] == NULL) {
 								echo "-";
