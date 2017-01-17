@@ -57,6 +57,7 @@
 			echo $row_composer['id'].' : '.$row_composer['name'].'<br>';}*/
 
 	// Verlag-Dropdown
+		$sql_publisher = "SELECT id, name FROM ".$tbl_publisher." ORDER BY name ASC";
 		$result_publisher = mysqli_query($verb, $sql_publisher) or die("Fehler:".mysqli_error($verb));
 
 		// DEBUG row_publisher
