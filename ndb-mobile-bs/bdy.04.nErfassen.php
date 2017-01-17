@@ -25,7 +25,7 @@
 
 	// <h1>
 		$tbl_title =array(
-			'Titel' => $result_view_all['title'],
+			'Titel' => $result_view_all,
 			);
 
 	// <input>
@@ -96,6 +96,72 @@
 					</div>';}
 
 		// prefilled SELECT
+					foreach ($tbl_select as $key => $value) {
+						if ($value !== NULL) {
+							echo $key.' : '.$value.'<br>';
+							echo '
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="'.$key.'">'.$key.'</label>
+									<div class="col-sm-8">
+										<select class="form-control" id="'.$key.'" name="'.$key.'" value="'.$value.'">';
+							
+							echo '<option value="'.$key.'">'.$value.'</option>';
+
+							echo'
+										</select>
+									</div>
+								</div>
+							';
+						}
+						else {
+							echo $key.' : is NULL <br>';
+
+							echo '
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="'.$key.'">'.$key.'</label>
+									<div class="col-sm-8">
+										<select class="form-control" id="'.$key.'" name="'.$key.'" value="'.$value.'">';
+
+						if ($key == 'Anlass'){
+							while (${"row_".$key} = mysqli_fetch_assoc(${"result_".$key}))
+							{
+								echo '<option value="'.${"row_".$key}['id'].'">'.${"row_".$key}['occasion'].'</option>';
+								var_dump(${"row_".$key});
+							}
+						}
+
+						elseif ($key == 'Schwierigkeitsgrad'){
+							while (${"row_".$key} = mysqli_fetch_assoc(${"result_".$key}))
+							{
+								echo '<option value="'.${"row_".$key}['id'].'">'.${"row_".$key}['level'].'</option>';
+								var_dump(${"row_".$key});
+							}
+						}
+
+						else{
+							while (${"row_".$key} = mysqli_fetch_assoc(${"result_".$key}))
+							{
+								echo '<option value="'.${"row_".$key}['id'].'">'.${"row_".$key}['name'].'</option>';
+								var_dump(${"row_".$key});
+							}
+						}
+
+							echo'
+										</select>
+									</div>
+								</div>
+							';
+						}
+					}
+					$var = array(
+						1 => "bla");
+					$row_ = "bla";
+					$row_bla = "success!";
+				/*echo $row_.$tbl_select['Komponist'].$var[1];*/
+				echo ${"row_".$var[1]};
+
+					
+
 
 		// prefilled CHECKBOX
 			
@@ -107,163 +173,11 @@
 						<div class="form-group">
 							<label class="col-sm-3 control-label" for="'.$key.'">'.$key.'</label>
 							<div class="col-sm-8">
-								<input class="form-control" type="text" name="'.$key.'" id="'.$key.'" required="" value="'.$value.'">
+								<input class="form-control" type="text" name="'.$key.'" id="'.$key.'" value="'.$value.'">
 							</div>
 						</div>';}
 	}
 	?>
-
-
-<h2>fix input</h2>
-
-	<!-- Title -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="title">Titel</label>
-		<div class="col-sm-8">
-			<input class="form-control" type="text" name="title" id="title" required="">
-		</div>
-	</div>
-
-	<!-- composer -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="composer">Komponist</label>
-		<div class="col-sm-8">
-			<select class="form-control" id="composer" name="id_composer">
-			<?php
-				while ($row_composer = mysqli_fetch_assoc($result_composer))
-				{
-					echo '<option value="'.$row_composer['id'].'">'.$row_composer['name'].'</option>';
-				}
-			?>
-			</select>
-		</div>
-	</div>
-
-	<!-- publisher -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="publisher">Verlag</label>
-		<div class="col-sm-8">
-			<select class="form-control" id="publisher" name="id_composer">
-			<?php
-				while ($row_publisher = mysqli_fetch_assoc($result_publisher))
-				{
-					echo '<option value="'.$row_publisher['id'].'">'.$row_publisher['name'].'</option>';
-				}
-			?>
-			</select>
-		</div>
-	</div>
-
-	<!-- epoch -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="epoch">Epoche</label>
-		<div class="col-sm-8">
-			<select class="form-control" id="epoch" name="id_epoch">
-			<?php
-				while ($row_epoch = mysqli_fetch_assoc($result_epoch))
-				{
-					echo '<option value="'.$row_epoch['id'].'">'.$row_epoch['name'].'</option>';
-				}
-			?>
-			</select>
-		</div>
-	</div>
-
-	<!-- style -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="musicstyle">Stil</label>
-		<div class="col-sm-8">
-			<select class="form-control" id="musicstyle" name="id_musicstyle">
-			<?php
-				while ($row_musicstyle = mysqli_fetch_assoc($result_musicstyle))
-				{
-					echo '<option value="'.$row_musicstyle['id'].'">'.$row_musicstyle['name'].'</option>';
-				}
-			?>
-			</select>
-		</div>		
-	</div>
-
-	<!-- instrument -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="instrument">Instrument</label>
-		<div class="col-sm-8 checkbox">
-			<label>
-				<?php
-					while ($row_instrument = mysqli_fetch_assoc($result_instrument))
-					{
-						echo '<label class="checkbox col-sm-3">';
-						echo '<input type="checkbox" name="'.$row_instrument['name'].'" value="'.$row_instrument['id'].'">'.$row_instrument['name'].' ';
-						echo '</label>';
-					}
-				?>
-			</label>		
-		</div>
-	</div>
-
-	<!-- levels -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="levels">Schwierigkeitsgrad</label>
-		<div class="col-sm-8">
-			<select class="form-control" id="levels" name="id_levels">
-			<?php 
-				while ($row_levels = mysqli_fetch_assoc($result_levels))
-				{
-					echo '<option value="'.$row_levels['id'].'">'.$row_levels['level'].'</option>';
-				}
-			?>
-			</select>
-		</div>
-	</div>
-
-
-	<!-- occation -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="occasion">Anlass</label>
-		<div class="col-sm-8">
-			<select class="form-control" id="occasion" name="id_occasion">
-			<?php 
-				while ($row_occasion = mysqli_fetch_assoc($result_occasion))
-				{
-					echo '<option value="'.$row_occasion['id'].'">
-					'.$row_occasion['occasion'].'</option>';
-				}
-			?>
-			</select>
-		</div>		
-	</div>
-
-	<!-- signature -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="signature">Signatur</label>
-		<div class="col-sm-8">
-			<input class="form-control" type="text" name="signature" id="signature">
-		</div>
-	</div>
-
-	<!-- linktomusic -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="linktomusic">Link zu Musiksück</label>
-		<div class="col-sm-8">
-			<input class="form-control" type="text" name="linktomusic" id="linktomusic" placeholder="soundcloud, last.fm, youtube, vimeo, etc.">
-		</div>
-	</div>
-
-	<!-- linktosheet -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="linktosheet">Link zu Noten</label>
-		<div class="col-sm-8">
-			<input class="form-control" type="text" name="linktosheet" id="linktosheet" placeholder="musopen.org, imslp.org, mutopiaproject.org, cpdl.org">
-		</div>
-	</div>
-
-	<!-- comment -->
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="comment">Kommentar</label>
-		<div class="col-sm-8">
-			<textarea class="form-control" type="text-box" name="comment" id="comment"></textarea>			
-		</div>		
-	</div>
 
 	<!-- button -->
 	<div class="form-group">
