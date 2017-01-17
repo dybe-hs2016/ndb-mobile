@@ -23,6 +23,24 @@
 			<!-- MAIN VIEW METADATA -->
 			
 			<div class="col-sm-9" id="pageContent">
+
+			<?php
+			echo "varname: ".$_GET['varname']."<br>";
+			echo "last page :".$_SERVER['HTTP_REFERER']."<br>";
+			echo "last page type :".gettype($_SERVER['HTTP_REFERER'])."<br>";
+
+			
+			if (strpos($_SERVER['HTTP_REFERER'],'nErfassen') !== false )  {
+				echo "insert";
+
+			} elseif (strpos($_SERVER['HTTP_REFERER'],'detail') || (strpos($_SERVER['HTTP_REFERER'],'nErfasst') !== false )) {
+				echo "update";
+
+			} else {
+				echo "there must be a mistake in our cod %-o so sorry for that. please let us know about it with a short message to emailadress@supprt.web";
+			}
+					
+			?>
 				
 				<!-- SEARCH FORM -->
 				<!-- just include if you're not on page expsrc -->
@@ -40,6 +58,7 @@
 					if (empty($_GET)) {
 						include ("bdy.01.intro.php");
 					} else {
+						var_dump($_GET);
 						include($_GET['varname']);
 					}
 				?>
