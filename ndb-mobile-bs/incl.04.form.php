@@ -41,7 +41,6 @@
 	echo mysqli_error($verb);
 
 
-/* AUSWAHLLISTEN */
 /* CHECKBOXEN */
 	// Instrumenten-Auswahl mit Checkboxen
 	$sql_instrument = "SELECT id, name FROM ".$tbl_instrument." ORDER BY name ASC";	
@@ -52,8 +51,6 @@
 		$sql_composer = "SELECT id, name FROM ".$tbl_composer." ORDER BY name ASC";	
 		$result_composer = mysqli_query($verb, $sql_composer) or die("Fehler:".mysqli_error($verb));
 		
-		/*// DEBUG row_composer
-		echo '<h2> row_composer [id] : [name]</h2>';
 		// DEBUG row_composer
 		/*echo '<h2> row_composer [id] : [name]</h2>';
 		while ($row_composer = mysqli_fetch_assoc($result_composer)) {
@@ -61,9 +58,6 @@
 
 	// Verlag-Dropdown
 		$result_publisher = mysqli_query($verb, $sql_publisher) or die("Fehler:".mysqli_error($verb));
-		
-		/*// DEBUG row_publisher
-		echo '<h2> row_phblisher [id] : [name]</h2>';
 
 		// DEBUG row_publisher
 		/*echo '<h2> row_phblisher [id] : [name]</h2>';
