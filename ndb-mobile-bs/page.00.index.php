@@ -27,7 +27,7 @@
 				<!-- SEARCH FORM -->
 				<!-- just include if you're not on page expsrc -->
 				<?php 
-					if ($_GET['varname'] !=="?varname=bdy.02.expsrc.php") {
+					if ($_GET['varname'] !=="bdy.02.expsrc.php") {
 						include("incl.02.src.php"); 
 					}
 				?>

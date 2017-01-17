@@ -1,8 +1,8 @@
 <!-- SQL-Befehle -->
-
-<!-- Einfache Suche -->
-<!-- Durchsucht nur die Tabellen Noten, Komponist. Der Rest kann in der Expertensuche angewählt werden-->
 <?php
+/* EINFACHE SUCHE */
+	/* Durchsucht nur die Tabellen Noten, Komponist. Der Rest kann in der Expertensuche angewählt werden */
+
 	// Suche ausführen, falls kein Freitext, nichts tun
 	if(isset($_POST['freitext'])) {
 		$sql_freitext = "SELECT * FROM `view_all` ";
@@ -11,14 +11,12 @@
 		ORDER BY `title` ASC ";
 		$query_freitext = mysqli_query($verb, $sql_freitext) or die("Fehler:".mysqli_error($verb));
 		$suche_freitext = mysqli_fetch_assoc($query_freitext);
-	}	
+	}
+
 	// Verbindungsprobleme anzeigen
 	echo mysqli_error($verb);	
-?>
 
-
-<!-- Expertensuche -->
-<?php
+/* EXPERTENSUCH */
 	// Feld Titel
 	if(isset($_POST['suche_title'])) {
 		$sql_expert = "SELECT * FROM `view_all` ";
@@ -39,94 +37,84 @@
 		$query_expert = mysqli_query($verb, $sql_expert) or die("Fehler:".mysqli_error($verb));
 		$suche_expert = mysqli_fetch_assoc($query_expert);
 		}
-		
-		
-
+	// Verbindungsprobleme anzeigen
 	echo mysqli_error($verb);
-?>	
 
-<?php
+
+/* AUSWAHLLISTEN */
 	// Instrumenten-Auswahl mit Checkboxen
 	$sql_instrument = "SELECT id, name FROM ".$tbl_instrument." ORDER BY name ASC";	
 	$result_instrument = mysqli_query($verb, $sql_instrument) or die("Fehler:".mysqli_error($verb));
-?>
 
-<?php
 	// Komponist-Dropdown
-	$sql_composer = "SELECT id, name FROM ".$tbl_composer." ORDER BY name ASC";	
-	$result_composer = mysqli_query($verb, $sql_composer) or die("Fehler:".mysqli_error($verb));
-?>
+		$sql_composer = "SELECT id, name FROM ".$tbl_composer." ORDER BY name ASC";	
+		$result_composer = mysqli_query($verb, $sql_composer) or die("Fehler:".mysqli_error($verb));
+		
+		/*// DEBUG row_composer
+		echo '<h2> row_composer [id] : [name]</h2>';
+		while ($row_composer = mysqli_fetch_assoc($result_composer)) {
+			echo $row_composer['id'].' : '.$row_composer['name'].'<br>';}*/
 
-<?php
 	// Verlag-Dropdown
-	$sql_publisher = "SELECT id, name FROM ".$tbl_publisher." ORDER BY name ASC";	
-	$result_publisher = mysqli_query($verb, $sql_publisher) or die("Fehler:".mysqli_error($verb));
-?>
+		$sql_publisher = "SELECT id, name FROM ".$tbl_publisher." ORDER BY name ASC";	
+		$result_publisher = mysqli_query($verb, $sql_publisher) or die("Fehler:".mysqli_error($verb));
+		
+		/*// DEBUG row_publisher
+		echo '<h2> row_phblisher [id] : [name]</h2>';
+		while ($row_publisher = mysqli_fetch_assoc($result_publisher)) {
+			echo $row_publisher['id'].' : '.$row_publisher['name'].'<br>';
+		}*/
 
-<?php
 	// Epoche-Dropdown
-	$sql_epoch = "SELECT id, name FROM ".$tbl_epoch." ORDER BY id ASC";	
-	$result_epoch = mysqli_query($verb, $sql_epoch) or die("Fehler:".mysqli_error($verb));
-?>
+		$sql_epoch = "SELECT id, name FROM ".$tbl_epoch." ORDER BY id ASC";	
+		$result_epoch = mysqli_query($verb, $sql_epoch) or die("Fehler:".mysqli_error($verb));
 
-<?php
 	// Level-Dropdown
-	$sql_levels = "SELECT id, level FROM ".$tbl_levels." ORDER BY id ASC";	
-	$result_levels = mysqli_query($verb, $sql_levels) or die("Fehler:".mysqli_error($verb));
-?>
+		$sql_levels = "SELECT id, level FROM ".$tbl_levels." ORDER BY id ASC";	
+		$result_levels = mysqli_query($verb, $sql_levels) or die("Fehler:".mysqli_error($verb));
 
-<?php
+
 	// Musicstyle-Dropdown
-	$sql_musicstyle = "SELECT id, name FROM ".$tbl_musicstyle." ORDER BY id ASC";	
-	$result_musicstyle = mysqli_query($verb, $sql_musicstyle) or die("Fehler:".mysqli_error($verb));
-?>
+		$sql_musicstyle = "SELECT id, name FROM ".$tbl_musicstyle." ORDER BY id ASC";	
+		$result_musicstyle = mysqli_query($verb, $sql_musicstyle) or die("Fehler:".mysqli_error($verb));
 
-<?php
+
 	// Occaion-Dropdown
-	$sql_occasion = "SELECT id, occasion FROM ".$tbl_occasion." ORDER BY id ASC";	
-	$result_occasion = mysqli_query($verb, $sql_occasion) or die("Fehler:".mysqli_error($verb));
-?>
+		$sql_occasion = "SELECT id, occasion FROM ".$tbl_occasion." ORDER BY id ASC";	
+		$result_occasion = mysqli_query($verb, $sql_occasion) or die("Fehler:".mysqli_error($verb));
 
 
-<!-- Random-Befehl für Zufallstreffer -->
-<?php
+/*Random-Befehl für Zufallstreffer*/
 	$sql_random = "SELECT * FROM `view_all` ORDER BY RAND() LIMIT 1";
 	$query_random = mysqli_query($verb, $sql_random) or die("Fehler:".mysqli_error($verb));
 	$random = mysqli_fetch_assoc($query_random);
 	echo mysqli_error($verb);
-?>
 
+/* DATENBANK MANIPULATION */
 
-<!-- Insert-Befehle -->
+	/* INSERT */
 
-<!-- Update-Befehle -->
+	/* UPDATE */
 
-<!-- Delete-Befehl -->
+	/* DELETE */
 
-<!-- Whitelsit Instrument -->
-	<?php
+/* WHITELISTS */
+
+	/* INSTRUMENTE */
 	$sql_instrument_wl = "SELECT id, name FROM ".$tbl_instrument." ORDER BY name ASC";	
 	$result_instrument_wl = mysqli_query($verb, $sql_instrument_wl) or die("Fehler:".mysqli_error($verb));
-
 
 	while ($row_instrument_wl = mysqli_fetch_assoc($result_instrument_wl)) {
 		$whitelist_instrument[] = $row_instrument_wl['name'];
 	}
-	 ?>
 
-<!-- Whitelsit Noten -->
-	<?php
+	/* NOTEN */
 		// DB Abfrage Noten
 		$sql_noten = "SELECT * FROM ".$tbl_noten;	
 		$result_noten = mysqli_query($verb, $sql_noten) or die("Fehler:".mysqli_error($verb));
-	?>
-
-	<?php
+	
 	$fn_noten = mysqli_fetch_fields($result_noten);
 	foreach ($fn_noten as $val) {
 		$whitelist_noten[] = $val->name;
 	}
 	?>
-
-
-
