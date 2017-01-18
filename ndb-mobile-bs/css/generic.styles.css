@@ -239,3 +239,9 @@ body {
 	.form-group{
 		border-color: #4D4D4D;
 	}
+
+/* PANELS */
+	.no-gutter > [class*='col-'] {
+		padding-right:0;
+		padding-left:0;
+	}
