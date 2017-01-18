@@ -15,7 +15,7 @@
 		<div class="col-xs-12 col-sm-6">
 		<h1>Suchergebnisse                  
 			<div class="btn-group pull-right">
-				<button class="btn btn-default btn-xs" onclick='history.back()'>Suche ändern</button>
+				<button class="btn btn-src btn-li btn-xs" onclick='history.back()'>Suche ändern</button>
 			</div>
 		</h1>
 			<?php if ($suche_freitext !== NULL) {
@@ -42,7 +42,7 @@
 					<!-- Button um den Titel meiner Sammlung hinzuzufügen -->
 					<tr>
 					<td></td>
-					<td><button class="btn btn-primary pull-right btn-xs" onclick=''>In meine Sammlung</button></td>
+					<td><button class="btn btn-src btn-li pull-right btn-xs" onclick=''>In meine Sammlung</button></td>
 					</tr>
 					
 				<? }
@@ -75,7 +75,7 @@
 						<!-- Button um den Titel meiner Sammlung hinzuzufügen -->
 						<tr>
 						<td></td>
-						<td><button class="btn btn-primary pull-right btn-xs" onclick=''>In meine Sammlung</button></td>
+						<td><button class="btn btn-src btn-li pull-right btn-xs" onclick=''>In meine Sammlung</button></td>
 						</tr>
 					<? }
 					while($suche_expert = mysqli_fetch_assoc($query_expert)); ?>
@@ -116,7 +116,7 @@
 		<div class="col-sm-3">
 			<!-- Sortiermöglichkeit -->
 			<div class="btn-group btn-block">
-			  <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  <button type="button" class="btn btn-src btn-li dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Sortieren nach <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu">

@@ -116,7 +116,7 @@ Detailseite -->
 	<?php var_dump($_GET) ?>
 		<form class="form-horizontal" action="page.00.index.php<?php echo $nErfassen['varname']; ?>&id=<?php echo $_GET['id'] ?>" method="post" name="form" id="form">
 			<div class="input-group">								
-				<button class="btn btn-primary pull-left btn-sm btn-block">Bearbeiten</button>
+				<button class="btn btn-src btn-li btn-sm btn-block">Bearbeiten</button>
 				<input name="id" type="hidden">
 			</div>
 	</form>

@@ -162,7 +162,7 @@
 			<!-- Button "Los" -->	
 			<div class="form-group">
 				<div class="col-sm-3 col-sm-offset-2">
-					<button class="btn btn-primary pull-left btn-lg btn-block" type="submit">Los</button>					
+					<button class="btn btn-primary btn-li btn-block" type="submit">Los</button>					
 				</div>
 			</div>	
  

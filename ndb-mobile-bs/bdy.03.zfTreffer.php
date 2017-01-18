@@ -93,7 +93,7 @@
 			<!-- Button für erneuten Treffer -->
 			<form class="form-horizontal" action="javascript:location.reload()" method="post" name="random" id="random">
 				<div class="input-group">									
-					<button class="btn btn-primary pull-left btn-sm btn-block">Neuer Vorschlag</button>
+					<button class="btn btn-src btn-li btn-sm btn-block">Neuer Vorschlag</button>
 				</div>
 			</form>
 		
