@@ -66,8 +66,15 @@
 			</div>
 
 			<!-- SIDE VIEW LOG IN -->
-			<div class="col-sm-3">				
-				<?php include("incl.03.li.php"); ?>		
+			<!-- just include if you're not logged in -->
+			<div class="col-sm-3">	
+				<?php 
+					if ($_GET['varname'] =="bdy.01.intro.php") {
+					include("incl.03.li.php");
+					} else {
+						include("incl.06.lo.php");
+						}
+				?>		
 			</div>
 		</div>
 	</div>
