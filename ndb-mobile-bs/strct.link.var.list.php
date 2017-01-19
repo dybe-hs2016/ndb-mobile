@@ -54,6 +54,13 @@ $nErfassen = array(
 	"varname" => "?varname=bdy.04.nErfassen.php",
 );
 
+$nBearbeiten = array(
+	"id" => "nBearbeiten",
+	"name" => "Noten Bearbeiten",
+	"url" => "page.04.nBearbeiten.php",
+	"varname" => "?varname=bdy.04.nBearbeiten.php",
+);
+
 $benEinst = array(
 	"id" => "benEinst",
 	"name" => "Benutzereinstellungen",

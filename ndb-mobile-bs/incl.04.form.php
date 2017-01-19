@@ -73,16 +73,26 @@
 	// Level-Dropdown
 		$sql_levels = "SELECT id, level FROM ".$tbl_levels." ORDER BY id ASC";	
 		$result_levels = mysqli_query($verb, $sql_levels) or die("Fehler:".mysqli_error($verb));
-
+		
+		// DEBUG row_levels
+		/*echo '<h2> row_levels [id] : [level]</h2>';
+		while ($row_levels = mysqli_fetch_assoc($result_levels)) {
+			echo $row_levels['id'].' : '.$row_levels['level'].'<br>';}
+*/
 
 	// Musicstyle-Dropdown
 		$sql_musicstyle = "SELECT id, name FROM ".$tbl_musicstyle." ORDER BY id ASC";	
 		$result_musicstyle = mysqli_query($verb, $sql_musicstyle) or die("Fehler:".mysqli_error($verb));
 
 
-	// Occaion-Dropdown
+	// Occasion-Dropdown
 		$sql_occasion = "SELECT id, occasion FROM ".$tbl_occasion." ORDER BY id ASC";	
 		$result_occasion = mysqli_query($verb, $sql_occasion) or die("Fehler:".mysqli_error($verb));
+
+		// DEBUG row_occasion
+		/*echo '<h2> row_occasion [id] : [occasion]</h2>';
+		while ($row_occasion = mysqli_fetch_assoc($result_occasion)) {
+			echo $row_occasion['id'].' : '.$row_occasion['occasion'].'<br>';}*/
 
 
 /*Random-Befehl für Zufallstreffer*/
