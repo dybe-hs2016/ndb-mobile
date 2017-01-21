@@ -33,6 +33,7 @@
 				</button>
 			</span>
 		</div>
+		<div class="input-group">
 			<span class="glyphicons glyphicons-keys" aria-hidden="true">Schlüssel</span>
 			<span class="glyphicons glyphicons-user" aria-hidden="true">Benutzer</span>
 		</div>
