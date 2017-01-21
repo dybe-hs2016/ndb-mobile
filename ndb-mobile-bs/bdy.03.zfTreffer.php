@@ -57,7 +57,7 @@
 						</tr>
 						<!-- Youtube-Video -->
 						<tr> 
-						<td>Youtube-Video</td>
+						<td>Link zu Musikstück</td>
 						<td><?php
 							if ($random['linktomusic'] == NULL) {
 								echo "-";
@@ -68,7 +68,7 @@
 						</tr>
 						<!-- Link zu Sheetmusic -->
 						<tr> 
-						<td>Link zu Sheetmusic</td>
+						<td>Link zu Noten</td>
 						<td><?php
 							if ($random['linktosheet'] == NULL) {
 								echo "-";
