@@ -33,7 +33,6 @@
 	</div>
 
 	<!-- Weitere Möglichkeiten zum Ausklappen: Instrument und Anderes-->
-	<div class ="row no-gutter"> <!-- Ohne Padding -->
 		<div class="col-sm-8 col-sm-offset-3">
 			<div class="panel-group" id="accordionOne" role="tablist" aria-multiselectable="true">
 			<!-- Möglichkeit 1: Instrument -->
@@ -68,10 +67,9 @@
 				</div> <!-- panel panel-default -->						
 			</div> <!-- panel-group 1 --> 	
 		</div> <!-- col -->
-	</div> <!-- no-gutter -->
 	
 	<!-- Möglichkeit 2: Weitere Einschränkungen -->
-	<div class ="row no-gutter"> <!-- Ohne Padding -->
+	
 		<div class="col-sm-8 col-sm-offset-3">
 			<div class="panel-group" id="accordionTwo" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default">
@@ -147,8 +145,7 @@
 						
 						</div> <!-- panel-body -->
 					</div> <!-- collapseTwo -->
-				</div> <!-- panel-default -->
-			</div> <!-- no-gutter -->
+				</div> <!-- panel-default -->			
 		
 			<div class="col-sm-2"></div>					
 		</div> <!-- panel-group 2 -->
