@@ -27,6 +27,12 @@
 		<!-- PASSWORD -->
 		<div class="input-group">
 			<input type="password" class="form-control" id="pwd" placeholder="Passwort...">
+			<span class="input-group-btn">
+				<button class="btn btn-default btn-src" type="submit">
+					<span class="glyphicon glyphicon-pencil"></span>		
+				</button>
+			</span>
+		</div>
 			<span class="glyphicons glyphicons-keys" aria-hidden="true">Schlüssel</span>
 			<span class="glyphicons glyphicons-user" aria-hidden="true">Benutzer</span>
 		</div>
