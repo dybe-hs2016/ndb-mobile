@@ -27,25 +27,13 @@
 			<?php
 			echo "varname: ".$_GET['varname']."<br>";
 			echo "last page :".$_SERVER['HTTP_REFERER']."<br>";
-			echo "last page type :".gettype($_SERVER['HTTP_REFERER'])."<br>";
-
-			
-			if (strpos($_SERVER['HTTP_REFERER'],'nErfassen') !== false )  {
-				echo "insert";
-
-			} elseif (strpos($_SERVER['HTTP_REFERER'],'detail') || (strpos($_SERVER['HTTP_REFERER'],'nErfasst') !== false )) {
-				echo "update";
-
-			} else {
-				echo "there must be a mistake in our cod %-o so sorry for that. please let us know about it with a short message to emailadress@supprt.web";
-			}
-					
+			echo "last page type :".gettype($_SERVER['HTTP_REFERER'])."<br>";					
 			?>
 				
 				<!-- SEARCH FORM -->
 				<!-- just include if you're not on page expsrc -->
 				<?php 
-					if ($_GET['varname'] !=="bdy.02.expsrc.php") {
+					if (isset($_GET['varname'])) !=="bdy.02.expsrc.php") {
 						include("incl.02.src.php"); 
 					}
 				?>
