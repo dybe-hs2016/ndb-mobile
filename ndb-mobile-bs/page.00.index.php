@@ -33,7 +33,7 @@
 				<!-- SEARCH FORM -->
 				<!-- just include if you're not on page expsrc -->
 				<?php 
-					if (isset($_GET['varname'])) !=="bdy.02.expsrc.php") {
+					if (!isset($_GET['varname'])) {
 						include("incl.02.src.php"); 
 					}
 				?>
