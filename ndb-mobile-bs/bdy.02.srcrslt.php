@@ -1,8 +1,5 @@
 <!-- Suchergebnisse werden aufgelistet-->
 
-
-
-
 <?php
 	$suche_expert = NULL;
 	$suche_freitext = NULL;
