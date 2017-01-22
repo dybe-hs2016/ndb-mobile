@@ -70,17 +70,18 @@ $post_instrument = array_intersect_key($_POST, array_flip($whitelist_instrument)
 		// IMPLODE sql statement (id_instrument, id_noten)
 			$sql_noten_instrument =  "'".implode("'), ('",$post_instrument_val)."'";
 		// write SQL STATEMENT
-			$sql_instrument = "INSERT INTO noten_instrument (id_instrument, id_noten) VALUES ($sql_noten_instrument)";
-		}
+			$sql_insert_instrument = "INSERT INTO noten_instrument (id_instrument, id_noten) VALUES ($sql_noten_instrument)";
+		
 
 	// SEND sql statement to db
 	// check insert into noten-instrument
-		if ($verb->query($sql_instrument) === TRUE) {
+		if ($verb->query($sql_insert_instrument) === TRUE) {
 		    }
 		  else {
 		  	echo "it seems something went wrong and we coudl not insert your data into our databes.";
 		    echo "Error: ".$sql_noten."<br>".$verb->error;
 		} 
+	}
 
 // get detailed view
 require_once("bdy.05.detail.php");
@@ -91,7 +92,7 @@ require_once("bdy.05.detail.php");
 		ini_set('display_errors', '1');
 
 		/*form data through post*/
-			echo '<h1> form data through post</>';
+			echo '<h1> form data through post</h1>';
 			echo '<h2> form data noten </h2>';
 			var_dump($post_noten);
 			echo '<h2> post instrument </h2>';
@@ -99,10 +100,15 @@ require_once("bdy.05.detail.php");
 			echo '<br>';
 
 		/*sql insert statement*/
-			echo '<h1> sql insert</>';
+			echo '<h1> sql insert</h1>';
 			echo '<h2> insert noten </h2>';
 			var_dump($sql_noten);
 			echo '<h2> insert instrumnet </h2>';
-			var_dump($sql_instrument);
+			if (isset($sql_insert_instrument)) {
+				var_dump($sql_insert_instrument);
+			} else {
+				echo 'is not set?';
+			}
+		
 			echo '<br>';
  ?>
