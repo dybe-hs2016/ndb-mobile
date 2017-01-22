@@ -1,7 +1,8 @@
 <!-- START PAGE -->	
- <h1> tbd </h1>
+ <h1>Musiknotendatenbank</h1>
 
-<p>ein sath intro und logo </p>
+<p>Hier können Sie Ihre Musiknoten suchen und erfassen!</p>
+
 
 <?php
 	var_dump($_POST);
