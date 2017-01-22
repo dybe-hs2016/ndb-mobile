@@ -17,7 +17,7 @@ SELECT `tbl_noten`.`id` AS `id`,`title`,`signature`,`linktomusic`,`linktosheet`,
                 LEFT JOIN `tbl_publisher` ON `tbl_noten`.`id_publisher` = `tbl_publisher`.`id`
 
 
-				INNER JOIN `noten_instrument` ON `tbl_noten`.`id` = `noten_instrument`.`id_noten`
+				LEFT JOIN `noten_instrument` ON `tbl_noten`.`id` = `noten_instrument`.`id_noten`
 				LEFT JOIN `tbl_instrument` ON `noten_instrument`.`id_instrument` = `tbl_instrument`.`id`
 
 				GROUP BY `tbl_noten`.`id`
