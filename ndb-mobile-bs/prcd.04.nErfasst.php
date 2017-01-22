@@ -40,7 +40,7 @@ $post_instrument = array_intersect_key($_POST, array_flip($whitelist_instrument)
 			$sql_noten_key = implode(", ",$post_noten_key);
 			$sql_noten_val = "'".implode("', '",$post_noten_val)."'";
 		// write SQL STATEMENT
-			$sql_noten = "INSERT INTO tbl_noten ($sql_noten_key) VALUES ($sql_noten_val)";
+			$sql_noten = "INSERT INTO tbl_noten ($sql_noten_key) VALUES ($sql_noten_val);";
 
 	// SEND sql statementn to db
 	// set last_id var
