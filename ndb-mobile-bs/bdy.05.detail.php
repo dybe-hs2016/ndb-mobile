@@ -14,9 +14,9 @@
 			echo "<br> result_view_all :";
 			var_dump($result_view_all);
 
-		foreach ($result_view_all as $key => $value) {
+/*		foreach ($result_view_all as $key => $value) {
 			echo $key." : ".$value."<br>";
-		}
+		}*/
 ?>
 
 <h1> <?php echo $result_view_all['title']; ?></h1>
@@ -59,7 +59,13 @@
 	<tr>
 			<td class="tbl-key"> Instrument(e) </td>
 			<td class="tbl-val">
-				<?php echo $result_view_all['instruments']; ?>
+				<?php 
+				if (isset($result_view_all['instruments'])) {
+					echo $result_view_all['instruments'];
+				} else {
+					echo '-';
+				}
+				?>
 			</td>
 	</tr>
 
