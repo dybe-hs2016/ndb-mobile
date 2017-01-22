@@ -71,6 +71,7 @@ $post_instrument = array_intersect_key($_POST, array_flip($whitelist_instrument)
 			$sql_noten_instrument =  "'".implode("'), ('",$post_instrument_val)."'";
 		// write SQL STATEMENT
 			$sql_instrument = "INSERT INTO noten_instrument (id_instrument, id_noten) VALUES ($sql_noten_instrument)";
+		}
 
 	// SEND sql statement to db
 	// check insert into noten-instrument
@@ -79,20 +80,7 @@ $post_instrument = array_intersect_key($_POST, array_flip($whitelist_instrument)
 		  else {
 		  	echo "it seems something went wrong and we coudl not insert your data into our databes.";
 		    echo "Error: ".$sql_noten."<br>".$verb->error;
-		}
-		
-
-
-// if we want to update
-
-} elseif (strpos($_SERVER['HTTP_REFERER'],'detail') !== false )  {
-			echo "update";
-
-			// update statement here!
-
-		} else {
-			echo "there must be a mistake in our cod %-o so sorry for that. please let us know about it with a short message to emailadress@supprt.web";
-		}
+		} 
 
 // get detailed view
 require_once("bdy.05.detail.php");
