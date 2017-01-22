@@ -91,7 +91,7 @@
 	<tr>
 			<td class="tbl-key"> Link zu Musikstück </td>
 			<td class="tbl-val">
-				<a href=""<?php echo $result_view_all['linktomusic']; ?>> <?php echo $result_view_all['linktomusic']; ?> </a>
+				<a href="<?php echo $result_view_all['linktomusic'];?>"> <?php echo $result_view_all['linktomusic']; ?> </a>
 			</td>
 	</tr>
 
@@ -99,7 +99,7 @@
 	<tr>
 			<td class="tbl-key"> Link zu Noten </td>
 			<td class="tbl-val">
-				<a href=""<?php echo $result_view_all['linktosheet']; ?>> <?php echo $result_view_all['linktosheet']; ?> </a>
+				<a href="<?php echo $result_view_all['linktosheet'];?>"> <?php echo $result_view_all['linktosheet']; ?> </a>
 			</td>
 	</tr>
 
