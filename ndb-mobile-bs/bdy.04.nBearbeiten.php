@@ -78,7 +78,7 @@
 
 
 echo '
-<form class="form-horizontal" action="page.00.index.php?varname=prcd.04.nBearbeitet.php" method="post">';
+<form class="form-horizontal" action="page.00.index.php?varname=prcd.04.nBearbeitet.php&id='.$_GET['id'].'" method="post">';
 
 
 	// EDIT ENTRY : GET[id] is not set
