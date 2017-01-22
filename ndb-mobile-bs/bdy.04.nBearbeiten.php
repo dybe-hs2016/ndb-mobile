@@ -1,7 +1,25 @@
 <!-- Noten Bearbeiten -->
-<?php 
-// setselect values form db view_all with id GET[id]
-		$sql_view_all = "SELECT id, title, composerFullname, publisherName, epochName, musicstyleName, instruments, level, occasion, signature, linktomusic, linktosheet, comment FROM view_all WHERE id='".$_GET['id']."'";
+
+<?php
+	require_once("incl.04.form.php");
+
+	var_dump($_POST);
+
+/*	if (strpos($_SERVER['HTTP_REFERER'],'nErfassen') !== false )  {
+		echo "insert";
+
+	} elseif (strpos($_SERVER['HTTP_REFERER'],'detail') || (strpos($_SERVER['HTTP_REFERER'],'nErfasst') !== false )) {
+		echo "update";
+
+	} else {
+		echo "there must be a mistake in our cod %-o so sorry for that. please let us know about it with a short message to emailadress@supprt.web";
+	}*/
+
+
+// EDIT ENTRY GET[id] is set
+		// setselect values form db view_all with id GET[id]
+		$save_id = mysqli_real_escape_string($verb, $_GET['id']);
+		$sql_view_all = "SELECT id, title, composerFullname, publisherName, epochName, musicstyleName, instruments, level, occasion, signature, linktomusic, linktosheet, comment FROM view_all WHERE id = '".$save_id."'";
 
 		$query_view_all = mysqli_query($verb, $sql_view_all) or die("<br> Fehler query_view_all:table: ".mysqli_error($verb));
 
@@ -60,12 +78,13 @@
 
 
 echo '
-<form class="form-horizontal" action="page.00.index.php?varname=bdy.04.nErfasst.php" method="post">
-<!-- UPDATE FORM -->
-	<!-- ID -->';
-	if (isset($_POST['id'])) {
+<form class="form-horizontal" action="page.00.index.php?varname=prcd.04.nBearbeitet.php" method="post">';
+
+
+	// EDIT ENTRY : GET[id] is not set
 		echo "update";
-		
+
+
 		// readonly ID
 		echo '<div class="form-group"> <!-- ID read only -->
 				<label class="col-sm-3 control-label" for="title">ID</label>
@@ -74,7 +93,7 @@ echo '
 				</div>
 			</div>';
 
-		
+				
 		// prefilled TITLE
 			foreach ($tbl_title as $key => $value) {
 				echo '<!-- '.${"tbl_heading_".$key}.' -->
@@ -89,53 +108,53 @@ echo '
 
 			// Stil & Schwierigkeitsgrad NOT NULL fallen noch raus
 			// -> mit SWITCH ($value) lösen
-					foreach ($tbl_select as $key => $value) {
+			foreach ($tbl_select as $key => $value) {
 
-						// See if Value is set
-						if ($value !== NULL) {
-							echo $key.' : '.$value.'<br>';
-							echo '
-								<div class="form-group">
-									<label class="col-sm-3 control-label" for="'.$key.'">'.${"tbl_heading_".$key}.'</label>
-									<div class="col-sm-8">
-										<select class="form-control" id="'.$key.'" name="'.$key.'" value="'.$value.'">';							
-										echo '<option value="'.$key.'">'.$value.'</option>';
-										switch ($key) {
-											case 'occasion':
-												while (${"row_".$key}['id'] = mysqli_fetch_assoc(${'result_'.$key}))
-												{
-													echo '<option value="'.$row_occasion['id'].'">'.${"row_".$key}['id']['occasion'].'</option>';
-													echo $row_occasion['id'];
-												};
-												break;
-												// vs levels ???
-											case 'levels':
-													while (${"row_".$key} = mysqli_fetch_assoc(${"result_".$key}))
-													{
-														echo '<option value="'.${"row_".$key}['id'].'">'.${"row_".$key}['level'].'</option>';
-													};
-												break;
-											
-											default:
-												// 
-												while (${"row_".$key} = mysqli_fetch_assoc(${"result_".$key}))
-												{
-													echo '<option value="'.${"row_".$key}['id'].'">'.${"row_".$key}['name'].'</option>';
-												};
-												break;
-										}
+				// See if Value is set
+				if ($value !== NULL) {
+					echo $key.' : '.$value.'<br>';
+					echo '
+						<div class="form-group">
+							<label class="col-sm-3 control-label" for="'.$key.'">'.${"tbl_heading_".$key}.'</label>
+							<div class="col-sm-8">
+								<select class="form-control" id="'.$key.'" name="'.$key.'" value="'.$value.'">';							
+								echo '<option value="'.$key.'">'.$value.'</option>';
+								switch ($key) {
+									case 'occasion':
+										while (${"row_".$key}['id'] = mysqli_fetch_assoc(${'result_'.$key}))
+										{
+											echo '<option value="'.$row_occasion['id'].'">'.${"row_".$key}['id']['occasion'].'</option>';
+											echo $row_occasion['id'];
+										};
+										break;
+										// vs levels ???
+									case 'levels':
 											while (${"row_".$key} = mysqli_fetch_assoc(${"result_".$key}))
 											{
-												echo '<option value="'.${"row_".$key}['id'].'">'.${"row_".$key}['name'].'</option>';
-											}
-											echo'
-										</select>
-									</div>
-								</div>
-							';
-						}
+												echo '<option value="'.${"row_".$key}['id'].'">'.${"row_".$key}['level'].'</option>';
+											};
+										break;
+									
+									default:
+										// 
+										while (${"row_".$key} = mysqli_fetch_assoc(${"result_".$key}))
+										{
+											echo '<option value="'.${"row_".$key}['id'].'">'.${"row_".$key}['name'].'</option>';
+										};
+										break;
+								}
+									while (${"row_".$key} = mysqli_fetch_assoc(${"result_".$key}))
+									{
+										echo '<option value="'.${"row_".$key}['id'].'">'.${"row_".$key}['name'].'</option>';
+									}
+									echo'
+								</select>
+							</div>
+						</div>
+					';
+				}
+				// if no input
 						else {
-
 							echo $key.' : is NULL <br>';
 
 							echo '
@@ -144,7 +163,8 @@ echo '
 									<div class="col-sm-8">
 										<select class="form-control" id="'.$key.'" name="'.$key.'" value="'.$value.'">';
 
-										// missing WHILE!!!
+												//insert while
+
 							echo'
 										</select>
 									</div>
@@ -152,29 +172,28 @@ echo '
 							';
 						}
 					}
-						// prefilled CHECKBOX
-							
-
-						// prefilled INPUT
-
-							foreach ($tbl_input as $key => $value) {
-								echo '<!-- '.$key.' -->
-										<div class="form-group">
-											<label class="col-sm-3 control-label" for="'.$key.'">'.$key.'</label>
-											<div class="col-sm-8">
-												<input class="form-control" type="text" name="'.$key.'" id="'.$key.'" value="'.$value.'">
-											</div>
-										</div>';}
 					
-				}
-?>
+		// prefilled CHECKBOX
+			
 
+		// prefilled INPUT
+
+			foreach ($tbl_input as $key => $value) {
+				echo '<!-- '.$key.' -->
+						<div class="form-group">
+							<label class="col-sm-3 control-label" for="'.$key.'">'.$key.'</label>
+							<div class="col-sm-8">
+								<input class="form-control" type="text" name="'.$key.'" id="'.$key.'" value="'.$value.'">
+							</div>
+						</div>';}
+
+ echo '
 	<!-- button -->
 	<div class="form-group">
 		<div class="col-sm-3">
 		</div>
 		<div class="col-sm-8">
-			<button class="btn btn-primary btn-li" type="submit" value="Insert Button">Eintrag Aktualisieren</button>
+			<button class="btn btn-primary btn-li" type="submit" value="Insert Button">Eintrag aktualisieren</button>
 		</div>
 	</div>
 
@@ -185,3 +204,5 @@ echo '
 		</div>
 
 </form>
+';
+?>
