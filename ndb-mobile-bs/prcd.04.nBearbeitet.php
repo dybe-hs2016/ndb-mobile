@@ -48,7 +48,7 @@ $sql_noten_update = 'UPDATE tbl_noten SET ';
 /*				$last_id = $verb->insert_id;
 				$_GET['id'] = $last_id;
 				echo "id: ".$_GET['id']."<br>";*/
-			echo '<h1> '.$_GET['title'].' (ID: '.$_GET['id'].') wurde aktualisiert </h1> <h2> Sie haben die Aufnahme "'.$_POST['title'].'" erfolgreich in der Datenbank aktualisiert.</h2>';
+			echo '<h1> '.$_POST['title'].' (ID: '.$_GET['id'].') wurde aktualisiert </h1> <h2> Sie haben die Aufnahme "'.$_POST['title'].'" erfolgreich in der Datenbank aktualisiert.</h2>';
 		} else {
 			echo '<h1>Wir Bitten um Verzeihung!</h1> <br> Unsere Datenbank scheint zur Zeit nicht korrekt zu funktionieren. Bitte versuchen Sie zu einem Späteren Zeitpunkt erneut, den Eintrag '.$_GET['title'].' zu aktualisieren. <br> Sollte der Fehler länger als 24 Stunden bestehen, wenden Sie sich bitte an <a href="mailto:does-not-actually-exist.support@ndb-dummymail.net"> does-not-actually-exist.support@ndb-dummymail.net </a>.';
 			echo "Error: ".$sql_noten."<br>".$verb->error;
@@ -62,7 +62,7 @@ $sql_noten_update = 'UPDATE tbl_noten SET ';
 		var_dump($sql_delete_instrument);*/
 		if ($verb->query($sql_delete_instrument) === TRUE) {
 			//DEBUG delet instrumente
-			echo "we successfully deleted those instruments";
+			/*echo "we successfully deleted those instruments";*/
 		    } else {
 		    	echo '<h1>Wir Bitten um Verzeihung!</h1> <br> Unsere Datenbank scheint zur Zeit nicht korrekt zu funktionieren. Bitte versuchen Sie zu einem Späteren Zeitpunkt erneut, den Eintrag '.$_GET['title'].' zu aktualisieren. <br> Sollte der Fehler länger als 24 Stunden bestehen, wenden Sie sich bitte an <a href="mailto:does-not-actually-exist.support@ndb-dummymail.net"> does-not-actually-exist.support@ndb-dummymail.net </a>.';
 			    echo "Error: ".$sql_noten."<br>".$verb->error;
