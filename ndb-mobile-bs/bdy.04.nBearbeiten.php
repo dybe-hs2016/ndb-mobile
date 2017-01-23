@@ -110,18 +110,19 @@ value="<?php echo $result_view_all['title']; ?>"
 	</div>		
 </div>
 
+<h1>debug row_instrument</h1>
+
 <!-- instrument -->
 <div class="form-group">
 	<label class="col-sm-3 control-label" for="instrument">Instrument</label>
 	<div class="col-sm-8 checkbox">
 	<label>
 		<?php
-		//pre-checked checkboxes
-			
 			while ($row_instrument = mysqli_fetch_assoc($result_instrument)) {
 				echo '<label class="checkbox col-sm-3">';
 				echo '<input type="checkbox" name="'.$row_instrument['name'].'" value="'.$row_instrument['id'].'" ';
-				if (strpos($result_view_all['instruments'], $row_instrument['name'])) {echo 'checked=""';}
+				//pre-checked checkboxes
+				if (strpos($result_view_all['instruments'], $row_instrument['name']) !== false) {echo 'checked=""';}
 				echo '>'.$row_instrument['name'].' ';
 				echo '</label>';}
 		?>
