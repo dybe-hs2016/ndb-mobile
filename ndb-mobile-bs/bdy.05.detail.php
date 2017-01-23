@@ -119,9 +119,14 @@
 </table>
 
 	<!-- Button um zu Bearbeiten -->
+	
 		<form class="form-horizontal" action="page.00.index.php<?php echo $nBearbeiten['varname']; ?>&id=<?php echo $_GET['id'] ?>" method="post" name="form" id="form">
-			<div class="input-group">								
-				<button class="btn btn-src btn-li btn-sm btn-block">Bearbeiten</button>
-				<input name="id" type="hidden">
+		<div class="form-group">
+			<div class="col-sm-8"> </div> <!-- placeholder -->
+			<div class="col-sm-4">								
+					<button class="btn btn-primary btn-li pull-right">Bearbeiten</button>
+					<input name="id" type="hidden">
 			</div>
-	</form>
+		</div>
+		</form>
+	

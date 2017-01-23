@@ -179,13 +179,14 @@
 <!-- button -->
 <div class="form-group">
 	<div class="col-sm-3"> <!-- empty placeohlder --> </div>
-	<div class="col-sm-4"> <!-- edit -->
-		<button class="btn btn-primary btn-li" type="submit" value="Insert Button">Eintrag aktualisieren</button>
-	</div>
 	<div class="col-sm-4"> <!-- delet -->
-		<button class="btn btn-primary btn-li pull-right" type="submit" value="Delete Button"
+		<button class="btn btn-primary btn-li pull-left" type="submit" value="Delete Button"
 		onclick="return confirm('Sind Sie sicher, dass Sie diesen Eintrag löschen möchten?');"formaction="page.00.index.php?varname=prcd.04.nLoschen.php&id=<?php echo $_GET['id'];?>&title=<?php echo $result_view_all['title']; ?>">Eintrag löschen</button>
 	</div>
+	<div class="col-sm-4"> <!-- edit -->
+		<button class="btn btn-primary btn-li pull-right" type="submit" value="Insert Button">Eintrag aktualisieren</button>
+	</div>
+	
 </div>
 
 <!-- disclaimer -->

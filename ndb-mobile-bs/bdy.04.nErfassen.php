@@ -126,7 +126,8 @@
 	<div class="form-group">
 	<label class="col-sm-3 control-label" for="linktomusic">Link zu Musiksück</label>
 	<div class="col-sm-8">
-		<input class="form-control" type="text" name="linktomusic" id="linktomusic" placeholder="soundcloud, last.fm, youtube, vimeo, etc.">
+		<input class="form-control" type="text" name="linktomusic" id="linktomusic" aria-describedby="hint-musik" placeholder="http://www... bitte gesamte URL hinterlegen.">
+		<small id="hint-musik"> Es gibt eine Vielzahl guter Quellen, die Musikstücke und Vieos hosten. Hier sind ein paar Vorschläge: <br> <a href="http://www.last.fm/">last.fm</a>, <a href="https://vimeo.com/">vimeo</a>, <a href="https://www.youtube.com/">youtube</a>, <a href="https://soundcloud.com/">soundcloud</a>, <a href="https://www.discogs.com/">discogs</a> </small>
 	</div>
 </div>
 
@@ -134,7 +135,8 @@
 <div class="form-group">
 <label class="col-sm-3 control-label" for="linktosheet">Link zu Noten</label>
 	<div class="col-sm-8">
-		<input class="form-control" type="text" name="linktosheet" id="linktosheet" placeholder="musopen.org, imslp.org, mutopiaproject.org, cpdl.org">
+		<input class="form-control" type="text" name="linktosheet" id="linktosheet" aria-describedby="hint-noten" placeholder="http://www... bitte gesamte URL hinterlegen.">
+		<small id="hint-noten"> Es gibt eine vielzahl guter Quellen, die lizenzfreie Noten hosten. Hier sind ein paar vorschläge: <br> <a href="https://musopen.org/">musopen.org</a>, <a href="http://imslp.org/">imslp.org</a>, <a href="http://www.mutopiaproject.org/">mutopiaproject.org</a>, <a href="http://cpdl.org/">cpdl.org</a> </small>
 	</div>
 </div>
 
@@ -150,7 +152,7 @@
 <div class="form-group">
 	<div class="col-sm-3"> <!-- empty placeohlder --> </div>
 	<div class="col-sm-8">
-		<button class="btn btn-primary btn-li" type="submit" value="Insert Button">Eintrag erfassen</button>
+		<button class="btn btn-primary btn-li pull-right" type="submit" value="Insert Button">Eintrag erfassen</button>
 	</div>
 </div>
 
