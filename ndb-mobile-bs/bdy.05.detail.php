@@ -3,16 +3,16 @@
 
 <?php 
 	$sql_view_all = "SELECT * FROM view_all WHERE id='".$_GET['id']."'";
-			echo "<br> sql_view_all :";
-			var_dump($sql_view_all);
+			/*echo "<br> sql_view_all :";
+			var_dump($sql_view_all);*/
 
 		$query_view_all = mysqli_query($verb, $sql_view_all) or die("<br> Fehler query_view_all: ".mysqli_error($verb));
-			echo "<br> querey_view_all :";
-			var_dump($query_view_all);
+			/*echo "<br> querey_view_all :";
+			var_dump($query_view_all);*/
 
 		$result_view_all = mysqli_fetch_assoc($query_view_all);
-			echo "<br> result_view_all :";
-			var_dump($result_view_all);
+			/*echo "<br> result_view_all :";
+			var_dump($result_view_all);*/
 
 /*		foreach ($result_view_all as $key => $value) {
 			echo $key." : ".$value."<br>";
@@ -119,7 +119,6 @@
 </table>
 
 	<!-- Button um zu Bearbeiten -->
-	<?php var_dump($_GET) ?>
 		<form class="form-horizontal" action="page.00.index.php<?php echo $nBearbeiten['varname']; ?>&id=<?php echo $_GET['id'] ?>" method="post" name="form" id="form">
 			<div class="input-group">								
 				<button class="btn btn-src btn-li btn-sm btn-block">Bearbeiten</button>

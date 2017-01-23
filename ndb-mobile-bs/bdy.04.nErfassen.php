@@ -2,8 +2,6 @@
 
 <?php
 	require_once("incl.04.form.php");
-
-	var_dump($_POST);
 ?>
 
 <!-- Noten Erfassen -->

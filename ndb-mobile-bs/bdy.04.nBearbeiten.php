@@ -3,8 +3,6 @@
 <?php
 	require_once("incl.04.form.php");
 
-	var_dump($_POST);
-
 // EDIT ENTRY GET[id] is set
 		// setselect values form db view_all with id GET[id]
 		$save_id = mysqli_real_escape_string($verb, $_GET['id']);

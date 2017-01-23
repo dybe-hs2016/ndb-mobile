@@ -19,7 +19,7 @@
 			    }
 			  // response FAILIOUR
 			  else {
-			  	echo '<h1>Wir Bitten um Verzeihung!</h1> <br> Unsere Datenbank scheint zur Zeit nicht korrekt zu funktionieren. Bitte versuchen Sie zu einem Späteren Zeitpunkt erneut, den Eintrag '.$_GET['title'].' zu löschen. <br> Sollte der Fehler länger als 24 Stunden bestehen, wenden Sie sich bitte an <a href="mailto:does-not-actually-exist.support@ndb-dummymail.net"> does-not-actually-exist.support@ndb-dummymail.net </a>.';;
+			  	echo '<h1>Wir Bitten um Verzeihung!</h1> <br> Unsere Datenbank scheint zur Zeit nicht korrekt zu funktionieren. Bitte versuchen Sie zu einem Späteren Zeitpunkt erneut, den Eintrag '.$_GET['title'].' zu löschen. <br> Sollte der Fehler länger als 24 Stunden bestehen, wenden Sie sich bitte an <a href="mailto:does-not-actually-exist.support@ndb-dummymail.net"> does-not-actually-exist.support@ndb-dummymail.net </a>.';
 			    echo "Error: ".$sql_noten."<br>".$verb->error;
 			   }
 

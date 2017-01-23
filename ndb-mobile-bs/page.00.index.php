@@ -5,6 +5,7 @@
 	<title><?php echo $_GET['varname']; ?></title>
 </head>
 <body>
+	<!-- DEBUG  error_reporteing E_ALL -> active -->
 	<?php
 		ini_set('display_errors', 'On');
 		error_reporting(E_ALL);
@@ -23,30 +24,18 @@
 			<!-- MAIN VIEW METADATA -->
 			
 			<div class="col-sm-9" id="pageContent">
-
-			<?php
-			echo "varname: ".$_GET['varname']."<br>";
-			echo "last page :".$_SERVER['HTTP_REFERER']."<br>";
-			echo "last page type :".gettype($_SERVER['HTTP_REFERER'])."<br>";					
-			?>
-				
-				<!-- SEARCH FORM -->
-				<!-- just include if you're not on page expsrc -->
-				<?php 
-					if (!isset($_GET['varname'])) {
-						include("incl.02.src.php"); 
-					}
-				?>
-				
-				<!-- BODY -->
-
+							
+				<!-- SEARCH FORM & BODY (if not expSrc) -->
 				<!-- filter: only proceed if $_GET is part of strct.link.list.php to prevent mlicious inclusion -->
 
 				<?php
-					if (empty($_GET)) {
+					if (!isset($_GET['varname'])) {
+						include("incl.02.src.php"); 
 						include ("bdy.01.intro.php");
 					} else {
-						var_dump($_GET);
+						if ($_GET['varname'] !== 'bdy.02.expsrc.php') {
+							include("incl.02.src.php"); 
+						}
 						include($_GET['varname']);
 					}
 				?>
