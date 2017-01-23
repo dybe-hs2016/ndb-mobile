@@ -7,7 +7,7 @@
 
 <?php include("incl.04.form.php"); ?>
 
-<div class="col-xs-12 col-sm-8">
+<div class="col-sm-8">
 	<h1>Suchergebnisse                  
 		<div class="btn-group pull-right">
 			<button class="btn btn-src btn-li btn-xs" onclick='history.back()'>Suche ändern</button>
