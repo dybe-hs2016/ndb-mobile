@@ -5,17 +5,6 @@
 
 	var_dump($_POST);
 
-/*	if (strpos($_SERVER['HTTP_REFERER'],'nErfassen') !== false )  {
-		echo "insert";
-
-	} elseif (strpos($_SERVER['HTTP_REFERER'],'detail') || (strpos($_SERVER['HTTP_REFERER'],'nErfasst') !== false )) {
-		echo "update";
-
-	} else {
-		echo "there must be a mistake in our cod %-o so sorry for that. please let us know about it with a short message to emailadress@supprt.web";
-	}*/
-
-
 // EDIT ENTRY GET[id] is set
 		// setselect values form db view_all with id GET[id]
 		$save_id = mysqli_real_escape_string($verb, $_GET['id']);
@@ -24,12 +13,10 @@
 		$query_view_all = mysqli_query($verb, $sql_view_all) or die("<br> Fehler query_view_all:table: ".mysqli_error($verb));
 
 		$result_view_all = mysqli_fetch_assoc($query_view_all);
-		echo "<br> result_view_all: <br>";
-		var_dump($result_view_all);
-
+		// DEBUG result_view_all
+		/*echo "<br> result_view_all: <br>";
+		var_dump($result_view_all);*/
 ?>
-
-value="<?php echo $result_view_all['title']; ?>"
 
 <h1>Noten aktualisieren</h1>
 
@@ -124,7 +111,7 @@ value="<?php echo $result_view_all['title']; ?>"
 				//pre-checked checkboxes
 				if (strpos($result_view_all['instruments'], $row_instrument['name']) !== false) {echo 'checked=""';}
 				echo '>'.$row_instrument['name'].' ';
-				echo '</label>';}
+	echo '</label>';}
 		?>
 	</label>		
 	</div>
@@ -194,11 +181,12 @@ value="<?php echo $result_view_all['title']; ?>"
 <!-- button -->
 <div class="form-group">
 	<div class="col-sm-3"> <!-- empty placeohlder --> </div>
-	<div class="col-sm-4">
+	<div class="col-sm-4"> <!-- edit -->
 		<button class="btn btn-primary btn-li" type="submit" value="Insert Button">Eintrag aktualisieren</button>
 	</div>
-	<div class="col-sm-4">
-		<button class="btn btn-primary btn-li pull-right" type="submit" value="Delete Button" formaction="page.00.index.php?varname=prcd.04.nLoschen.php&id=<?php echo $_GET['id'];?>">Eintrag löschen</button>
+	<div class="col-sm-4"> <!-- delet -->
+		<button class="btn btn-primary btn-li pull-right" type="submit" value="Delete Button"
+		onclick="return confirm('Sind Sie sicher, dass Sie diesen Eintrag löschen möchten?');"formaction="page.00.index.php?varname=prcd.04.nLoschen.php&id=<?php echo $_GET['id'];?>&title=<?php echo $result_view_all['title']; ?>">Eintrag löschen</button>
 	</div>
 </div>
 
