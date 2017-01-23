@@ -10,20 +10,31 @@
 		ini_set('display_errors', 'On');
 		error_reporting(E_ALL);
 	?>
-	<?php include("incl.01.nav.php"); ?>
+	<!-- responsive FIxED width CONTAINER -->
+	<!-- <div class="container"> -->
 
 	<!-- responsive FULL width CONTAINER -->
-	<!-- <div class="container-fluid"> -->
-
-	<!-- responsive FIXED width CONTAINER -->
 	<div class="container-fluid">
+
+	<!-- HEADER -->
+	<div class="row">
+		<div class="col-lg-1 visible-lg"> <!-- placeholder --> </div>
+
+		<!-- NAV -->
+		<div class="col-lg-10 col-md-12 col-sm-12">
+			<?php include("incl.01.nav.php"); ?>
+		</div>
+	</div>
+
+
 		<!-- GRID: rows + columns -->
 		<!-- grid classes: xs / sm / md / ld -->
 		<div class="row">
 			<!-- col crate gutters (padding)  -->
 			<!-- MAIN VIEW METADATA -->
+			<div class="col-lg-1 visible-lg"> <!-- placeholder lg --> </div>
 			
-			<div class="col-lg-9 col-md-8 col-sm-8" id="pageContent">
+			<div class="col-lg-7 col-md-8 col-sm-8" id="pageContent">
 							
 				<!-- SEARCH FORM & BODY (if not expSrc) -->
 				<!-- filter: only proceed if $_GET is part of strct.link.list.php to prevent mlicious inclusion -->
@@ -61,6 +72,7 @@
 				?>		
 			</div>
 		</div>
+		<div class="col-lg-1 visible-lg"> <!-- placeholder --></div>
 	</div>
 
 	<?php include("incl.00.scripts.php"); ?>
