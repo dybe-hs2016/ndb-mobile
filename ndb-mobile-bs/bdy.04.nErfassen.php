@@ -79,7 +79,7 @@
 	<label>
 		<?php
 			while ($row_instrument = mysqli_fetch_assoc($result_instrument)) {
-				echo '<label class="checkbox col-sm-3">';
+				echo '<label class="checkbox col-sm-4 col-md-4 col-lg-3">';
 				echo '<input type="checkbox" name="'.$row_instrument['name'].'" value="'.$row_instrument['id'].'">'.$row_instrument['name'].' ';
 				echo '</label>';}
 		?>

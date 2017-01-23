@@ -1,6 +1,6 @@
 <!-- NAV BAR that will collapse on small screens to the top right corner -->
 <nav class="navbar navbar-default">
-	<div class="container">
+	<div class="container-fluid">
 
 		<div class="navbar-header">
 

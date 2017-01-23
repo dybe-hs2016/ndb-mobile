@@ -1,4 +1,5 @@
-<!-- Suchergebnisse werden aufgelistet-->
+<!-- Suchergebnisse werden aufgelistet -->
+<!-- bdy.02.srcrslt.php -->
 
 <?php
 	$suche_expert = NULL;
@@ -7,7 +8,8 @@
 
 <?php include("incl.04.form.php"); ?>
 
-<div class="col-sm-8">
+<div class="hidden-lg hidden-md hidden-sm hidden-xs"></div>
+<div class="col-lg-8 co-md-12 col-sm-10">
 	<h1>Suchergebnisse                  
 		<div class="btn-group pull-right">
 			<button class="btn btn-src btn-li btn-xs" onclick='history.back()'>Suche ändern</button>
@@ -103,13 +105,10 @@
 		</li>
 	  </ul>
 	</nav>
-		
-		
 </div> <!-- Ergebnisse anzeigen auf der linken Seite -->
 
-
 <!-- Rechte Spalte -->
-<div class="col-sm-4">
+<div class="col-lg-4 visible-lg hidden-md hidden-sm hidden-xs">
 	<!-- Sortiermöglichkeit -->
 	<div class="btn-group btn-block">
 	  <button type="button" class="btn btn-src btn-li dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -184,6 +183,9 @@
 		</div>
 	</div>	
 </div>	<!-- Rechte Spalte -->	
+
+
+
 
 
 	

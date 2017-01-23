@@ -16,14 +16,14 @@
 	<!-- <div class="container-fluid"> -->
 
 	<!-- responsive FIXED width CONTAINER -->
-	<div class="container">
+	<div class="container-fluid">
 		<!-- GRID: rows + columns -->
 		<!-- grid classes: xs / sm / md / ld -->
 		<div class="row">
 			<!-- col crate gutters (padding)  -->
 			<!-- MAIN VIEW METADATA -->
 			
-			<div class="col-sm-9" id="pageContent">
+			<div class="col-lg-9 col-md-8 col-sm-8" id="pageContent">
 							
 				<!-- SEARCH FORM & BODY (if not expSrc) -->
 				<!-- filter: only proceed if $_GET is part of strct.link.list.php to prevent mlicious inclusion -->
@@ -44,15 +44,18 @@
 
 			<!-- SIDE VIEW LOG IN -->
 			<!-- just include if you're not logged in -->
-			<div class="col-sm-3">	
+			<div class="col-lg-3 col-md-4 col-sm-4">	
 				<?php 
 				if (!isset($_GET['varname'])) {
 					include ("incl.03.li.php");
 				} else {
-					if ($_GET['varname'] =="bdy.01.intro.php") {
-					include("incl.03.li.php");
+					if ($_GET['varname'] == "bdy.01.intro.php") {
+						include("incl.03.li.php");
 					} else {
 						include("incl.06.lo.php");
+						if ($_GET['varname'] == "bdy.02.srcrslt.php") {
+							include ("incl.02.srcFacetten.php");
+						}
 						}
 					}
 				?>		

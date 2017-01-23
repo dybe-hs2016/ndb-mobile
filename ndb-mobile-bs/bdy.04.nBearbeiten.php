@@ -95,8 +95,6 @@
 	</div>		
 </div>
 
-<h1>debug row_instrument</h1>
-
 <!-- instrument -->
 <div class="form-group">
 	<label class="col-sm-3 control-label" for="instrument">Instrument</label>
@@ -104,7 +102,7 @@
 	<label>
 		<?php
 			while ($row_instrument = mysqli_fetch_assoc($result_instrument)) {
-				echo '<label class="checkbox col-sm-3">';
+				echo '<label class="checkbox col-sm-4 col-md-4 col-lg-3">';
 				echo '<input type="checkbox" name="'.$row_instrument['name'].'" value="'.$row_instrument['id'].'" ';
 				//pre-checked checkboxes
 				if (strpos($result_view_all['instruments'], $row_instrument['name']) !== false) {echo 'checked=""';}
