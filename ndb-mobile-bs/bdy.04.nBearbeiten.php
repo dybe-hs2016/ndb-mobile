@@ -116,9 +116,13 @@ value="<?php echo $result_view_all['title']; ?>"
 	<div class="col-sm-8 checkbox">
 	<label>
 		<?php
+		//pre-checked checkboxes
+			
 			while ($row_instrument = mysqli_fetch_assoc($result_instrument)) {
 				echo '<label class="checkbox col-sm-3">';
-				echo '<input type="checkbox" name="'.$row_instrument['name'].'" value="'.$row_instrument['id'].'">'.$row_instrument['name'].' ';
+				echo '<input type="checkbox" name="'.$row_instrument['name'].'" value="'.$row_instrument['id'].'" ';
+				if (strpos($result_view_all['instruments'], $row_instrument['name'])) {echo 'checked=""';}
+				echo '>'.$row_instrument['name'].' ';
 				echo '</label>';}
 		?>
 	</label>		
