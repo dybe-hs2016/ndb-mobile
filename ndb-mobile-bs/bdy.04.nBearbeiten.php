@@ -194,8 +194,11 @@ value="<?php echo $result_view_all['title']; ?>"
 <!-- button -->
 <div class="form-group">
 	<div class="col-sm-3"> <!-- empty placeohlder --> </div>
-	<div class="col-sm-8">
+	<div class="col-sm-4">
 		<button class="btn btn-primary btn-li" type="submit" value="Insert Button">Eintrag aktualisieren</button>
+	</div>
+	<div class="col-sm-4">
+		<button class="btn btn-primary btn-li pull-right" type="submit" value="Delete Button" formaction="page.00.index.php?varname=prcd.04.nLoschen.php&id=<?php echo $_GET['id'];?>">Eintrag löschen</button>
 	</div>
 </div>
 
